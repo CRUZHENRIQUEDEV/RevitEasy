@@ -15,7 +15,7 @@ namespace RevitEasy
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
-            TaskDialog.Show("Automação via API", "Esta ferramenta ainda está em desenvolvimento e será implementada no futuro, aguardar!.08-11-23 23-33");
+            TaskDialog.Show("Automação via API", "Esta ferramenta ainda está em desenvolvimento e será implementada no futuro, aguardar!");
             return Result.Succeeded;
         }
     }
