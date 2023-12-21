@@ -22,7 +22,8 @@ Este é um plugin para automatizar que, dentre outras coisas, tem por objetivo t
   
 Criar novas folhas - Essa ferramenta abre um Windows forms que solicita inputs do usuáriopara criar rapidamente diversas folhas novas no modelo onde é possível definir nome com prefixo, sufixo, quantidade de folhas, família da folha e etc.
 
-![Criar folhas](https://github.com/CRUZHENRIQUEDEV/RevitEasy/assets/143232644/9468e776-d7fe-4d39-bda7-c624264a34eb) 
+
+![Criar folhas](https://github.com/CRUZHENRIQUEDEV/RevitEasy/assets/143232644/44d38700-d5ca-490e-9f71-79bf7335080e)
 
 ### 01 - 
 
