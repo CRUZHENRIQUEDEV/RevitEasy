@@ -102,7 +102,7 @@
             this.label1.Size = new System.Drawing.Size(141, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "Área do ambiente";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.label1.Click += new System.EventHandler(this.Label1_Click);
             // 
             // label4
             // 
@@ -157,7 +157,7 @@
             this.label6.Size = new System.Drawing.Size(151, 21);
             this.label6.TabIndex = 9;
             this.label6.Text = "Dimensões da peça";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+            this.label6.Click += new System.EventHandler(this.Label6_Click);
             // 
             // label7
             // 
@@ -169,7 +169,7 @@
             this.label7.Size = new System.Drawing.Size(13, 15);
             this.label7.TabIndex = 10;
             this.label7.Text = "x";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
+            this.label7.Click += new System.EventHandler(this.Label7_Click);
             // 
             // label8
             // 
@@ -192,7 +192,7 @@
             this.label9.Size = new System.Drawing.Size(139, 21);
             this.label9.TabIndex = 12;
             this.label9.Text = "Qtd. Aproximada:";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
+            this.label9.Click += new System.EventHandler(this.Label9_Click);
             // 
             // Lb_CoatingCalculateCoatingAreaWatch
             // 
@@ -226,7 +226,7 @@
             this.label12.Size = new System.Drawing.Size(141, 21);
             this.label12.TabIndex = 14;
             this.label12.Text = "Área do ambiente";
-            this.label12.Click += new System.EventHandler(this.label12_Click);
+            this.label12.Click += new System.EventHandler(this.Label12_Click);
             // 
             // Btn_CoatingCalculateCalculate
             // 

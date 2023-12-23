@@ -15,13 +15,12 @@ namespace RevitEasy.CoatingCalculateForm
     public partial class CoatingCalculateForm : System.Windows.Forms.Form
 
     {
-        private readonly Document doc;
 
         // Construtor do formulário
-        public CoatingCalculateForm(Document document)
+        public CoatingCalculateForm()
         {
             InitializeComponent();
-            doc = document; // Inicializa o documento
+            
         }
 
         // Método chamado ao carregar o formulário
@@ -118,27 +117,27 @@ namespace RevitEasy.CoatingCalculateForm
 
 
         }
-        private void label7_Click(object sender, EventArgs e)
+        private void Label7_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label6_Click(object sender, EventArgs e)
+        private void Label6_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label12_Click(object sender, EventArgs e)
+        private void Label12_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Label1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label9_Click(object sender, EventArgs e)
+        private void Label9_Click(object sender, EventArgs e)
         {
 
         }

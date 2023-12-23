@@ -1,40 +1,51 @@
 ﻿using Autodesk.Revit.DB;
-using Autodesk.Revit.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Windows.Forms;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using Autodesk.Revit.UI;
 
-namespace RevitEasy.RenameViews.Forms
+namespace RevitEasy._5.WPF
 {
-    public partial class Wf_RenameViews : System.Windows.Forms.Form
+    public partial class RenameViewsFormWPF : Window
     {
         private readonly Document doc;
 
         // Construtor do formulário
-        public Wf_RenameViews(Document document)
+        public RenameViewsFormWPF(Document document)
         {
             InitializeComponent();
             doc = document; // Inicializa o documento
-        }
-
-
+    }
 
         #region Ação que é executada ao abrir o formulário
-        private void Ld_RenameViews(object sender, EventArgs e)
+        private void WPF_RenameViews_Loaded(object sender, RoutedEventArgs e)
         {
             // Adicione o evento ao combobox Cb_RenameViewsInstanceParameters aqui
-            Cb_RenameViewsInstanceParameters.SelectedIndexChanged += Cb_RenameViewsInstanceParameters_SelectedIndexChanged;
+            Cb_RenameViewsInstanceParameters.SelectedIndex += Cb_RenameViewsInstanceParameters_SelectedIndexChanged;
 
             // Carrega os ViewTypes no combobox
             LoadViewTypes();
+
+            // Carrega o método que obtém as vistas disponíveis no modelo correspondente ao viewType que foi selecionado no combobox Cb_RenameViewsType
+            LoadInstanceParametersInSelectView();
         }
 
         #endregion
 
         #region Métodos para receber os inputs do formulário e criar as folhas
         // Método chamado quando o botão de criação é clicado
-        private void Btn_ViewNameRename_Click(object sender, EventArgs e)
+        private void Btn_RenameViews_Click(object sender, RoutedEventArgs e)
         {
             // Obtém o nome do parâmetro de instancia que será usado para filtrar as vistas selecionado no combobox
             string selectedParameterName = Cb_RenameViewsInstanceParameters.SelectedItem?.ToString();
@@ -89,13 +100,15 @@ namespace RevitEasy.RenameViews.Forms
                 MessageBox.Show("Por favor, selecione um parâmetro e insira um valor para filtrar as vistas.");
             }
         }
+
         #endregion
 
-        #region Método para obter as vistas disponíveis no modelo filtrando pela viewType que foi selecionada no combobox Cb_RenameViewsType e logo em seguida, obtendo os parametros de instancia do modelo e colocando-os no combobox
+        #region Método para obter as vistas disponíveis no modelo filtrando pela viewType que foi selecionada no combobox Cb_RenameViewsType e, em seguida, obtendo os parâmetros de instância do modelo e colocando-os no combobox
+        // Método para obter as vistas disponíveis no modelo filtrando pelo ViewType que foi selecionado no combobox Cb_RenameViewsType e, em seguida, obtendo os parâmetros de instância do modelo e colocando-os no combobox
         private void LoadInstanceParametersInSelectView()
         {
             // Obtém o ViewType que foi selecionado no combobox Cb_RenameViewsType
-            string selectedViewsType = Cb_RenameViewsType.SelectedItem?.ToString();
+            string selectedViewsType = Cb_RenameViewsType.SelectedValue as string;
 
             if (string.IsNullOrEmpty(selectedViewsType))
             {
@@ -108,8 +121,8 @@ namespace RevitEasy.RenameViews.Forms
                 .OfClass(typeof(ViewFamilyType))
                 .Cast<ViewFamilyType>();
 
-            // Encontra Vistas correspondentes ao viewType 
-            ViewFamilyType targetViewType = viewTypes.FirstOrDefault(vt => vt.Name == selectedViewsType);
+            // Encontra Vistas correspondentes ao ViewType
+            ViewFamilyType targetViewType = viewTypes.FirstOrDefault(vt => vt.ViewFamily.ToString() == selectedViewsType);
 
             if (targetViewType != null)
             {
@@ -134,10 +147,18 @@ namespace RevitEasy.RenameViews.Forms
                 }
 
                 // Insere no combobox os parâmetros de instância disponíveis para serem selecionados
-                Cb_RenameViewsInstanceParameters.DataSource = instanceParametersList;
+                Cb_RenameViewsInstanceParameters.ItemsSource = instanceParametersList.Distinct().ToList();
+
+                // Atualiza o ComboBox Cb_RenameViewsFilterValue com os valores únicos dos parâmetros de instância
+                Cb_RenameViewsFilterValue.ItemsSource = instanceParametersList.Distinct().ToList();
             }
         }
+
+
+
         #endregion
+
+
 
         #region Método para renomear a vistas
         // Método para renomear as vistas
@@ -174,13 +195,14 @@ namespace RevitEasy.RenameViews.Forms
         #endregion
 
         #region Evento que é executado sempre que o Tipo de vista é selecionado no combobox Cb_RenameViewsType
-        // Esse é um evento que é executado sempre que o Tipo de vista é selecionado no combobox Cb_RenameViewsType
-        private void Sic_RenameViewsType(object sender, EventArgs e)
+        // Evento que é executado sempre que o Tipo de vista é selecionado no combobox Cb_RenameViewsType
+        private void Cb_RenameViewsType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //Aqui se carrega o método que obtém as vistas disponíveis no modelo correspondente ao viewType Que foi selecioado no combobox Cb_RenameViewsType
+            // Carrega o método que obtém as vistas disponíveis no modelo correspondente ao viewType que foi selecionado no combobox Cb_RenameViewsType
             LoadInstanceParametersInSelectView();
         }
         #endregion
+
 
         #region Método que verifica quais os ViewTypes estão disponíveis no modelo, não alterar nada aqui, já está funcionando corretamente
         // Método para carregar os ViewTypes no ComboBox Cb_RenameViewsType
@@ -195,12 +217,13 @@ namespace RevitEasy.RenameViews.Forms
                     .ToList();
 
                 // Obtém os nomes dos View Types
-                IList<string> viewTypesName = viewTypes.Select(t => t.Name).ToList();
+                IList<string> viewTypesName = viewTypes.Select(t => t.ViewFamily.ToString()).ToList();
 
                 // Atualiza o ComboBox apenas se não estiver vazio
                 if (viewTypesName.Count > 0)
                 {
-                    Cb_RenameViewsType.DataSource = viewTypesName;
+                    Cb_RenameViewsType.ItemsSource = viewTypesName;
+                    Cb_RenameViewsType.SelectedIndex = 0; // Defina o primeiro item como selecionado por padrão
                 }
             }
             catch (Exception ex)
@@ -208,149 +231,76 @@ namespace RevitEasy.RenameViews.Forms
                 TaskDialog.Show("Erro", "Ocorreu um erro ao carregar os tipos de visualização: " + ex.Message);
             }
         }
+
         #endregion
+
 
         #region Métodos para converter os valores dos inputs do usuário em texto
         // Métodos para converter os valores dos inputs do usuário em texto
-        public string RenameViewsFilteValue => Cb_RenameViewsFilterValue.Text;
+        public string RenameViewsFilterValue => Cb_RenameViewsFilterValue.Text;
         public string RenameViewNamePreffix => Tb_RenameViewNamePreffix.Text;
         public string RenameViewNameSuffix => Tb_RenameViewNameSuffix.Text;
+        public int Cb_RenameViewsInstanceParameters_SelectedIndexChanged { get; private set; }
         #endregion
 
-        #region Métodos vazios que não exigem nenhuma ação mas que devem ser mantidos para que o código funcione corretamente
-        private void Tb_RenameViewNameNumberStarts_TextChanged(object sender, EventArgs e)
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
 
-        private void Kp_RenameViewNamePreffix(object sender, KeyPressEventArgs e)
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
 
-        private void Kp_RenameViewNameNumberStarts(object sender, KeyPressEventArgs e)
-        {
-            // Verifica se a tecla pressionada é um número ou a tecla "Backspace"
-            if (char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back)
-            {
-                e.Handled = false; // Aceita a tecla pressionada
-            }
-            else
-            {
-                e.Handled = true; // Ignora a tecla pressionada
-                MessageBox.Show("Digite apenas números inteiros");
-            }
-        }
-        #endregion
-
-        #region Método para obter vistas, obter parametros, agrupar-los em lista, e colocar no combobox Cb_RenameViewsInstanceParameters
-        private void Cb_RenameViewsInstanceParameters_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // Verifica se há um parâmetro selecionado no combobox
-            string selectedParameterName = Cb_RenameViewsInstanceParameters.SelectedItem?.ToString();
-
-            if (!string.IsNullOrEmpty(selectedParameterName))
-            {
-                // Obtém todas as vistas do modelo
-                IEnumerable<Autodesk.Revit.DB.View> allViews = new FilteredElementCollector(doc)
-                    .OfClass(typeof(Autodesk.Revit.DB.View))
-                    .Cast<Autodesk.Revit.DB.View>();
-
-                // Lista para armazenar os valores possíveis para o filtro
-                HashSet<string> filterValues = new HashSet<string>();
-
-                // Itera sobre as vistas e verifica os valores do parâmetro selecionado
-                foreach (Autodesk.Revit.DB.View view in allViews)
-                {
-                    // Obtém o parâmetro selecionado da vista
-                    Autodesk.Revit.DB.Parameter selectedParameter = view.Parameters.Cast<Autodesk.Revit.DB.Parameter>()
-                        .FirstOrDefault(p => p.Definition.Name == selectedParameterName);
-
-                    // Adiciona o valor à lista, se existir e não for nulo ou vazio
-                    if (selectedParameter != null)
-                    {
-                        string parameterValue = selectedParameter.AsString();
-                        if (!string.IsNullOrEmpty(parameterValue))
-                        {
-                            filterValues.Add(parameterValue);
-                        }
-                    }
-                }
-
-                // Limpa os itens atuais do combobox
-                Cb_RenameViewsFilterValue.Items.Clear();
-
-                // Adiciona os valores distintos diretamente ao combobox, se a lista não for vazia
-                if (filterValues.Any())
-                {
-                    // Adiciona os valores apenas se houver itens
-                    foreach (var value in filterValues)
-                    {
-                        Cb_RenameViewsFilterValue.Items.Add(value);
-                    }
-                }
-                else
-                {
-
-                }
-
-                // Mensagem de depuração
-                Console.WriteLine("Cb_RenameViewsFilteValue.DataSource atualizado com sucesso.");
-                Console.WriteLine("Valores distintos no filtro: " + string.Join(", ", filterValues));
-            }
-        }
-
-
-
-
-
-
-        #endregion
-
-        private void Cb_RenameViewsFilterValue_SelectedIndexChanged(object sender, EventArgs e)
+        private void Cb_Tb_RenameViewsPreffixName(object sender, SelectionChangedEventArgs e)
         {
 
         }
 
-        private void label7_Click(object sender, EventArgs e)
+        private void Cb_RenameViewsPreffixName(object sender, SelectionChangedEventArgs e)
         {
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void Cb_RenameViewsPreffixNameSelectionChanded(object sender, SelectionChangedEventArgs e)
         {
 
         }
 
-        private void label5_Click(object sender, EventArgs e)
+        private void Cb_RenameViewsFilterParameter_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Cb_RenameViewsPreffixName_SelectionChanded(object sender, SelectionChangedEventArgs e)
         {
 
         }
 
-        private void Tb_RenameViewNamePreffix_TextChanged(object sender, EventArgs e)
+        private void Tb_RenameViewsPreffixName_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
 
-        private void label6_Click(object sender, EventArgs e)
+        private void Cb_RenameViewsInstanceParameters_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void Tb_RenameViewNamePreffix_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
 
-        private void Tb_RenameViewNameSuffix_TextChanged(object sender, EventArgs e)
-        {
 
+
+        private void Btn_RenameViewsExit_Click(object sender, RoutedEventArgs e)
+        {
+            // Fecha o formulário
+            this.Close();
         }
+
     }
 }
-

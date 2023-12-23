@@ -1,7 +1,7 @@
-﻿using RevitEasy.RenameViews.Forms;
-using Autodesk.Revit.Attributes;
+﻿using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
+using RevitEasy._5.WPF;
 using System;
 
 namespace RevitEasy
@@ -10,9 +10,9 @@ namespace RevitEasy
     public class OpenRenameViewsFormCommand : IExternalCommand
     {
         public Result Execute(
-              ExternalCommandData commandData,
-              ref string message,
-              ElementSet elements)
+            ExternalCommandData commandData,
+            ref string message,
+            ElementSet elements)
         {
             try
             {
@@ -20,10 +20,10 @@ namespace RevitEasy
                 UIDocument uidoc = commandData.Application.ActiveUIDocument;
                 Document doc = uidoc.Document;
 
-                // Cria uma instância do formulário
-                Wf_RenameViews renameViewsForm = new Wf_RenameViews(doc);
+                // Cria uma instância do formulário WPF
+                RenameViewsFormWPF renameViewsForm = new RenameViewsFormWPF(doc);
 
-                // Exibe o formulário
+                // Exibe o formulário WPF
                 renameViewsForm.ShowDialog();
 
                 return Result.Succeeded;

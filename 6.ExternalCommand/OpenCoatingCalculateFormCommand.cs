@@ -22,7 +22,7 @@ namespace RevitEasy
                 Document doc = uidoc.Document;
 
                 // Cria uma instância do formulário
-                CoatingCalculateForm.CoatingCalculateForm coatingCalculateForm = new CoatingCalculateForm.CoatingCalculateForm(doc);
+                CoatingCalculateForm.CoatingCalculateForm coatingCalculateForm = new CoatingCalculateForm.CoatingCalculateForm();
 
                 // Exibe o formulário
                 coatingCalculateForm.ShowDialog();

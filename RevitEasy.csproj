@@ -47,12 +47,6 @@
     <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>packages\Guna.UI2.WinForms.2.0.4.6\lib\net48\Guna.UI2.dll</HintPath>
     </Reference>
-    <Reference Include="MaterialDesignColors, Version=2.1.4.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
-      <HintPath>packages\MaterialDesignColors.2.1.4\lib\net462\MaterialDesignColors.dll</HintPath>
-    </Reference>
-    <Reference Include="MaterialDesignThemes.Wpf, Version=4.9.0.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
-      <HintPath>packages\MaterialDesignThemes.4.9.0\lib\net462\MaterialDesignThemes.Wpf.dll</HintPath>
-    </Reference>
     <Reference Include="MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>packages\MetroFramework.RunTime.1.2.0.3\lib\net40-Client\MetroFramework.dll</HintPath>
     </Reference>
@@ -126,14 +120,8 @@
     <Compile Include="4.Forms\InsertViewsOnSheetsForm.Designer.cs">
       <DependentUpon>InsertViewsOnSheetsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="4.Forms\RenameViewsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="4.Forms\RenameViewsForm.Designer.cs">
-      <DependentUpon>RenameViewsForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="5.WPF\CreateSheetFormWPF.xaml.cs">
-      <DependentUpon>CreateSheetFormWPF.xaml</DependentUpon>
+    <Compile Include="5.WPF\RenameViewsFormWPF.xaml.cs">
+      <DependentUpon>RenameViewsFormWPF.xaml</DependentUpon>
     </Compile>
     <Compile Include="6.ExternalCommand\OpenCoatingCalculateFormCommand.cs" />
     <Compile Include="6.ExternalCommand\OpenCreateSheetFormCommand.cs" />
@@ -168,16 +156,13 @@
     <EmbeddedResource Include="4.Forms\InsertViewsOnSheetsForm.resx">
       <DependentUpon>InsertViewsOnSheetsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="4.Forms\RenameViewsForm.resx">
-      <DependentUpon>RenameViewsForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="5.WPF\CreateSheetFormWPF.xaml">
+    <Page Include="5.WPF\RenameViewsFormWPF.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -257,11 +242,4 @@
 
 copy "$(ProjectDir)bin\debug\*.dll" "$(AppData)\Autodesk\REVIT\Addins\2022"</PostBuildEvent>
   </PropertyGroup>
-  <Import Project="packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>Este projeto faz referência a pacotes do NuGet que não estão presentes neste computador. Use a Restauração de Pacotes do NuGet para baixá-los.  Para obter mais informações, consulte http://go.microsoft.com/fwlink/?LinkID=322105. O arquivo ausente é {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets'))" />
-  </Target>
 </Project>
