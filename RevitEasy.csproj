@@ -95,6 +95,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="1.Ribbon\Ribbon.cs" />
+    <Compile Include="2.ExtracFromRevit\ViewTypeManager .cs" />
     <Compile Include="3.TransformInToRevit\ToolsInDevelopment.cs" />
     <Compile Include="4.Forms\CoatingCalculateForm.cs">
       <SubType>Form</SubType>
@@ -140,9 +141,7 @@
     <None Include="packages.config" />
     <None Include="Resources\RevitEasy.manifest" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="2.ExtracFromRevit\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="4.Forms\CoatingCalculateForm.resx">
       <DependentUpon>CoatingCalculateForm.cs</DependentUpon>

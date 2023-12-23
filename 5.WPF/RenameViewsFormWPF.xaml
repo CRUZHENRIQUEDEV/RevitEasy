@@ -8,13 +8,24 @@
         ResizeMode="NoResize" 
         WindowStyle="None"
         Background="#FF3A4453" 
-        Height="440"
-        WindowStartupLocation="CenterScreen" Width="220"
-        >
+        Height="440" 
+        Width="220">
 
 
-    <Grid 
-        x:Name="WPF_RenameViews" Loaded="WPF_RenameViews_Loaded" MinWidth="220" MinHeight="450" MaxWidth="220" MaxHeight="450" HorizontalAlignment="Center" VerticalAlignment="Top" Height="481" Width="256">
+    <Grid x:Name="WPF_RenameViews" 
+        Loaded="WPF_RenameViews_Loaded"
+        MinWidth="220"
+        MinHeight="450"
+        MaxWidth="220" 
+        MaxHeight="450" 
+        HorizontalAlignment="Left" 
+        VerticalAlignment="Top"
+        Height="400" 
+        Width="220" 
+        IsManipulationEnabled="True">
+        <Grid.Style>
+            <Style/>
+        </Grid.Style>
         <Border x:Name="ExternalBorder216_216_216" 
                 BorderBrush="#FFD8D8D8" 
                 BorderThickness="2,2,2,2"
@@ -30,7 +41,8 @@
                 HorizontalAlignment="Center"
                 Height="430" 
                 VerticalAlignment="Center"
-                Width="220" Opacity="0.95" 
+                Width="220" 
+                Opacity="0.95" 
                 d:IsLocked="True"/>
         <Label Content="Tipo de vista"
                HorizontalAlignment="Left" 
@@ -48,7 +60,7 @@
                 Width="220" 
                 Background="#FF3A4453"
                 d:IsLocked="True"/>
-        <Label Content="Nome do parametro para filtrar" 
+        <Label Content="Nome do parâmetro para filtrar" 
                HorizontalAlignment="Left" 
                Margin="5,80,0,0"
                VerticalAlignment="Top" 
@@ -125,17 +137,27 @@
             BorderBrush="#FFD8D8D8" 
             BorderThickness="1,1,1,1" 
             Click="Btn_RenameViewsExit_Click"/>
-        
-        <ComboBox x:Name="Cb_RenameViewsType" 
-                  HorizontalAlignment="Center"
-                  Height="20"
-                  Margin="0,60,0,0" 
-                  VerticalAlignment="Top"
-                  Width="200" 
-                  BorderBrush="#FFD8D8D8" 
-                  SelectionChanged="Cb_RenameViewsType_SelectionChanged" 
-                  Foreground="#FF212933" 
-                  Background="#FF212933"/>
+
+        <ComboBox x:Name="Cb_RenameViewsType"
+          HorizontalAlignment="Center"
+          Height="20"
+          Margin="0,60,0,0"
+          VerticalAlignment="Top"
+          Width="200"
+          BorderBrush="#FFD8D8D8"
+          SelectionChanged="Cb_RenameViewsType_SelectionChanged"
+          Foreground="#FF212933"
+          Background="#FF212933">
+            <ComboBox.ToolTip>
+                <ToolTip Content="Selecione o tipo de vista que deseja renomear (Planta de piso, elevação e etc."/>
+            </ComboBox.ToolTip>
+            <ComboBox.Style>
+                <Style TargetType="ComboBox">
+                    <Setter Property="Background" 
+                            Value="#FF212933"/>
+                </Style>
+            </ComboBox.Style>
+        </ComboBox>
 
         <ComboBox 
             x:Name="Cb_RenameViewsInstanceParameters" 
@@ -147,56 +169,86 @@
             BorderBrush="#FFD8D8D8" 
             SelectionChanged="Cb_RenameViewsInstanceParameters_SelectionChanged" 
             Foreground="#FF212933">
-
-
+            <ComboBox.ToolTip>
+                <ToolTip Content="Selecione o nome do parâmetro que será usando para filtrar as vistas que deseja renomear (Normalmente um parâmetro de projeto)"/>
+            </ComboBox.ToolTip>
         </ComboBox>
-        
+
         <ComboBox x:Name="Cb_RenameViewsFilterValue"    
-            HorizontalAlignment="Center"
-            Height="20" Margin="0,160,0,0" 
-            VerticalAlignment="Top"
-            Width="200" 
-                  BorderBrush="#FFD8D8D8" Foreground="#FF212933">
+         HorizontalAlignment="Center"
+         Height="20" 
+         Margin="0,160,0,0" 
+         VerticalAlignment="Top"
+         Width="200" 
+         BorderBrush="#FFD8D8D8" 
+         Foreground="#FF212933"
+         ItemsSource="{Binding FilterValues, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+         SelectedIndex="0">
             <ComboBox.Background>
-                <LinearGradientBrush 
-                    EndPoint="0,1">
+                <LinearGradientBrush EndPoint="0,1">
                     <GradientStop Color="#FFF0F0F0"/>
-                    <GradientStop Color="#FF212933"
+                    <GradientStop Color="#FF212933" 
                                   Offset="1"/>
                 </LinearGradientBrush>
             </ComboBox.Background>
+            <ComboBox.ToolTip>
+                <ToolTip Content="Selecione o valor contido nas vistas que serão utilizado como filtro para renomeá-las"/>
+            </ComboBox.ToolTip>
         </ComboBox>
-        
+
+
+
         <TextBox x:Name="Tb_RenameViewNamePreffix"
-                 HorizontalAlignment="Left"
-                 Height="20" Margin="10,220,0,0" 
-                 TextWrapping="Wrap"
-                 VerticalAlignment="Top"
-                 Width="200" 
-                 Background="#FF212933"
-                 BorderBrush="#FFD8D8D8" 
-                 Foreground="#FFD8D8D8" 
-                 TextChanged="Tb_RenameViewNamePreffix_TextChanged"/>
+         HorizontalAlignment="Left"
+         Height="20" 
+         Margin="10,220,0,0" 
+         TextWrapping="Wrap"
+         VerticalAlignment="Top"
+         Width="200" 
+         Background="#FF212933"
+         BorderBrush="#FFD8D8D8" 
+         Foreground="#FFD8D8D8"
+         TextChanged="Tb_RenameViewNamePreffix_TextChanged" RenderTransformOrigin="0.705,3.3">
+            <TextBox.ToolTip>
+                <ToolTip Content="Nome + Prefixo do nome das vistas - EX: PAREDE A"/>
+            </TextBox.ToolTip>
+        </TextBox>
+
         <TextBox x:Name="Tb_RenameViewNameNumberStarts"
-                 HorizontalAlignment="Left"
-                 Height="20" 
-                 Margin="10,280,0,0" 
-                 TextWrapping="Wrap" 
-                 VerticalAlignment="Top"
-                 Width="200" 
-                 Background="#FF212933" 
-                 BorderBrush="#FFABADB3" 
-                 Foreground="#FFD8D8D8"/>
+            HorizontalAlignment="Left"
+            Height="20" 
+            Margin="10,280,0,0" 
+            TextWrapping="Wrap" 
+            VerticalAlignment="Top"
+            Width="200" 
+            Background="#FF212933" 
+            BorderBrush="#FFABADB3" 
+            Foreground="#FFD8D8D8"
+            PreviewKeyDown="Tb_RenameViewNameNumberStarts_PreviewKeyDown"
+            TextChanged="Tb_RenameViewNameNumberStarts_TextChanged">
+            <TextBox.ToolTip>
+                <ToolTip Content="NÚMERO INTEIRO que a primeira vista receberá"/>
+            </TextBox.ToolTip>
+        </TextBox>
+
+
+
+
         <TextBox x:Name="Tb_RenameViewNameSuffix" 
-                 HorizontalAlignment="Left" 
-                 Height="20" 
-                 Margin="10,340,0,0" 
-                 TextWrapping="Wrap"
-                 VerticalAlignment="Top"
-                 Width="200"
-                 Background="#FF212933"
-                 BorderBrush="#FFABADB3"
-                 Foreground="#FFD8D8D8"/>
+         HorizontalAlignment="Left" 
+         Height="20" 
+         Margin="10,340,0,0" 
+         TextWrapping="Wrap"
+         VerticalAlignment="Top"
+         Width="200"
+         Background="#FF212933"
+         BorderBrush="#FFABADB3"
+         Foreground="#FFD8D8D8">
+            <TextBox.ToolTip>
+                <ToolTip Content="Sufixo do nome da vista(Opcional)"/>
+            </TextBox.ToolTip>
+        </TextBox>
+
     </Grid>
 </Window>
 
