@@ -21,7 +21,7 @@ namespace RevitEasy
 
         public Result OnStartup(UIControlledApplication application)
         {
-            //////Creando un nuevo planel dentro de la pestana complementos
+            //////Criando um novo painel dentro da aba complementos 
             ////application.CreateRibbonPanel("Panel 01");
 
             //////Creando una nueva pestania
@@ -34,11 +34,11 @@ namespace RevitEasy
             ////application.CreateRibbonPanel("Pestaña 01", "Panel 002");
             ////application.CreateRibbonPanel("Pestaña 01", "Panel 003");
 
-            #region CREANDO UN PUSHBUTTON 01
-            ////DAndole la informacion de pushButton
+            #region CREATE PUSHBUTTON 01
+            ////Dando informação ao pushbutton
             //PushButtonData datosDelPushButton = new PushButtonData("Boton 01", "Boton 001", typeof(Class1).Assembly.Location, "RevitEasy.ToolsInDevelopment");
 
-            ////Colocando el PushButton dentro del Panel
+            ////Colocando o PushButton dentro do Panel
             //PushButton pushButton = panelDePestania.AddItem(datosDelPushButton) as PushButton;
 
             ////Colocando las Propiedades
@@ -55,7 +55,7 @@ namespace RevitEasy
             //panelDePestania.AddSeparator();
             //#endregion
 
-            //#region CREANDO UN PUSHBUTTON 02
+            //#region CRIANDO UM PUSHBUTTON 02
             ////DAndole la informacion de pushButton
             //PushButtonData datosDelPushButton02 = new PushButtonData("Boton 02", "Boton 002", typeof(Class1).Assembly.Location, "RevitEasy.ToolsInDevelopment");
 
@@ -75,7 +75,7 @@ namespace RevitEasy
             #endregion
 
 
-            #region CREANdO UN PULLDOWNBUTTON
+            #region CRIANDO PULLDOWNBUTTON
             //PulldownButtonData pullDownButtonData = new PulldownButtonData("PullDowndButton", " PDB 01");
             //PulldownButton pullDownButton = panelDePestania.AddItem(pullDownButtonData) as PulldownButton;
             //pullDownButton.LargeImage = ConvertImage(Properties.Resources.IconoDePushButton02);
@@ -146,7 +146,7 @@ namespace RevitEasy
             pullDownButton.AddPushButton(RenameViewsButton);
 
             // Pushbutton inserir vistas nas folhas
-            PushButtonData InsertViewsOnSheetsButton = new PushButtonData("InserirVistasNasFolhas", "Inserir Vistas nas Folhas", typeof(OpenInsertViewOnSheetsFormCommand).Assembly.Location, "RevitEasy.OpenInsertViewOnSheetsFormCommand")
+            PushButtonData InsertViewsOnSheetsButton = new PushButtonData("InserirVistasNasFolhas", "Inserir Vistas nas Folhas", typeof(OpenInsertViewsOnSheetsFormCommand).Assembly.Location, "RevitEasy.OpenInsertViewsOnSheetsFormCommand")
             {
                 LargeImage = ConvertImage(Properties.Resources.IconInsertViewOnSheet),
                 ToolTip = "Insere as vistas nas folhas",
@@ -296,9 +296,6 @@ namespace RevitEasy
 
 
 
-
-
-
             #endregion
 
             #region CREATE PULLBUTTON  - DOCUMENTAÇÃO
@@ -371,7 +368,7 @@ namespace RevitEasy
             #endregion
 
 
-            #region CREANDO UN SPLITBUTTON
+            #region CRIANDO UM SPLITBUTTON
             //SplitButtonData splitButtonData = new SplitButtonData("SplitButton", "SB 01");
             //SplitButton splitButton = panelDePestania.AddItem(splitButtonData) as SplitButton;
 
@@ -398,7 +395,7 @@ namespace RevitEasy
 
             #endregion
 
-            #region CREANDO EL RADIOBUTTONGROUP
+            #region CRIANDO O RADIOBUTTONGROUP
             //RadioButtonGroupData radioButtonGroupData = new RadioButtonGroupData("RadioButtonGroup");
             //RadioButtonGroup radioButtonGroup = panelDePestania.AddItem(radioButtonGroupData) as RadioButtonGroup;
 
@@ -422,7 +419,7 @@ namespace RevitEasy
 
             #endregion
 
-            #region CREANDO UN STACKEDITEMS
+            #region CRIANDO UM STACKEDITEMS
             ////PushButton 07
             //PushButtonData datosDelPushButton07 = new PushButtonData("Boton 07", "Boton 007", typeof(Class1).Assembly.Location, "RevitEasy.ToolsInDevelopment");
             //datosDelPushButton07.Image = ConvertImage(Properties.Resources.IconoDePushButton);
@@ -454,7 +451,7 @@ namespace RevitEasy
             #endregion
 
 
-            #region CREANDO UN COMBOBOX
+            #region CRIANDO UM COMBOBOX
             //ComboBoxData comboBoxData = new ComboBoxData("ComboBox");
             //ComboBox comboBox = panelDePestania.AddItem(comboBoxData) as ComboBox;
             //comboBox.Image = ConvertImage(Properties.Resources.IconoDePushButton02);
@@ -513,31 +510,27 @@ namespace RevitEasy
             return Result.Succeeded;
         }
 
-        private void Evento_ComboBox(object sender, ComboBoxCurrentChangedEventArgs e)
-        {
-            ComboBox comboBoxEventData = sender as ComboBox;
+        //private void Evento_ComboBox(object sender, ComboBoxCurrentChangedEventArgs e)
+        //{
+        //    ComboBox comboBoxEventData = sender as ComboBox;
 
-            if (comboBoxEventData.Current.ItemText == "Item 01")
-            {
-                TaskDialog.Show("Titulo", "Usted esta utilizando el primer item del comoBox");
-            }
-            else if (comboBoxEventData.Current.ItemText == "Item 02")
-            {
-                TaskDialog.Show("Titulo", "Usted esta utilizando el Segundo item del comoBox");
-            }
-            else
-            {
-                TaskDialog.Show("Titulo", "Usted esta utilizando el Tercer item del comoBox");
-            }
+        //    if (comboBoxEventData.Current.ItemText == "Item 01")
+        //    {
+        //        TaskDialog.Show("Titulo", "Voce está utilizando o primeiro item do comoBox");
+        //    }
+        //    else if (comboBoxEventData.Current.ItemText == "Item 02")
+        //    {
+        //        TaskDialog.Show("Titulo", "Voce está utilizando o segundo item do comoBox");
+        //    }
+        //    else
+        //    {
+        //        TaskDialog.Show("Titulo", "Voce está utilizando o terceiro item do comoBoxx");
+        //    }
 
-
-        }
-
+        //}
 
 
-
-
-        #region CREANDO EL METODO PARA CONVERTIR UN SYSTEM.DRAWING.BIPMAP A SYSTEM.WINDOWNS.MEDIA.IMAGESOURCE ---------- Es necesario llamar a la Referencia Externa - WindowsBase y - PresentationCore
+        #region CRIANDO UM MÉTODO PARA CONVERTER UM SYSTEM.DRAWING.BIPMAP EM SYSTEM.WINDOWNS.MEDIA.IMAGESOURCE ---------- É NECESSÁRIO PARA CHAMAR A REFERENCIA EXTERNA - WindowsBase E - PresentationCore
         private System.Windows.Media.ImageSource ConvertImage(System.Drawing.Image image)
         {
             var bitmap = new System.Windows.Media.Imaging.BitmapImage();

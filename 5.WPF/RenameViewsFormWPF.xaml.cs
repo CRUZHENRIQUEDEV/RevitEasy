@@ -17,8 +17,6 @@ using Autodesk.Revit.UI;
 using RevitEasy.LoadViewTypes;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Windows.Input;
-
 
 namespace RevitEasy._5.WPF
 {

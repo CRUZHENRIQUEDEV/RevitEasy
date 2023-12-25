@@ -1,18 +1,18 @@
-﻿using RevitEasy.InsertViewsOnSheetForm.forms;
-using Autodesk.Revit.Attributes;
+﻿using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
+using RevitEasy.InsertViewsOnSheetsWPF;
 using System;
 
 namespace RevitEasy
 {
     [Transaction(TransactionMode.Manual)]
-    public class OpenInsertViewOnSheetsFormCommand : IExternalCommand
+    public class OpenInsertViewsOnSheetsFormCommand : IExternalCommand
     {
         public Result Execute(
-              ExternalCommandData commandData,
-              ref string message,
-              ElementSet elements)
+            ExternalCommandData commandData,
+            ref string message,
+            ElementSet elements)
         {
             try
             {
@@ -20,10 +20,10 @@ namespace RevitEasy
                 UIDocument uidoc = commandData.Application.ActiveUIDocument;
                 Document doc = uidoc.Document;
 
-                // Cria uma instância do formulário, passando o documento como argumento
-                Form_InsertViewsOnSheets insertViewsForm = new Form_InsertViewsOnSheets(doc);
+                // Cria uma instância do formulário WPF InsertViewsOnSheetsForm
+                InsertViewsOnSheetsFormWPF insertViewsForm = new InsertViewsOnSheetsFormWPF(doc);
 
-                // Exibe o formulário
+                // Exibe o formulário WPF
                 insertViewsForm.ShowDialog();
 
                 return Result.Succeeded;
@@ -35,5 +35,4 @@ namespace RevitEasy
             }
         }
     }
-
 }

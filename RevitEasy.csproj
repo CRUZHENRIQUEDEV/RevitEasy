@@ -115,11 +115,8 @@
     <Compile Include="4.Forms\CreateSheetForm.Designer.cs">
       <DependentUpon>CreateSheetForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="4.Forms\InsertViewsOnSheetsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="4.Forms\InsertViewsOnSheetsForm.Designer.cs">
-      <DependentUpon>InsertViewsOnSheetsForm.cs</DependentUpon>
+    <Compile Include="5.WPF\InsertViewsOnSheetsFormWPF.xaml.cs">
+      <DependentUpon>InsertViewsOnSheetsFormWPF.xaml</DependentUpon>
     </Compile>
     <Compile Include="5.WPF\RenameViewsFormWPF.xaml.cs">
       <DependentUpon>RenameViewsFormWPF.xaml</DependentUpon>
@@ -127,8 +124,9 @@
     <Compile Include="6.ExternalCommand\OpenCoatingCalculateFormCommand.cs" />
     <Compile Include="6.ExternalCommand\OpenCreateSheetFormCommand.cs" />
     <Compile Include="6.ExternalCommand\OpenDuplicateScheduleFormCommand.cs" />
-    <Compile Include="6.ExternalCommand\OpenInsertViewOnSheetsFormCommand.cs" />
+    <Compile Include="6.ExternalCommand\OpenInsertViewsOnSheetCommand.cs" />
     <Compile Include="6.ExternalCommand\OpenRenameViewsFormCommand.cs" />
+    <Compile Include="7.Tests\SetIdElement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -152,15 +150,16 @@
     <EmbeddedResource Include="4.Forms\DuplicateScheduleForm.resx">
       <DependentUpon>DuplicateScheduleForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="4.Forms\InsertViewsOnSheetsForm.resx">
-      <DependentUpon>InsertViewsOnSheetsForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="5.WPF\InsertViewsOnSheetsFormWPF.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="5.WPF\RenameViewsFormWPF.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
