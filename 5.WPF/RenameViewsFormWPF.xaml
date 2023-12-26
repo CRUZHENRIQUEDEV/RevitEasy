@@ -22,7 +22,7 @@
         VerticalAlignment="Top"
         Height="400" 
         Width="220" 
-        IsManipulationEnabled="True">
+        IsManipulationEnabled="True" d:IsLocked="True">
         <Grid.Style>
             <Style/>
         </Grid.Style>
@@ -32,8 +32,7 @@
                 HorizontalAlignment="Center" 
                 Height="430" 
                 VerticalAlignment="Center" 
-                Width="220" 
-                d:IsLocked="True"/>
+                Width="220" d:IsLocked="True"/>
 
         <Border x:Name="ExternalBorderGray"
                 BorderBrush="#FF5D5D5D"
@@ -42,40 +41,35 @@
                 Height="430" 
                 VerticalAlignment="Center"
                 Width="220" 
-                Opacity="0.95" 
-                d:IsLocked="True"/>
+                Opacity="0.95" d:IsLocked="True"/>
         <Label Content="Tipo de vista"
                HorizontalAlignment="Left" 
                Margin="5,30,0,0" 
                VerticalAlignment="Top" 
                BorderBrush="#FFD8D8D8" 
                Background="{x:Null}" 
-               Foreground="#FFD8D8D8"
-               d:IsLocked="True"/>
+               Foreground="#FFD8D8D8" d:IsLocked="True"/>
         <Border BorderBrush="#FFD8D8D8" 
                 BorderThickness="1" 
                 HorizontalAlignment="Center" 
                 Height="29" 
                 VerticalAlignment="Top" 
                 Width="220" 
-                Background="#FF3A4453"
-                d:IsLocked="True"/>
+                Background="#FF3A4453" d:IsLocked="True"/>
         <Label Content="Nome do parâmetro para filtrar" 
                HorizontalAlignment="Left" 
                Margin="5,80,0,0"
                VerticalAlignment="Top" 
                BorderBrush="#FFD8D8D8" 
                Background="{x:Null}" 
-               Foreground="#FFD8D8D8" 
-               d:IsLocked="True"/>
+               Foreground="#FFD8D8D8" d:IsLocked="True"/>
         <Label Content="Filtrar vistas pelo valor..."
                HorizontalAlignment="Left" 
                Margin="10,130,0,0" 
                VerticalAlignment="Top" 
                BorderBrush="#FFD8D8D8" 
                Background="{x:Null}" 
-               Foreground="#FFD8D8D8"
-               d:IsLocked="True"/>
+               Foreground="#FFD8D8D8" d:IsLocked="True"/>
         <Label Content="Prefixo + nome da vista" 
                HorizontalAlignment="Left" 
                Margin="10,190,0,0" 
