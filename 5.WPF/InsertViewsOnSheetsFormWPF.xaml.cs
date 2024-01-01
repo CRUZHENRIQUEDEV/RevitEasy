@@ -211,7 +211,7 @@ namespace RevitEasy.InsertViewsOnSheetsWPF
                 int filteredViewsCount = filteredViews.Count();
 
                 // Atualiza o label com o número de vistas filtradas
-                Lb_InsertViewOnSheetsSelectedViewsCount.Content = $"Vistas Selecionadas: {filteredViewsCount}";
+                Lb_InsertViewOnSheetsSelectedViewsCount.Content = $"{filteredViewsCount}";
 
                 // Exibe os nomes das vistas filtradas em ordem alfabética em um TaskDialog
                 TaskDialog taskDialog = new TaskDialog("Nomes das Vistas Filtradas");
@@ -223,6 +223,7 @@ namespace RevitEasy.InsertViewsOnSheetsWPF
                 TaskDialogResult result = taskDialog.Show();
             }
         }
+
 
         // Método para filtrar as vistas com base no valor do parâmetro selecionado
         private IEnumerable<Autodesk.Revit.DB.View> FilterViewsByParameter(string selectedFilterValue)

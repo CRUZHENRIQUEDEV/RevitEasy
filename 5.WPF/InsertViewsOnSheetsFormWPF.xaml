@@ -137,7 +137,7 @@
                 BorderThickness="1,1,1,1" Grid.Column="2" Click="Btn_ViewNameRename_Click" Grid.Row="1"/>
 
         <Label x:Name="Lb_TitleRenomearVistas"
-               Content="Insert views into sheets"
+               Content="Place Views On Sheets"
                HorizontalAlignment="Left"
                Margin="3,0,0,0"
                VerticalAlignment="Center"
@@ -215,7 +215,7 @@
                VerticalAlignment="Top"
                BorderBrush="#FFD8D8D8"
                Background="{x:Null}"
-               Foreground="#FFD8D8D8" Grid.Column="1" Grid.Row="1"/>
+               Foreground="#FFD8D8D8" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Width="184"/>
 
         <ComboBox x:Name="Cb_InsertViewOnSheetsViewParametersForSheet"
                   HorizontalAlignment="Left"
