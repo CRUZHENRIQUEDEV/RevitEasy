@@ -40,7 +40,8 @@
           Width="220"
           IsManipulationEnabled="True" Margin="0,1,0,0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="439*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="409*"/>
             <RowDefinition Height="3*"/>
             <RowDefinition Height="8*"/>
         </Grid.RowDefinitions>
@@ -53,11 +54,11 @@
         <ComboBox x:Name="Cb_InsertViewOnSheetsViewViewType"
              HorizontalAlignment="Left"
              Height="20"
-             Margin="5,61,0,0"
+             Margin="5,31,0,0"
              VerticalAlignment="Top"
              Width="200"
              BorderBrush="#FFD8D8D8"
-             Foreground="#FF212933" Grid.ColumnSpan="2" Grid.Column="1">
+             Foreground="#FF212933" Grid.ColumnSpan="2" Grid.Column="1" SelectionChanged="Cb_InsertViewOnSheetsViewViewType_SelectionChanged" Grid.Row="1">
             <ComboBox.ToolTip>
                 <ToolTip Content="Selecione o nome do parâmetro que será usando para filtrar as vistas que deseja renomear (Normalmente um parâmetro de projeto)"/>
             </ComboBox.ToolTip>
@@ -71,7 +72,7 @@
                 HorizontalAlignment="Left"
                 Height="450"
                 VerticalAlignment="Top"
-                Width="220" Grid.ColumnSpan="3" Grid.RowSpan="3"/>
+                Width="220" Grid.ColumnSpan="3" Grid.RowSpan="4" d:IsHidden="True"/>
 
         <Border x:Name="ExternalBorderGray"
                 BorderBrush="#FF5D5D5D"
@@ -80,67 +81,66 @@
                 Height="460"
                 VerticalAlignment="Top"
                 Width="220"
-                Opacity="0.95" Grid.ColumnSpan="3" Grid.RowSpan="3"/>
+                Opacity="0.95" Grid.ColumnSpan="3" Grid.RowSpan="4" d:IsHidden="True"/>
 
-        <Label x:Name="Tipo_de_vista"
-               Content="Tipo de vista"
+        <Label x:Name="Lb_View_Type"
+               Content="View Type"
                HorizontalAlignment="Left"
-               Margin="0,30,0,0"
                VerticalAlignment="Top"
                BorderBrush="#FFD8D8D8"
                Background="{x:Null}"
-               Foreground="#FFD8D8D8" Grid.Column="1"/>
+               Foreground="#FFD8D8D8" Grid.Column="1" Grid.Row="1"/>
 
         <Border BorderBrush="#FFD8D8D8"
                 BorderThickness="1"
                 HorizontalAlignment="Left"
                 Height="29"
-                VerticalAlignment="Top"
+                VerticalAlignment="Center"
                 Width="220"
-                Background="#FF3A4453" Grid.ColumnSpan="3"/>
+                Background="#FF3A4453" Grid.ColumnSpan="3" d:IsHidden="True"/>
 
         <Label x:Name="Nome_do_parametro_para_filtrar"
-               Content="Nome do parâmetro para filtrar"
+               Content="Parameter name to filter"
                HorizontalAlignment="Left"
-               Margin="0,80,0,0"
+               Margin="0,50,0,0"
                VerticalAlignment="Top"
                BorderBrush="#FFD8D8D8"
                Background="{x:Null}"
-               Foreground="#FFD8D8D8" Grid.ColumnSpan="2" Grid.Column="1"/>
+               Foreground="#FFD8D8D8" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="1"/>
 
-        <Label Content="Filtrar vistas pelo valor:"
+        <Label Content="Filter views by value:"
                HorizontalAlignment="Left"
-               Margin="5,130,0,0"
+               Margin="5,100,0,0"
                VerticalAlignment="Top"
                BorderBrush="#FFD8D8D8"
                Background="{x:Null}"
-               Foreground="#FFD8D8D8" Grid.ColumnSpan="2" Grid.Column="1"/>
+               Foreground="#FFD8D8D8" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="1"/>
 
-        <Label Content="Nome do parametro para filtrar"
+        <Label Content="Parameter name to filter"
                HorizontalAlignment="Left"
-               Margin="5,250,0,0"
+               Margin="5,220,0,0"
                VerticalAlignment="Top"
                BorderBrush="#FFD8D8D8"
                Background="{x:Null}"
                Foreground="#FFD8D8D8"
-               Height="25" Grid.ColumnSpan="2" Grid.Column="1"/>
+               Height="25" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="1"/>
 
         <Button x:Name="Btn_ViewNameRename"
-                Content="Renomear"
+                Content="Ok"
                 HorizontalAlignment="Right"
-                Margin="0,414,10,0"
+                Margin="0,384,10,0"
                 VerticalAlignment="Top"
                 Width="80"
                 Background="#FF212933"
                 Foreground="#FFD8D8D8"
                 BorderBrush="#FFD8D8D8"
-                BorderThickness="1,1,1,1" Grid.Column="2"/>
+                BorderThickness="1,1,1,1" Grid.Column="2" Click="Btn_ViewNameRename_Click" Grid.Row="1"/>
 
         <Label x:Name="Lb_TitleRenomearVistas"
-               Content="Inserir vistas nas folhas"
+               Content="Insert views into sheets"
                HorizontalAlignment="Left"
                Margin="3,0,0,0"
-               VerticalAlignment="Top"
+               VerticalAlignment="Center"
                BorderBrush="#FFD8D8D8"
                Background="{x:Null}"
                Foreground="#FFD8D8D8"
@@ -148,24 +148,24 @@
                FontWeight="Bold" Grid.ColumnSpan="3"/>
 
         <Button x:Name="Btn_RenameViewsExit"
-                Content="Sair"
+                Content="Cancel"
                 HorizontalAlignment="Right"
-                Margin="0,414,101,0"
+                Margin="0,384,101,0"
                 VerticalAlignment="Top"
                 Width="80"
                 Background="#FF212933"
                 Foreground="#FFD8D8D8"
                 BorderBrush="#FFD8D8D8"
-                BorderThickness="1,1,1,1" Grid.ColumnSpan="2" Grid.Column="1" Click="Btn_RenameViewsExit_Click"/>
+                BorderThickness="1,1,1,1" Grid.ColumnSpan="2" Grid.Column="1" Click="Btn_RenameViewsExit_Click" Grid.Row="1"/>
 
         <ComboBox x:Name="Cb_InsertViewOnSheetsViewParametersForView"
                   HorizontalAlignment="Left"
                   Height="20"
-                  Margin="5,110,0,0"
+                  Margin="5,80,0,0"
                   VerticalAlignment="Top"
                   Width="200"
                   BorderBrush="#FFD8D8D8"
-                  Foreground="#FF212933" Grid.ColumnSpan="2" Grid.Column="1">
+                  Foreground="#FF212933" Grid.ColumnSpan="2" Grid.Column="1" SelectionChanged="Cb_InsertViewOnSheetsViewParametersForView_SelectionChanged" Grid.Row="1">
 
             <ComboBox.ToolTip>
                 <ToolTip Content="Selecione o nome do parâmetro que será usando para filtrar as vistas que deseja renomear (Normalmente um parâmetro de projeto)"/>
@@ -176,13 +176,13 @@
         <ComboBox x:Name="Cb_InsertViewsOnSheetFilterForViewsValue"
                   HorizontalAlignment="Left"
                   Height="20"
-                  Margin="5,160,0,0"
+                  Margin="5,130,0,0"
                   VerticalAlignment="Top"
                   Width="200"
                   BorderBrush="#FFD8D8D8"
                   Foreground="#FF212933"
                   ItemsSource="{Binding FilterValues, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"
-                  SelectedIndex="0" Grid.ColumnSpan="2" Grid.Column="1">
+                  SelectedIndex="0" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="1" SelectionChanged="Cb_InsertViewsOnSheetFilterForViewsValue_SelectionChanged">
 
             <ComboBox.Background>
                 <LinearGradientBrush
@@ -200,22 +200,22 @@
             </ComboBox.ToolTip>
         </ComboBox>
 
-        <Label Content="Qtd de vistas selecionadas:"
+        <Label Content="Number of views selected:"
                HorizontalAlignment="Left"
-               Margin="5,180,0,0"
+               Margin="5,150,0,0"
                VerticalAlignment="Top"
                BorderBrush="#FFD8D8D8"
                Background="{x:Null}"
-               Foreground="#FFD8D8D8" Grid.ColumnSpan="2" Grid.Column="1"/>
+               Foreground="#FFD8D8D8" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="1"/>
 
         <Label x:Name="Lb_InsertViewOnSheetsSelectedViewsCount"
                Content="000"
                HorizontalAlignment="Left"
-               Margin="5,200,0,0"
+               Margin="5,170,0,0"
                VerticalAlignment="Top"
                BorderBrush="#FFD8D8D8"
                Background="{x:Null}"
-               Foreground="#FFD8D8D8" Grid.Column="1"/>
+               Foreground="#FFD8D8D8" Grid.Column="1" Grid.Row="1"/>
 
         <ComboBox x:Name="Cb_InsertViewOnSheetsViewParametersForSheet"
                   HorizontalAlignment="Left"
@@ -226,8 +226,8 @@
                   Foreground="#FF212933"
                   ItemsSource="{Binding FilterValues, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"
                   SelectedIndex="0"
-                  Margin="5,280,0,0"
-                  MaxDropDownHeight="390" Grid.ColumnSpan="2" Grid.Column="1">
+                  Margin="5,250,0,0"
+                  MaxDropDownHeight="390" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="1">
 
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0,1">
@@ -242,8 +242,8 @@
             </ComboBox.ToolTip>
         </ComboBox>
 
-        <Label Content="Folhas"
-               Margin="5,230,0,183"
+        <Label Content="Sheets"
+               Margin="5,200,0,183"
                BorderBrush="#FFD8D8D8"
                Background="{x:Null}"
                Foreground="#FFD8D8D8"
@@ -251,16 +251,16 @@
                Height="26"
                Grid.ColumnSpan="1"
                HorizontalAlignment="Left"
-               Padding="0,0,0,0" Grid.Column="1"/>
+               Padding="0,0,0,0" Grid.Column="1" Grid.Row="1"/>
 
-        <Label Content="Filtrar vistas pelo valor:&#xD;&#xA;"
+        <Label Content="Filter views by value:"
                HorizontalAlignment="Left"
-               Margin="5,305,0,0"
+               Margin="5,275,0,0"
                VerticalAlignment="Top"
                BorderBrush="#FFD8D8D8"
                Background="{x:Null}"
                Foreground="#FFD8D8D8"
-               Height="25" Grid.ColumnSpan="2" Grid.Column="1"/>
+               Height="25" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="1"/>
 
         <ComboBox x:Name="Cb_InsertViewsOnSheetFilterForSheetsValue"
                   HorizontalAlignment="Left"
@@ -271,8 +271,8 @@
                   Foreground="#FF212933"
                   ItemsSource="{Binding FilterValues, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"
                   SelectedIndex="0"
-                  Margin="5,335,0,0"
-                  MaxDropDownHeight="390" Grid.ColumnSpan="2" Grid.Column="1">
+                  Margin="5,305,0,0"
+                  MaxDropDownHeight="390" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="1">
 
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0,1">
@@ -286,22 +286,22 @@
             </ComboBox.ToolTip>
         </ComboBox>
 
-        <Label Content="Qtd de vistas selecionadas:"
+        <Label Content="Number of views selected:"
                HorizontalAlignment="Left"
-               Margin="8,352,0,0"
+               Margin="8,322,0,0"
                VerticalAlignment="Top"
                BorderBrush="#FFD8D8D8"
                Background="{x:Null}"
-               Foreground="#FFD8D8D8" Grid.ColumnSpan="2" Grid.Column="1"/>
+               Foreground="#FFD8D8D8" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="1"/>
 
         <Label x:Name="Lb_InsertViewOnSheetsSelectedSheetsCount"
                Content="000"
                HorizontalAlignment="Left"
-               Margin="8,370,0,0"
+               Margin="8,340,0,0"
                VerticalAlignment="Top"
                BorderBrush="#FFD8D8D8"
                Background="{x:Null}"
-               Foreground="#FFD8D8D8" Grid.Column="1"/>
+               Foreground="#FFD8D8D8" Grid.Column="1" Grid.Row="1"/>
 
 
     </Grid>

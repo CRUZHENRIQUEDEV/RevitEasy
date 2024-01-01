@@ -22,7 +22,7 @@
         VerticalAlignment="Top"
         Height="400" 
         Width="220" 
-        IsManipulationEnabled="True" d:IsLocked="True">
+        IsManipulationEnabled="True">
         <Grid.Style>
             <Style/>
         </Grid.Style>
@@ -41,64 +41,66 @@
                 Height="430" 
                 VerticalAlignment="Center"
                 Width="220" 
-                Opacity="0.95" d:IsLocked="True"/>
-        <Label Content="Tipo de vista"
+                Opacity="0.95"/>
+        
+        
+        <Label x:Name="Lb_ViewType"
+               Content="View Type"
                HorizontalAlignment="Left" 
                Margin="5,30,0,0" 
                VerticalAlignment="Top" 
                BorderBrush="#FFD8D8D8" 
                Background="{x:Null}" 
-               Foreground="#FFD8D8D8" d:IsLocked="True"/>
+               Foreground="#FFD8D8D8"/>
+        
+        
         <Border BorderBrush="#FFD8D8D8" 
                 BorderThickness="1" 
                 HorizontalAlignment="Center" 
                 Height="29" 
                 VerticalAlignment="Top" 
                 Width="220" 
-                Background="#FF3A4453" d:IsLocked="True"/>
-        <Label Content="Nome do parâmetro para filtrar" 
+                Background="#FF3A4453"/>
+        <Label Content="Parameter name to filter" 
                HorizontalAlignment="Left" 
                Margin="5,80,0,0"
                VerticalAlignment="Top" 
                BorderBrush="#FFD8D8D8" 
                Background="{x:Null}" 
-               Foreground="#FFD8D8D8" d:IsLocked="True"/>
-        <Label Content="Filtrar vistas pelo valor..."
+               Foreground="#FFD8D8D8"/>
+        <Label Content="Filter views by value:"
                HorizontalAlignment="Left" 
                Margin="10,130,0,0" 
                VerticalAlignment="Top" 
                BorderBrush="#FFD8D8D8" 
                Background="{x:Null}" 
-               Foreground="#FFD8D8D8" d:IsLocked="True"/>
-        <Label Content="Prefixo + nome da vista" 
+               Foreground="#FFD8D8D8"/>
+        <Label Content="Preffix + View Name" 
                HorizontalAlignment="Left" 
                Margin="10,190,0,0" 
                VerticalAlignment="Top" 
                BorderBrush="#FFD8D8D8" 
                Background="{x:Null}" 
-               Foreground="#FFD8D8D8"
-               d:IsLocked="True"/>
-        <Label Content="Número da primeira vista" 
+               Foreground="#FFD8D8D8"/>
+        <Label Content="Number of first View" 
                HorizontalAlignment="Left" 
                Margin="10,250,0,0" 
                VerticalAlignment="Top" 
                BorderBrush="#FFD8D8D8"
                Background="{x:Null}" 
-               Foreground="#FFD8D8D8" 
-               d:IsLocked="True"/>
+               Foreground="#FFD8D8D8"/>
         <Label x:Name="Tb_RenameViewsSuffixName" 
-               Content="Sufixo do nome da vista" 
+               Content="View Name Suffix" 
                HorizontalAlignment="Left" 
                Margin="10,310,0,0"
                VerticalAlignment="Top"
                BorderBrush="#FFD8D8D8"
                Background="{x:Null}"
-               Foreground="#FFD8D8D8" 
-               d:IsLocked="True"/>
+               Foreground="#FFD8D8D8"/>
 
         <Button 
             x:Name="Btn_ViewNameRename" 
-            Content="Renomear" 
+            Content="Ok" 
             HorizontalAlignment="Right" 
             Margin="128,400,10,0" 
             VerticalAlignment="Top" 
@@ -109,7 +111,7 @@
             BorderThickness="1,1,1,1"
             Click="Btn_RenameViews_Click"/>
         <Label x:Name="Lb_TitleRenomearVistas" 
-               Content="Renomear vistas"
+               Content="Rename Views"
                HorizontalAlignment="Left" 
                Margin="3,0,0,0" 
                VerticalAlignment="Top" 
@@ -117,11 +119,10 @@
                Background="{x:Null}" 
                Foreground="#FFD8D8D8"
                FontSize="14" 
-               FontWeight="Bold" 
-               d:IsLocked="True"/>
+               FontWeight="Bold"/>
         <Button 
             x:Name="Btn_RenameViewsExit" 
-            Content="Sair" 
+            Content="Cancel" 
             HorizontalAlignment="Right" 
             Margin="0,400,101,0" 
             VerticalAlignment="Top" 
