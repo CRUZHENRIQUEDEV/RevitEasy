@@ -16,18 +16,10 @@ Este é um plugin para automatizar que, dentre outras coisas, tem por objetivo t
 ## Projetos
 
 ### 01 - PullButton ALVENARIA 
-  Nesse grupo, estão as ferramentas que estão voltadas para trabalhos relacionados a modelagem de paginação de blocos de alvenaria
-  
-  01.1
-  
-Criar novas folhas - Essa ferramenta abre um Windows forms que solicita inputs do usuáriopara criar rapidamente diversas folhas novas no modelo onde é possível definir nome com prefixo, sufixo, quantidade de folhas, família da folha e etc.
-
-
-![Criar folhas](https://github.com/CRUZHENRIQUEDEV/RevitEasy/assets/143232644/44d38700-d5ca-490e-9f71-79bf7335080e)
 
 ### 01 - PullButton Documentation
     01.1 Create multiple Sheets 
-     ![image](https://github.com/CRUZHENRIQUEDEV/RevitEasy/assets/143232644/b72b2bbb-2564-436f-b0ef-cfb2a3a0d241)
+![image](https://github.com/CRUZHENRIQUEDEV/RevitEasy/assets/143232644/b72b2bbb-2564-436f-b0ef-cfb2a3a0d241)
 
 
 
