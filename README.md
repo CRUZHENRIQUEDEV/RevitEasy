@@ -33,29 +33,6 @@ Este é um plugin para automatizar tarefas repetitivas no Software Autodesk Revi
 
 
 
-### 02 - 
-
-
-
-### 03 - 
-
-
-
-### 04 -
-
-
-
-### 05 - 
-
-
-
-
-
-
-### 07 - 
-
-
-
 ## Licença
 
 <p>Este projeto está licenciado sob <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.pt">Atribuição-NãoComercial-CompartilhaIgual 4.0 Internacional</a>.</p>
