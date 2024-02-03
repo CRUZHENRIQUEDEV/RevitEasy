@@ -18,7 +18,8 @@
             Height="570" 
             VerticalAlignment="Center"
             Width="220" 
-            Opacity="0.95" d:IsLocked="True"/>
+            Opacity="0.95" 
+            d:IsLocked="True"/>
 
 
         <Label x:Name="Lb_ViewType"
@@ -37,14 +38,16 @@
             Height="29" 
             VerticalAlignment="Top" 
             Width="220" 
-            Background="#FF3A4453" d:IsLocked="True"/>
+            Background="#FF3A4453" 
+            d:IsLocked="True"/>
         <Label Content="Sheet Number" 
             HorizontalAlignment="Left" 
             Margin="10,80,0,0"
             VerticalAlignment="Top" 
             BorderBrush="#FFD8D8D8" 
             Background="{x:Null}" 
-            Foreground="#FFD8D8D8" FontWeight="Bold"/>
+            Foreground="#FFD8D8D8" 
+            FontWeight="Bold"/>
         <Label Content="First Sheet Number" 
             HorizontalAlignment="Left" 
             Margin="10,150,0,0" 
@@ -70,7 +73,9 @@
             Background="#FF212933" 
             Foreground="#FFD8D8D8" 
             BorderBrush="#FFD8D8D8" 
-            BorderThickness="1,1,1,1" Click="Btn_create_Click"/>
+            BorderThickness="1,1,1,1" 
+            Click="Btn_create_Click" 
+            TabIndex="10"/>
         <Label x:Name="Lb_TitleCreateSheets" 
             Content="Create Sheets"
             HorizontalAlignment="Left" 
@@ -92,7 +97,8 @@
             Foreground="#FFD8D8D8" 
             BorderBrush="#FFD8D8D8" 
             BorderThickness="1,1,1,1" 
-            Click="Btn_CancelClick"/>
+            Click="Btn_CancelClick" 
+            TabIndex="9"/>
 
         <ComboBox x:Name="sheet_titleBlock"
             HorizontalAlignment="Left"
@@ -102,7 +108,8 @@
             Width="200"
             BorderBrush="#FFD8D8D8"
             Foreground="#FF212933"
-            Background="#FF212933">
+            Background="#FF212933" 
+            TabIndex="1">
             <ComboBox.ToolTip>
                 <ToolTip Content="Select the family sheet"/>
             </ComboBox.ToolTip>
@@ -125,7 +132,9 @@
             Width="200" 
             Background="#FF212933"
             BorderBrush="#FFD8D8D8" 
-            Foreground="#FFD8D8D8" RenderTransformOrigin="0.705,3.3">
+            Foreground="#FFD8D8D8" 
+            RenderTransformOrigin="0.705,3.3" 
+            TabIndex="3">
             <TextBox.ToolTip>
                 <ToolTip Content="Número da primeira folha"/>
             </TextBox.ToolTip>
@@ -140,7 +149,8 @@
             Width="200" 
             Background="#FF212933" 
             BorderBrush="#FFABADB3" 
-            Foreground="#FFD8D8D8">
+            Foreground="#FFD8D8D8" 
+            TabIndex="4">
             <TextBox.ToolTip>
                 <ToolTip Content="Number the last sheet"/>
             </TextBox.ToolTip>
@@ -158,7 +168,8 @@
             Width="200"
             Background="#FF212933"
             BorderBrush="#FFABADB3"
-            Foreground="#FFD8D8D8">
+            Foreground="#FFD8D8D8" 
+            TabIndex="3">
             <TextBox.ToolTip>
                 <ToolTip Content="sufixo do número da folha(Opcional)"/>
             </TextBox.ToolTip>
@@ -172,7 +183,9 @@
             Width="200" 
             Background="#FF212933"
             BorderBrush="#FFD8D8D8" 
-            Foreground="#FFD8D8D8" RenderTransformOrigin="0.705,3.3">
+            Foreground="#FFD8D8D8" 
+            RenderTransformOrigin="0.705,3.3" 
+            TabIndex="2">
             <TextBox.ToolTip>
                 <ToolTip Content="Nome + Prefixo do nome das vistas - EX: PAREDE A"/>
             </TextBox.ToolTip>
@@ -215,7 +228,7 @@
             Width="200"
             Background="#FF212933"
             BorderBrush="#FFABADB3"
-            Foreground="#FFD8D8D8">
+            Foreground="#FFD8D8D8" TabIndex="6">
             <TextBox.ToolTip>
                 <ToolTip Content="Suffix The Sheet Name(Optional)"/>
             </TextBox.ToolTip>
@@ -237,7 +250,7 @@
             Width="200"
             Background="#FF212933"
             BorderBrush="#FFABADB3"
-            Foreground="#FFD8D8D8">
+            Foreground="#FFD8D8D8" TabIndex="7">
             <TextBox.ToolTip>
                 <ToolTip Content="Sufixo do nome da vista(Opcional)"/>
             </TextBox.ToolTip>
@@ -259,7 +272,7 @@
             Width="200"
             Background="#FF212933"
             BorderBrush="#FFABADB3"
-            Foreground="#FFD8D8D8">
+            Foreground="#FFD8D8D8" TabIndex="8">
             <TextBox.ToolTip>
                 <ToolTip Content="Sufixo do nome da vista(Opcional)"/>
             </TextBox.ToolTip>
