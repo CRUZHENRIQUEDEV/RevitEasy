@@ -18,8 +18,7 @@
             Height="570" 
             VerticalAlignment="Center"
             Width="220" 
-            Opacity="0.95" 
-            d:IsLocked="True"/>
+            Opacity="0.95"/>
 
 
         <Label x:Name="Lb_ViewType"
@@ -38,8 +37,7 @@
             Height="29" 
             VerticalAlignment="Top" 
             Width="220" 
-            Background="#FF3A4453" 
-            d:IsLocked="True"/>
+            Background="#FF3A4453"/>
         <Label Content="Sheet Number" 
             HorizontalAlignment="Left" 
             Margin="10,80,0,0"

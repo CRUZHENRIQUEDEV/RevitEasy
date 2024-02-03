@@ -38,25 +38,23 @@ Name: "spanish"; MessagesFile: "compiler:Languages\Spanish.isl"
 
 [Files]
 ; Adicione cópias dos arquivos para outros diretórios
-Source: "D:\OneDrive - Ali\Programas\Autodesk\REVIT\API\RevitEasy\RevitEasy\bin\Debug\RevitEasy.dll"; DestDir: "{userappdata}\Autodesk\REVIT\Addins\2022"; Flags: ignoreversion
-Source: "D:\OneDrive - Ali\Programas\Autodesk\REVIT\API\RevitEasy\RevitEasy\bin\Debug\RevitEasy.dll.config"; DestDir: "{userappdata}\Autodesk\REVIT\Addins\2022"; Flags: ignoreversion
-Source: "D:\OneDrive - Ali\Programas\Autodesk\REVIT\API\RevitEasy\RevitEasy\bin\Debug\RevitEasy.pdb"; DestDir: "{userappdata}\Autodesk\REVIT\Addins\2022"; Flags: ignoreversion
-Source: "D:\OneDrive - Ali\Programas\Autodesk\REVIT\API\RevitEasy\RevitEasy\bin\Debug\RevitEasy.addin"; DestDir: "{userappdata}\Autodesk\REVIT\Addins\2022"; Flags: ignoreversion
+Source: "D:\OneDrive - Ali\Programas\Autodesk\REVIT\API\RevitEasy\RevitEasy\bin\Release\RevitEasy.dll"; DestDir: "{userappdata}\Autodesk\REVIT\Addins\2022"; Flags: ignoreversion
+;Source: "D:\OneDrive - Ali\Programas\Autodesk\REVIT\API\RevitEasy\RevitEasy\bin\Release\RevitEasy.dll.config"; DestDir: "{userappdata}\Autodesk\REVIT\Addins\2022"; Flags: ignoreversion
+Source: "D:\OneDrive - Ali\Programas\Autodesk\REVIT\API\RevitEasy\RevitEasy\bin\Release\RevitEasy.addin"; DestDir: "{userappdata}\Autodesk\REVIT\Addins\2022"; Flags: ignoreversion
 
 ; Adicione cópias dos arquivos para outros diretórios
-Source: "D:\OneDrive - Ali\Programas\Autodesk\REVIT\API\RevitEasy\RevitEasy\bin\Debug\RevitEasy.dll"; DestDir: "{userappdata}\Autodesk\REVIT\Addins\2021"; Flags: ignoreversion
-Source: "D:\OneDrive - Ali\Programas\Autodesk\REVIT\API\RevitEasy\RevitEasy\bin\Debug\RevitEasy.dll.config"; DestDir: "{userappdata}\Autodesk\REVIT\Addins\2021"; Flags: ignoreversion
-Source: "D:\OneDrive - Ali\Programas\Autodesk\REVIT\API\RevitEasy\RevitEasy\bin\Debug\RevitEasy.pdb"; DestDir: "{userappdata}\Autodesk\REVIT\Addins\2021"; Flags: ignoreversion
-Source: "D:\OneDrive - Ali\Programas\Autodesk\REVIT\API\RevitEasy\RevitEasy\bin\Debug\RevitEasy.addin"; DestDir: "{userappdata}\Autodesk\REVIT\Addins\2021"; Flags: ignoreversion
+Source: "D:\OneDrive - Ali\Programas\Autodesk\REVIT\API\RevitEasy\RevitEasy\bin\Release\RevitEasy.dll"; DestDir: "{userappdata}\Autodesk\REVIT\Addins\2021"; Flags: ignoreversion
+;Source: "D:\OneDrive - Ali\Programas\Autodesk\REVIT\API\RevitEasy\RevitEasy\bin\Release\RevitEasy.dll.config"; DestDir: "{userappdata}\Autodesk\REVIT\Addins\2021"; Flags: ignoreversion
+Source: "D:\OneDrive - Ali\Programas\Autodesk\REVIT\API\RevitEasy\RevitEasy\bin\Release\RevitEasy.addin"; DestDir: "{userappdata}\Autodesk\REVIT\Addins\2021"; Flags: ignoreversion
 
-Source: "D:\OneDrive - Ali\Programas\Autodesk\REVIT\API\RevitEasy\RevitEasy\bin\Debug\RevitEasy.dll"; DestDir: "{userappdata}\Autodesk\REVIT\Addins\2023"; Flags: ignoreversion
-Source: "D:\OneDrive - Ali\Programas\Autodesk\REVIT\API\RevitEasy\RevitEasy\bin\Debug\RevitEasy.dll.config"; DestDir: "{userappdata}\Autodesk\REVIT\Addins\2023"; Flags: ignoreversion
-Source: "D:\OneDrive - Ali\Programas\Autodesk\REVIT\API\RevitEasy\RevitEasy\bin\Debug\RevitEasy.pdb"; DestDir: "{userappdata}\Autodesk\REVIT\Addins\2023"; Flags: ignoreversion
-Source: "D:\OneDrive - Ali\Programas\Autodesk\REVIT\API\RevitEasy\RevitEasy\bin\Debug\RevitEasy.addin"; DestDir: "{userappdata}\Autodesk\REVIT\Addins\2023"; Flags: ignoreversion
+Source: "D:\OneDrive - Ali\Programas\Autodesk\REVIT\API\RevitEasy\RevitEasy\bin\Release\RevitEasy.dll"; DestDir: "{userappdata}\Autodesk\REVIT\Addins\2020"; Flags: ignoreversion
+Source: "D:\OneDrive - Ali\Programas\Autodesk\REVIT\API\RevitEasy\RevitEasy\bin\Release\RevitEasy.dll.config"; DestDir: "{userappdata}\Autodesk\REVIT\Addins\2020"; Flags: ignoreversion
+Source: "D:\OneDrive - Ali\Programas\Autodesk\REVIT\API\RevitEasy\RevitEasy\bin\Release\RevitEasy.addin"; DestDir: "{userappdata}\Autodesk\REVIT\Addins\2020"; Flags: ignoreversion
 
-Source: "D:\OneDrive - Ali\Programas\Autodesk\REVIT\API\RevitEasy\RevitEasy\bin\Debug\RevitEasy.dll"; DestDir: "{userappdata}\Autodesk\REVIT\Addins\2024"; Flags: ignoreversion
-Source: "D:\OneDrive - Ali\Programas\Autodesk\REVIT\API\RevitEasy\RevitEasy\bin\Debug\RevitEasy.dll.config"; DestDir: "{userappdata}\Autodesk\REVIT\Addins\2024"; Flags: ignoreversion
-Source: "D:\OneDrive - Ali\Programas\Autodesk\REVIT\API\RevitEasy\RevitEasy\bin\Debug\RevitEasy.pdb"; DestDir: "{userappdata}\Autodesk\REVIT\Addins\2024"; Flags: ignoreversion
-Source: "D:\OneDrive - Ali\Programas\Autodesk\REVIT\API\RevitEasy\RevitEasy\bin\Debug\RevitEasy.addin"; DestDir: "{userappdata}\Autodesk\REVIT\Addins\2024"; Flags: ignoreversion
+Source: "D:\OneDrive - Ali\Programas\Autodesk\REVIT\API\RevitEasy\RevitEasy\bin\Release\RevitEasy.dll"; DestDir: "{userappdata}\Autodesk\REVIT\Addins\2020"; Flags: ignoreversion
+;Source: "D:\OneDrive - Ali\Programas\Autodesk\REVIT\API\RevitEasy\RevitEasy\bin\Release\RevitEasy.dll.config"; DestDir: "{userappdata}\Autodesk\REVIT\Addins\2020"; Flags: ignoreversion
+Source: "D:\OneDrive - Ali\Programas\Autodesk\REVIT\API\RevitEasy\RevitEasy\bin\Release\RevitEasy.addin"; DestDir: "{userappdata}\Autodesk\REVIT\Addins\2020"; Flags: ignoreversion
+
+
 
 ; NOTA: Não use "Flags: ignoreversion" em arquivos de sistema compartilhados

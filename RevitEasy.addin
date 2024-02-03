@@ -9,6 +9,6 @@
 		<Description>Ferramenta para acelerar processos de documentação em Revit</Description>
 		<VisibilityMode>AlwaysVisible</VisibilityMode>
 		<VendorId>HENRIQUE DA CRUZ SILVA</VendorId>
-		<VendorDescription>@MODULOSREVIT</VendorDescription>
+		<VendorDescription>RevitEasy</VendorDescription>
 	</AddIn>
 </RevitAddIns>

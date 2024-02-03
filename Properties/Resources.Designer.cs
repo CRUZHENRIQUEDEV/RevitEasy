@@ -73,6 +73,26 @@ namespace RevitEasy.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap IconAboutButton16x16 {
+            get {
+                object obj = ResourceManager.GetObject("IconAboutButton16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IconAboutButton32x32 {
+            get {
+                object obj = ResourceManager.GetObject("IconAboutButton32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap IconAreasMolhadas {
             get {
                 object obj = ResourceManager.GetObject("IconAreasMolhadas", resourceCulture);

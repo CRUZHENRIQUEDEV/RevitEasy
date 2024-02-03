@@ -361,23 +361,31 @@ namespace RevitEasy
             #endregion
 
             #region CREATE PULLBUTTON - ABOUT
-            // Criando um novo painel dentro da aba "RevitEasy" para "Ferramentas"
+
+            // Criando um novo painel dentro da aba "RevitEasy" para "About"
             RibbonPanel PanelTabAbout = application.CreateRibbonPanel("RevitEasy", "About");
 
-            // Pushbutton "About" no painel "Documentação"
-            PushButtonData AboutButtonData = new PushButtonData("AboutButton", "About", typeof(OpenAboutFormCommand).Assembly.Location, "RevitEasy.OpenAboutFormCommand")
-            {
-                LargeImage = ConvertImage(Properties.Resources.IconAboutButton),
-                ToolTip = "Sobre",
-                LongDescription = "Informações sobre o plugin e detalhes de contato.",
-                ToolTipImage = ConvertImage(Properties.Resources.IconAboutButton)
-            };
+            // Adicionando um PulldownButton para a nova aba "About"
+            PulldownButtonData aboutButtonData = new PulldownButtonData("AboutButton", "About");
+            PulldownButton aboutButton = PanelTabAbout.AddItem(aboutButtonData) as PulldownButton;
+            aboutButton.LargeImage = ConvertImage(Properties.Resources.IconAboutButton32x32);
 
-            ContextualHelp contextualHelpAbout = new ContextualHelp(ContextualHelpType.Url, "https://www.example.com/help");
-            AboutButtonData.SetContextualHelp(contextualHelpAbout);
-            DocumentacaoButton.AddPushButton(AboutButtonData);
+            // Pushbutton para exibir informações sobre o plug-in
+            PushButtonData showInfoButton = new PushButtonData("ShowInfoButton", "About ", typeof(OpenAboutFormCommand).Assembly.Location, "RevitEasy.OpenAboutFormCommand")
+            {
+                LargeImage = ConvertImage(Properties.Resources.IconAboutButton16x16),
+                ToolTip = "Exibe informações sobre o plug-in",
+                LongDescription = "Info",
+                ToolTipImage = ConvertImage(Properties.Resources.RevitApiDocs)
+            };
+            ContextualHelp contextualHelpShowInfo = new ContextualHelp(ContextualHelpType.Url, "https://www.revitapidocs.com/");
+            showInfoButton.SetContextualHelp(contextualHelpShowInfo);
+            aboutButton.AddPushButton(showInfoButton);
+
+            // Adicione mais PushButtonData conforme necessário para outras funcionalidades relacionadas ao "About".
 
             #endregion
+
 
 
             //-----------------------------------------------------------------------------------------------------------------------------------------------
