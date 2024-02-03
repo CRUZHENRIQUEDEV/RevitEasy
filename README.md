@@ -13,6 +13,8 @@ Este é um plugin para automatizar tarefas repetitivas no Software Autodesk Revi
 
 * [Revit API Docs (English)][Revit API Docs]
 
+## Installer
+[https://github.com/CRUZHENRIQUEDEV/RevitEasy/blob/master/0.Installer/RevitEasyInstaller.exe](https://github.com/CRUZHENRIQUEDEV/RevitEasy/tree/master/0.Installer)
 ## Projetos
 
 ### 01 - PullButton ALVENARIA 
