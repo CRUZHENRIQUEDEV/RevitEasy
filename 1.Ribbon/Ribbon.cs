@@ -109,22 +109,21 @@ namespace RevitEasy
 
             //Create panel in tab
 
-            RibbonPanel PanelTabAlvenaria = application.CreateRibbonPanel("RevitEasy", "Projetos de alvenaria");
+            RibbonPanel PanelTabAlvenaria = application.CreateRibbonPanel("RevitEasy", "Wall Projects");
 
+            // Criando uma nova guia (tab) para a nova aba "Wall"
 
-            // Criando uma nova guia (tab) para a nova aba "Alvenaria"
-
-            PulldownButtonData pullDownButtonData = new PulldownButtonData("PullDowndButton", "Alvenaria");
+            PulldownButtonData pullDownButtonData = new PulldownButtonData("PullDowndButton", "Wall");
             PulldownButton pullDownButton = PanelTabAlvenaria.AddItem(pullDownButtonData) as PulldownButton;
             pullDownButton.LargeImage = ConvertImage(Properties.Resources.IconWall);
             #endregion
 
-            #region CREATE PULLDOWNBUTTONS - ALVENARIA
+            #region CREATE PULLDOWNBUTTONS - WALL
             //Pullbutton create sheets
-            PushButtonData CreateSheetButton = new PushButtonData("Criar folhas", "Criar novas folhas", typeof(OpenCreateSheetFormCommand).Assembly.Location, "RevitEasy.OpenCreateSheetFormCommand")
+            PushButtonData CreateSheetButton = new PushButtonData("Create Sheets", "Create New Sheets", typeof(OpenCreateSheetsFormCommand).Assembly.Location, "RevitEasy.OpenCreateSheetsFormCommand")
             {
                 LargeImage = ConvertImage(Properties.Resources.IconDuplicate),
-                ToolTip = "Cria várias folhas",
+                ToolTip = "Create Multiple Sheets",
                 LongDescription = "Cria várias folhas novas no projeto onde o usuário poderá definir número, nome e família das novas folhas",
                 ToolTipImage = ConvertImage(Properties.Resources.RevitApiDocs)
             };
@@ -298,18 +297,18 @@ namespace RevitEasy
 
             #endregion
 
-            #region CREATE PULLBUTTON  - DOCUMENTAÇÃO
+            #region CREATE PULLBUTTON  - Documentation
 
             // Criando um novo painel dentro da aba "RevitEasy" para "Documentação"
-            RibbonPanel PanelTabDocumentacao = application.CreateRibbonPanel("RevitEasy", "Documentação");
+            RibbonPanel PanelTabDocumentacao = application.CreateRibbonPanel("RevitEasy", "Documentation");
 
             // Adicionando um PulldownButton para a nova aba "Documentação"
-            PulldownButtonData DocumentacaoButtonData = new PulldownButtonData("DocumentacaoButton", "Documentação");
+            PulldownButtonData DocumentacaoButtonData = new PulldownButtonData("DocumentationButton", "Documentation");
             PulldownButton DocumentacaoButton = PanelTabDocumentacao.AddItem(DocumentacaoButtonData) as PulldownButton;
             DocumentacaoButton.LargeImage = ConvertImage(Properties.Resources.IconDocument_32x32);
 
             // Pushbutton "Criar Folha" no painel "Documentação"
-            PushButtonData CreateSheetButtonData = new PushButtonData("CriarFolhaButton", "Criar Folha", typeof(OpenCreateSheetFormCommand).Assembly.Location, "RevitEasy.OpenCreateSheetFormCommand")
+            PushButtonData CreateSheetButtonData = new PushButtonData("CriarFolhaButton", "Criar Folha", typeof(OpenCreateSheetsFormCommand).Assembly.Location, "RevitEasy.OpenCreateSheetsFormCommand")
             {
                 LargeImage = ConvertImage(Properties.Resources.NewSheets),
                 ToolTip = "Criar Folhas",
@@ -336,20 +335,14 @@ namespace RevitEasy
             DocumentacaoButton.AddPushButton(DuplicateSchedulesButton);
 
 
-
-
-
-
-
-
             #endregion
 
-            #region CREATE PULLBUTTON  -  FERRAMENTAS
+            #region CREATE PULLBUTTON  -  Tools
             // Criando um novo painel dentro da aba "RevitEasy" para "Ferramentas"
-            RibbonPanel PanelTabTools = application.CreateRibbonPanel("RevitEasy", "Ferramentas");
+            RibbonPanel PanelTabTools = application.CreateRibbonPanel("RevitEasy", "Tools");
 
             // Adicionando um PulldownButton para a nova aba "Ferramentas"
-            PulldownButtonData ToolsButtonData = new PulldownButtonData("ToolsButton", "Ferramentas");
+            PulldownButtonData ToolsButtonData = new PulldownButtonData("ToolsButton", "Tools");
             PulldownButton ToolsButton = PanelTabTools.AddItem(ToolsButtonData) as PulldownButton;
             ToolsButton.LargeImage = ConvertImage(Properties.Resources.IconCalculateButton);
 
@@ -367,6 +360,27 @@ namespace RevitEasy
             ToolsButton.AddPushButton(CoatingCalculateButtonData);  // Correção aqui
             #endregion
 
+            #region CREATE PULLBUTTON - ABOUT
+            // Criando um novo painel dentro da aba "RevitEasy" para "Ferramentas"
+            RibbonPanel PanelTabAbout = application.CreateRibbonPanel("RevitEasy", "About");
+
+            // Pushbutton "About" no painel "Documentação"
+            PushButtonData AboutButtonData = new PushButtonData("AboutButton", "About", typeof(OpenAboutFormCommand).Assembly.Location, "RevitEasy.OpenAboutFormCommand")
+            {
+                LargeImage = ConvertImage(Properties.Resources.IconAboutButton),
+                ToolTip = "Sobre",
+                LongDescription = "Informações sobre o plugin e detalhes de contato.",
+                ToolTipImage = ConvertImage(Properties.Resources.IconAboutButton)
+            };
+
+            ContextualHelp contextualHelpAbout = new ContextualHelp(ContextualHelpType.Url, "https://www.example.com/help");
+            AboutButtonData.SetContextualHelp(contextualHelpAbout);
+            DocumentacaoButton.AddPushButton(AboutButtonData);
+
+            #endregion
+
+
+            //-----------------------------------------------------------------------------------------------------------------------------------------------
 
             #region CRIANDO UM SPLITBUTTON
             //SplitButtonData splitButtonData = new SplitButtonData("SplitButton", "SB 01");

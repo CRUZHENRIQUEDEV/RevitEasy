@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Product Id="*" Name="RevitEasy" Language="1033" Version="0.0.1" Manufacturer="RevitEasy" UpgradeCode="{CF5F3FA5-E146-4293-94D3-AD0795E0660C}">
+
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+		<MajorUpgrade DowngradeErrorMessage="Uma versão mais recente está instalada." />
+
+		<MediaTemplate EmbedCab="yes" />
+
+		<Feature Id="MainFeature" Title="RevitEasy Plugin" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+		</Feature>
+
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="INSTALLFOLDER" Name="RevitEasy" />
+			</Directory>
+		</Directory>
+	</Fragment>
+
+	<Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+			<!-- Adicione aqui os arquivos que deseja incluir no instalador -->
+			<Component Id="RevitEasyDLL" Guid="{5704DB75-2F21-4ADD-8EBA-52868F394928}">
+				<File Source="$(ProjectDir)*.addin" />
+			</Component>
+			<Component Id="RevitEasyBinDLL" Guid="{D0DF17E8-DB8A-4AD1-B152-D8A28F1B123F}">
+				<File Source="$(ProjectDir)bin\debug\*.dll" />
+			</Component>
+		</ComponentGroup>
+	</Fragment>
+</Wix>

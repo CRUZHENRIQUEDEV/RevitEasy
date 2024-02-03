@@ -1,25 +1,40 @@
-﻿using Autodesk.Revit.DB;
-using Autodesk.Revit.UI;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
 using System.Windows.Forms;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
 
-namespace RevitEasy.DuplicateSheduleForm.Forms
+using Autodesk.Revit.DB;
+using Autodesk.Revit.UI;
+
+namespace RevitEasy._5.WPF
 {
-    public partial class CreateSheetForm : System.Windows.Forms.Form
+    /// <summary>
+    /// Interação lógica para CreateSheetsFormWPF.xam
+    /// </summary>
+    public partial class CreateSheetsFormWPF : Window
     {
         private readonly Document doc;
 
         // Construtor do formulário
-        public CreateSheetForm(Document document)
+        public CreateSheetsFormWPF(Document document)
         {
             InitializeComponent();
             doc = document; // Inicializa o documento
         }
 
         // Método chamado ao carregar o formulário
-        private void CreateSheetForm_Load(object sender, EventArgs e)
+        private void CreateSheetFormWPF_Loaded(object sender, RoutedEventArgs e)
         {
             // Carrega os FamilyTypes no ComboBox
             LoadTitleBlocks();
@@ -27,7 +42,8 @@ namespace RevitEasy.DuplicateSheduleForm.Forms
 
         #region Métodos para receber os inputs do formulário e criar as folhas
         // Método chamado quando o botão de criação é clicado
-        private void Btn_create_Click(object sender, EventArgs e)
+
+         private void Btn_create_Click(object sender, RoutedEventArgs e)
         {
             // Obtém o Title Block selecionado no ComboBox
             string selectedTBlock = this.sheet_titleBlock.SelectedItem?.ToString();
@@ -73,6 +89,7 @@ namespace RevitEasy.DuplicateSheduleForm.Forms
                 }
             }
         }
+
         #endregion
 
         #region Métodos para obter os familytypes de Title Blocks
@@ -94,7 +111,7 @@ namespace RevitEasy.DuplicateSheduleForm.Forms
                 // Atualiza o ComboBox apenas se não estiver vazio
                 if (tBlocksNames.Count > 0)
                 {
-                    sheet_titleBlock.DataSource = tBlocksNames;
+                    sheet_titleBlock.ItemsSource = tBlocksNames;
                 }
             }
             catch (Exception ex)
@@ -124,13 +141,8 @@ namespace RevitEasy.DuplicateSheduleForm.Forms
         public string SheetNumberEnds => this.Sheet_number_ends.Text;
         public string SheetNumberSuffix => this.Sheet_number_suffix.Text;
 
-        // Método chamado quando o botão de cancelar é clicado
-        private void Btn_cancel_Click(object sender, EventArgs e)
-        {
-            // Define o resultado do formulário como Cancel e o fecha
-            this.DialogResult = DialogResult.Cancel;
-            Close();
-        }
+       
+      
         #endregion
 
         #region Métodos vazios para eventos que não exigem ação
@@ -141,10 +153,10 @@ namespace RevitEasy.DuplicateSheduleForm.Forms
         private void Sheet_number_TextChanged(object sender, EventArgs e) { }
 
         // Método chamado quando o item selecionado no ComboBox de Title Blocks é alterado
-        private void Sheet_titleBlock_SelectedIndexChanged(object sender, EventArgs e){ }
+        private void Sheet_titleBlock_SelectedIndexChanged(object sender, EventArgs e) { }
         private void Label3_Click(object sender, EventArgs e) { }
         private void Label7_Click(object sender, EventArgs e) { }
-        private void Sheet_number_suffix_TextChanged(object sender, EventArgs e){ }
+        private void Sheet_number_suffix_TextChanged(object sender, EventArgs e) { }
         private void Sheet_name_preffix_TextChanged(object sender, EventArgs e) { }
         private void Sheet_name_TextChanged_1(object sender, EventArgs e) { }
         private void Sheet_name_preffix_TextChanged_1(object sender, EventArgs e) { }
@@ -153,37 +165,8 @@ namespace RevitEasy.DuplicateSheduleForm.Forms
         private void Sheet_number_starts_TextChanged(object sender, EventArgs e) { }
         #endregion
 
-        #region Métodos para nudar a aparencia e verificar se os inputs dos usuários são válidos
-        private void Sheet_number_preffix_Enter(object sender, EventArgs e)
-        {
-            Sheet_number_preffix.BackColor = System.Drawing.Color.LightYellow;
-        }
-
-        private void Sheet_number_preffix_Leave(object sender, EventArgs e)
-        {
-            Sheet_number_preffix.BackColor = System.Drawing.Color.FromArgb(16, 16, 16);
-        }
-
-        private void Sheet_number_starts_Enter(object sender, EventArgs e)
-        {
-            Sheet_number_starts.BackColor = System.Drawing.Color.LightYellow;
-        }
-
-        private void Sheet_number_starts_Leave(object sender, EventArgs e)
-        {
-            Sheet_number_starts.BackColor = System.Drawing.Color.FromArgb(16, 16, 16);
-        }
-
-        private void Sheet_number_ends_Enter(object sender, EventArgs e)
-        {
-            Sheet_number_ends.BackColor = System.Drawing.Color.LightYellow;
-        }
-
-        private void Sheet_number_ends_Leave(object sender, EventArgs e)
-        {
-            Sheet_number_ends.BackColor = System.Drawing.Color.FromArgb(16, 16, 16);
-        }
-
+        #region Métodos para  verificar se os inputs dos usuários são válidos
+       
         private void Sheet_number_starts_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Verifica se a tecla pressionada é um número ou a tecla "Backspace"
@@ -194,24 +177,11 @@ namespace RevitEasy.DuplicateSheduleForm.Forms
             else
             {
                 e.Handled = true; // Ignora a tecla pressionada
-                MessageBox.Show("Digite apenas números inteiros");
+                System.Windows.MessageBox.Show("Digite apenas números inteiros");
+
             }
         }
 
-        private void Sheet_name_suffix_Enter(object sender, EventArgs e)
-        {
-            Sheet_number_ends.BackColor = System.Drawing.Color.LightYellow;
-        }
-
-        private void Sheet_name_suffix_Leave(object sender, EventArgs e)
-        {
-            Sheet_number_ends.BackColor = System.Drawing.Color.FromArgb(16, 16, 16);
-        }
-
-        private void Sheet_number_ends_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void Sheet_number_ends_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -223,23 +193,61 @@ namespace RevitEasy.DuplicateSheduleForm.Forms
             else
             {
                 e.Handled = true; // Ignora a tecla pressionada
-                MessageBox.Show("Digite apenas números inteiros");
+                System.Windows.MessageBox.Show("Digite apenas números inteiros");
             }
             #endregion
 
-
         }
 
-        private void Sheet_titleBlock_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Btn_CancelClick(object sender, EventArgs e)
+        private void Btn_CancelClick(object sender, RoutedEventArgs e)
         {
             // Define o resultado do formulário como Cancel e o fecha
-            this.DialogResult = DialogResult.Cancel;
-            Close();
+            // Fecha o formulário
+            this.Close();
         }
+
+        private void Btn_RenameViews_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Tb_RenameViewNameNumberStarts_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        #region Minimize, Restore, Close window buttons
+
+        private void Btn_CloseClick(object sender, RoutedEventArgs e)
+        {
+            // Fecha o formulário
+            this.Close();
+        }
+
+        private void Btn_RestoreClick(object sender, RoutedEventArgs e)
+        {
+            // Verifica se o formulário está maximizado
+            if (this.WindowState == WindowState.Maximized)
+            {
+                // Restaura para o tamanho normal
+                this.WindowState = WindowState.Normal;
+            }
+            else
+            {
+                // Maximiza o formulário
+                this.WindowState = WindowState.Maximized;
+            }
+        }
+
+        private void Btn_MinimizeClick(object sender, RoutedEventArgs e)
+        {
+            // Minimiza o formulário
+            this.WindowState = WindowState.Minimized;
+        }
+
+        #endregion
+
+
+
     }
 }
