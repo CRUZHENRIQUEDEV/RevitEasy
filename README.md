@@ -5,7 +5,7 @@ Este é o repositório para o plugin de revit que estou desenvolvendo
 - .NETFramework
 
 # Revit API
-Este é um plugin para automatizar que, dentre outras coisas, tem por objetivo tarefas repetitivas no Software Autodesk Revit
+Este é um plugin para automatizar tarefas repetitivas no Software Autodesk Revit
 
 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.pt"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
 
