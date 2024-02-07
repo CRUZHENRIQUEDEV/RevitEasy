@@ -63,29 +63,19 @@ namespace RevitEasy.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap IconAboutButton {
-            get {
-                object obj = ResourceManager.GetObject("IconAboutButton", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap IconAboutButton16x16 {
-            get {
-                object obj = ResourceManager.GetObject("IconAboutButton16x16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap IconAboutButton32x32 {
             get {
                 object obj = ResourceManager.GetObject("IconAboutButton32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IconAboutButton50x50 {
+            get {
+                object obj = ResourceManager.GetObject("IconAboutButton50x50", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +93,9 @@ namespace RevitEasy.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap IconCalculateButton {
+        internal static System.Drawing.Bitmap IconCalculateGif {
             get {
-                object obj = ResourceManager.GetObject("IconCalculateButton", resourceCulture);
+                object obj = ResourceManager.GetObject("IconCalculateGif", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,9 +143,9 @@ namespace RevitEasy.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap IconDocument_32x32 {
+        internal static System.Drawing.Bitmap IconDocument32x32 {
             get {
-                object obj = ResourceManager.GetObject("IconDocument_32x32", resourceCulture);
+                object obj = ResourceManager.GetObject("IconDocument32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -163,19 +153,9 @@ namespace RevitEasy.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap IconDocument_50x50 {
+        internal static System.Drawing.Bitmap IconDuplicate32x32 {
             get {
-                object obj = ResourceManager.GetObject("IconDocument_50x50", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap IconDuplicate {
-            get {
-                object obj = ResourceManager.GetObject("IconDuplicate", resourceCulture);
+                object obj = ResourceManager.GetObject("IconDuplicate32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -276,6 +256,16 @@ namespace RevitEasy.Properties {
         internal static System.Drawing.Bitmap IconTests {
             get {
                 object obj = ResourceManager.GetObject("IconTests", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IconTools32x32 {
+            get {
+                object obj = ResourceManager.GetObject("IconTools32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

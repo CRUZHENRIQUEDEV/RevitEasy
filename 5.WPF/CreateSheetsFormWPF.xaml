@@ -10,7 +10,7 @@
              Background="#FF3A4453" 
              Height="570" 
              Width="220">
-    <Grid Loaded="CreateSheetFormWPF_Loaded">
+    <Grid x:Name="Create" Loaded="CreateSheetFormWPF_Loaded" MouseDown="CreateSheetFormWPF_MouseDown" MouseUp="CreateSheetFormWPF_MouseUp" MouseMove="CreateSheetFormWPF_MouseMove">
         <Border x:Name="ExternalBorderGray"
             BorderBrush="#FF5D5D5D"
             BorderThickness="1,1,1,1"

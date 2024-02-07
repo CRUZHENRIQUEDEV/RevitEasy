@@ -237,15 +237,16 @@
     <None Include="Resources\RevitApiDocs.PNG" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\IconAboutButton.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="0.Installer\RevitEasyInstaller.exe" />
     <Content Include="IconInstaller.ico" />
     <Content Include="Installer.xml" />
     <Content Include="Resources\email_RGB216,216,216.png" />
     <Content Include="Resources\github_216_216_216.png" />
     <Content Include="Resources\IconAboutButton16x16.png" />
+    <None Include="Resources\IconCalculateGif.gif" />
+    <None Include="Resources\IconDocument32x32.png" />
+    <None Include="Resources\IconTools32x32.png" />
+    <None Include="Resources\IconAboutButton50x50.png" />
     <None Include="Resources\IconDuplicateViews32x32.png" />
     <None Include="Resources\IconAboutButton32x32.png" />
   </ItemGroup>

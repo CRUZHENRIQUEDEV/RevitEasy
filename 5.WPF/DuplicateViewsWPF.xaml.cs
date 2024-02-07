@@ -218,8 +218,12 @@ namespace RevitEasy._5.WPF
             this.Close();
         }
 
+
         #endregion
 
+        private void Lb_DuplicateViewPreffixName_TextChanged(object sender, TextChangedEventArgs e)
+        {
 
+        }
     }
 }

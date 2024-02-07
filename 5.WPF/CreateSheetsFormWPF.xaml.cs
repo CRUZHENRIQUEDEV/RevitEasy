@@ -24,6 +24,35 @@ namespace RevitEasy._5.WPF
     /// </summary>
     public partial class CreateSheetsFormWPF : Window
     {
+        #region Método para mover janela com o mouse ao clicar e arrastar
+        bool move = false;
+        Autodesk.Revit.DB.UV initialPosition; 
+
+        private void CreateSheetFormWPF_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            if (move)
+            {
+                Autodesk.Revit.DB.UV novo = new Autodesk.Revit.DB.UV(e.GetPosition(this).X, e.GetPosition(this).Y);
+                this.Left = novo.U - initialPosition.U;
+                this.Top = novo.V - initialPosition.V;
+            }
+        }
+
+        private void CreateSheetFormWPF_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            move = true;
+            initialPosition = new Autodesk.Revit.DB.UV(e.GetPosition(this).X, e.GetPosition(this).Y);
+        }
+
+        private void CreateSheetFormWPF_MouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            move = false;
+        }
+
+        #endregion
+
+
+
         private readonly Document doc;
 
         // Construtor do formulário
@@ -245,9 +274,10 @@ namespace RevitEasy._5.WPF
             this.WindowState = WindowState.Minimized;
         }
 
+
+
         #endregion
 
-
-
+        
     }
 }
