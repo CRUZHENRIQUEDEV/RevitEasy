@@ -4,6 +4,9 @@ Este é o repositório para o plugin de revit que estou desenvolvendo
 -  Visual Studio 
 - .NETFramework
 
+ ![image](https://github.com/CRUZHENRIQUEDEV/RevitEasy/assets/143232644/d9c33d86-957c-437e-8306-9f5ba47bceb8)
+
+
 # Revit API
 Este é um plugin para automatizar tarefas repetitivas no Software Autodesk Revit
 
@@ -17,18 +20,41 @@ Este é um plugin para automatizar tarefas repetitivas no Software Autodesk Revi
 [https://github.com/CRUZHENRIQUEDEV/RevitEasy/blob/master/0.Installer/RevitEasyInstaller.exe](https://github.com/CRUZHENRIQUEDEV/RevitEasy/tree/master/0.Installer)
 ## Projetos
 
-### 01 - PullButton ALVENARIA 
-01.1 Rename multiple Views
+### 01 - PullButton Wall
+01.1 Create multiple Sheets
 
-![image](https://github.com/CRUZHENRIQUEDEV/RevitEasy/assets/143232644/b72b2bbb-2564-436f-b0ef-cfb2a3a0d241)
+![image](https://github.com/CRUZHENRIQUEDEV/RevitEasy/assets/143232644/d68ad2a6-9373-48ad-9e5f-299486bb98ed)
+
+01.2 Rename Multiple Views
+
+![image](https://github.com/CRUZHENRIQUEDEV/RevitEasy/assets/143232644/4dd84a72-8518-4e48-96b0-0ae8f2733a60)
+
+01.3 Place Views On Sheets (under development)
+
+01.4 Insert Schedules in Sheets Views(under development)
+
+01.5 Place Views and Schedules on Sheets(under development)
+
+01.6 Rename multiple Schedules(under development)
+
+01.7 Rename Multiple Sheets(under development)
+
+### 02 - PullButton Áreas molhadas (under development)
+
+### 03 - PullButton Documentation
+
+03.1 Create multiple Sheets 
 
 
-### 02 - PullButton Documentation
-02.1 Create multiple Sheets 
+![image](https://github.com/CRUZHENRIQUEDEV/RevitEasy/assets/143232644/d68ad2a6-9373-48ad-9e5f-299486bb98ed)
 
-![image](https://github.com/CRUZHENRIQUEDEV/RevitEasy/assets/143232644/7967e77a-63ef-4c93-87f2-6aedb7729d1e)
+03.2 Duplicate Shedules 
 
+![image](https://github.com/CRUZHENRIQUEDEV/RevitEasy/assets/143232644/8eabfb33-9701-4287-be28-9ff2edee7a11)
 
+03.3 Duplicate Views 
+
+![image](https://github.com/CRUZHENRIQUEDEV/RevitEasy/assets/143232644/82239086-e22c-40a2-9b31-df4eeae6ebaf)
 
 
 
