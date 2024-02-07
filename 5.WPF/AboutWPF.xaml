@@ -19,7 +19,7 @@
             Height="400" 
             VerticalAlignment="Center"
             Width="500" 
-            Opacity="0.95"/>
+            Opacity="0.95" d:IsLocked="True"/>
 
 
         <Border BorderBrush="#FFD8D8D8" 
@@ -75,7 +75,7 @@
             </Grid>
         </Border>
         <Label x:Name="Lb_TitleCreateSheets_Copiar" 
-            Content="Revit Easy Version 0.01 BETA"
+            Content="Revit Easy Version 0.02 - BETA"
             HorizontalAlignment="Left" 
             Margin="3,34,0,0" 
             VerticalAlignment="Top" 
@@ -86,13 +86,11 @@
             FontWeight="Bold"/>
         <Button x:Name="Btn_Github" Content="" BorderBrush="{x:Null}" Width="25" Height="25" Margin="6,366,470,9" Background="{x:Null}"/>
 
+        <Button x:Name="Btn_Email"
+                Content="" BorderBrush="{x:Null}" Height="20" Margin="6,336,466,44" Background="{x:Null}"/>
         <TextBlock Margin="41,371,176,13" 
                    Text="https://github.com/CRUZHENRIQUEDEV/RevitEasy" 
                    Foreground="#FFD8D8D8"/>
-
-        <Button x:Name="Btn_Email"
-                Content="" BorderBrush="{x:Null}" Height="20" Margin="6,336,466,44" Background="{x:Null}"/>
-
         <Label Content="Henriquecruz.dev@gmail.com" 
                HorizontalAlignment="Left"
                Height="27" 
@@ -100,6 +98,9 @@
                Width="169"
                Background="{x:Null}"
                Foreground="#FFD8D8D8"
-               Margin="35,333,0,0"/>
+               Margin="41,336,0,0"/>
+        <TextBlock Margin="41,312,176,72" 
+            Text="https://www.linkedin.com/in/henriquecruzarq/" 
+            Foreground="#FFD8D8D8"/>
     </Grid>
 </Window>

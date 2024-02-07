@@ -51,6 +51,14 @@
             <ColumnDefinition Width="25*"/>
         </Grid.ColumnDefinitions>
 
+        <Border BorderBrush="#FFD8D8D8"
+                BorderThickness="1"
+                HorizontalAlignment="Left"
+                Height="29"
+                VerticalAlignment="Center"
+                Width="220"
+                Background="#FF3A4453" Grid.ColumnSpan="3"/>
+
         <ComboBox x:Name="Cb_InsertViewOnSheetsViewViewType"
              HorizontalAlignment="Left"
              Height="20"
@@ -72,7 +80,7 @@
                 HorizontalAlignment="Left"
                 Height="450"
                 VerticalAlignment="Top"
-                Width="220" Grid.ColumnSpan="3" Grid.RowSpan="4" d:IsHidden="True"/>
+                Width="220" Grid.ColumnSpan="3" Grid.RowSpan="4"/>
 
         <Border x:Name="ExternalBorderGray"
                 BorderBrush="#FF5D5D5D"
@@ -81,7 +89,7 @@
                 Height="460"
                 VerticalAlignment="Top"
                 Width="220"
-                Opacity="0.95" Grid.ColumnSpan="3" Grid.RowSpan="4" d:IsHidden="True"/>
+                Opacity="0.95" Grid.ColumnSpan="3" Grid.RowSpan="4"/>
 
         <Label x:Name="Lb_View_Type"
                Content="View Type"
@@ -90,14 +98,6 @@
                BorderBrush="#FFD8D8D8"
                Background="{x:Null}"
                Foreground="#FFD8D8D8" Grid.Column="1" Grid.Row="1"/>
-
-        <Border BorderBrush="#FFD8D8D8"
-                BorderThickness="1"
-                HorizontalAlignment="Left"
-                Height="29"
-                VerticalAlignment="Center"
-                Width="220"
-                Background="#FF3A4453" Grid.ColumnSpan="3" d:IsHidden="True"/>
 
         <Label x:Name="Nome_do_parametro_para_filtrar"
                Content="Parameter name to filter"
@@ -302,6 +302,24 @@
                BorderBrush="#FFD8D8D8"
                Background="{x:Null}"
                Foreground="#FFD8D8D8" Grid.Column="1" Grid.Row="1"/>
+        <Border x:Name="Manage_Window" Height="NaN" Margin="71,2,8,2" Grid.Column="2">
+            <Grid>
+                <Button x:Name="Btn_Restore" Content="2" Margin="16,-1,12,2" Click="Btn_RestoreClick" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}" Height="25" FontFamily="Marlett" FontSize="13"/>
+                <Button x:Name="Btn_Minimize" Content="0" Margin="0,0,31,1" Click="Btn_MinimizeClick" Background="{x:Null}" Foreground="#FFD8D8DA" BorderBrush="{x:Null}" Width="15" Height="25" FontSize="10" FontFamily="Marlett"/>
+                <Button x:Name="Btn_Close" Content="r" Margin="31,1,0,0" Click="Btn_CloseClick" Background="{x:Null}" Foreground="#FFD8D8DA" BorderBrush="{x:Null}" Width="15" Height="25" FontSize="10" FontFamily="Marlett"/>
+
+            </Grid>
+        </Border>
+        <Label x:Name="Lb_TitleRenomearVistas_Copiar"
+            Content="in development"
+            HorizontalAlignment="Left"
+            Margin="64,29,0,0"
+            VerticalAlignment="Top"
+            BorderBrush="#FFD8D8D8"
+            Background="{x:Null}"
+            Foreground="#FFD8D8D8"
+            FontSize="14"
+            FontWeight="Bold" Grid.ColumnSpan="2" Grid.Column="1" Grid.RowSpan="2"/>
 
 
     </Grid>

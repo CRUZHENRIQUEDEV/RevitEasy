@@ -243,6 +243,14 @@
                 <ToolTip Content="Sufixo do nome da vista(Opcional)"/>
             </TextBox.ToolTip>
         </TextBox>
+        <Border x:Name="Manage_Window" Height="NaN" Margin="166,2,8,422">
+            <Grid>
+                <Button x:Name="Btn_Restore" Content="2" Margin="16,-1,12,2" Click="Btn_RestoreClick" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}" Height="25" FontFamily="Marlett" FontSize="13"/>
+                <Button x:Name="Btn_Minimize" Content="0" Margin="0,0,31,1" Click="Btn_MinimizeClick" Background="{x:Null}" Foreground="#FFD8D8DA" BorderBrush="{x:Null}" Width="15" Height="25" FontSize="10" FontFamily="Marlett"/>
+                <Button x:Name="Btn_Close" Content="r" Margin="31,1,0,0" Click="Btn_CloseClick" Background="{x:Null}" Foreground="#FFD8D8DA" BorderBrush="{x:Null}" Width="15" Height="25" FontSize="10" FontFamily="Marlett"/>
+
+            </Grid>
+        </Border>
 
     </Grid>
 </Window>

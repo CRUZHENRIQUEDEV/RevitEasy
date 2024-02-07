@@ -46,7 +46,7 @@ namespace RevitEasy
             //pushButton.LongDescription = "Esta sera la descipcion larga del PushButton";
             //pushButton.ToolTipImage = ConvertImage(Properties.Resources.RevitApiDocs);
 
-            //ContextualHelp ayudaContextual = new ContextualHelp(ContextualHelpType.Url, "https://www.revitapidocs.com/");
+            //ContextualHelp ayudaContextual = new ContextualHelp(ContextualHelpType.Url, "https://github.com/CRUZHENRIQUEDEV/RevitEasy");
             //pushButton.SetContextualHelp(ayudaContextual);
 
             //pushButton.LargeImage = ConvertImage(Properties.Resources.IconoDePushButton);
@@ -64,7 +64,7 @@ namespace RevitEasy
             //datosDelPushButton02.ToolTip = "Esta sera la descripcion corta del PushBotton";
             //datosDelPushButton02.LongDescription = "Esta sera la descipcion larga del PushButton";
             //datosDelPushButton02.ToolTipImage = ConvertImage(Properties.Resources.RevitApiDocs);
-            //ContextualHelp ayudaContextual02 = new ContextualHelp(ContextualHelpType.Url, "https://www.revitapidocs.com/");
+            //ContextualHelp ayudaContextual02 = new ContextualHelp(ContextualHelpType.Url, "https://github.com/CRUZHENRIQUEDEV/RevitEasy");
             //datosDelPushButton02.SetContextualHelp(ayudaContextual02);
 
             ////Colocando el PushButton dentro del Panel
@@ -86,7 +86,7 @@ namespace RevitEasy
             ////datosDelPushButton03.ToolTip = "Esta sera la descripcion corta del PushBotton";
             ////datosDelPushButton03.LongDescription = "Esta sera la descipcion larga del PushButton";
             ////datosDelPushButton03.ToolTipImage = ConvertImage(Properties.Resources.RevitApiDocs);
-            ////ContextualHelp ayudaContextual03 = new ContextualHelp(ContextualHelpType.Url, "https://www.revitapidocs.com/");
+            ////ContextualHelp ayudaContextual03 = new ContextualHelp(ContextualHelpType.Url, "https://github.com/CRUZHENRIQUEDEV/RevitEasy");
             ////datosDelPushButton03.SetContextualHelp(ayudaContextual03);
             ////pullDownButton.AddPushButton(datosDelPushButton03);
 
@@ -96,7 +96,7 @@ namespace RevitEasy
             ////datosDelPushButton04.ToolTip = "Esta sera la descripcion corta del PushBotton";
             ////datosDelPushButton04.LongDescription = "Esta sera la descipcion larga del PushButton";
             ////datosDelPushButton04.ToolTipImage = ConvertImage(Properties.Resources.RevitApiDocs);
-            ////ContextualHelp ayudaContextual04 = new ContextualHelp(ContextualHelpType.Url, "https://www.revitapidocs.com/");
+            ////ContextualHelp ayudaContextual04 = new ContextualHelp(ContextualHelpType.Url, "https://github.com/CRUZHENRIQUEDEV/RevitEasy");
             ////datosDelPushButton04.SetContextualHelp(ayudaContextual04);
             ////pullDownButton.AddPushButton(datosDelPushButton04);
 
@@ -116,43 +116,44 @@ namespace RevitEasy
             PulldownButtonData pullDownButtonData = new PulldownButtonData("PullDowndButton", "Wall");
             PulldownButton pullDownButton = PanelTabAlvenaria.AddItem(pullDownButtonData) as PulldownButton;
             pullDownButton.LargeImage = ConvertImage(Properties.Resources.IconWall);
+
             #endregion
 
             #region CREATE PULLDOWNBUTTONS - WALL
             //Pullbutton create sheets
-            PushButtonData CreateSheetButton = new PushButtonData("Create Sheets", "Create New Sheets", typeof(OpenCreateSheetsFormCommand).Assembly.Location, "RevitEasy.OpenCreateSheetsFormCommand")
+            PushButtonData CreateSheetButton = new PushButtonData("Create Sheets", "Create Sheets", typeof(OpenCreateSheetsFormCommand).Assembly.Location, "RevitEasy.OpenCreateSheetsFormCommand")
             {
                 LargeImage = ConvertImage(Properties.Resources.IconDuplicate),
                 ToolTip = "Create Multiple Sheets",
-                LongDescription = "Cria várias folhas novas no projeto onde o usuário poderá definir número, nome e família das novas folhas",
+                LongDescription = "Creates multiple new sheets in the project where the user can define the number, name and family of the new sheets",
                 ToolTipImage = ConvertImage(Properties.Resources.RevitApiDocs)
             };
-            ContextualHelp ayudaContextual03 = new ContextualHelp(ContextualHelpType.Url, "https://www.revitapidocs.com/");
+            ContextualHelp ayudaContextual03 = new ContextualHelp(ContextualHelpType.Url, "https://github.com/CRUZHENRIQUEDEV/RevitEasy");
             CreateSheetButton.SetContextualHelp(ayudaContextual03);
             pullDownButton.AddPushButton(CreateSheetButton);
 
 
             // Pushbutton renomear vistas
-            PushButtonData RenameViewsButton = new PushButtonData("RenomearVistas", "Renomear Vistas", typeof(OpenRenameViewsFormCommand).Assembly.Location, "RevitEasy.OpenRenameViewsFormCommand")
+            PushButtonData RenameViewsButton = new PushButtonData("RenameViews", "Rename Views", typeof(OpenRenameViewsFormCommand).Assembly.Location, "RevitEasy.OpenRenameViewsFormCommand")
             {
                 LargeImage = ConvertImage(Properties.Resources.IconRename),
-                ToolTip = "Renomeia as vistas existentes",
-                LongDescription = "Renomeia as vistas existentes de acordo um parametro de instancia contido nas vistas ",
+                ToolTip = "Rename selected Views",
+                LongDescription = "Renames selected views according to an instance parameter contained in the views",
                 ToolTipImage = ConvertImage(Properties.Resources.RevitApiDocs)
             };
-            ContextualHelp contextualHelpRenameViews = new ContextualHelp(ContextualHelpType.Url, "https://www.revitapidocs.com/");
+            ContextualHelp contextualHelpRenameViews = new ContextualHelp(ContextualHelpType.Url, "https://github.com/CRUZHENRIQUEDEV/RevitEasy");
             RenameViewsButton.SetContextualHelp(contextualHelpRenameViews);
             pullDownButton.AddPushButton(RenameViewsButton);
 
             // Pushbutton inserir vistas nas folhas
-            PushButtonData InsertViewsOnSheetsButton = new PushButtonData("InserirVistasNasFolhas", "Inserir Vistas nas Folhas", typeof(OpenInsertViewsOnSheetsFormCommand).Assembly.Location, "RevitEasy.OpenInsertViewsOnSheetsFormCommand")
+            PushButtonData InsertViewsOnSheetsButton = new PushButtonData("PlaceViewsOnSheet", "Place Views On Sheet", typeof(OpenInsertViewsOnSheetsFormCommand).Assembly.Location, "RevitEasy.OpenInsertViewsOnSheetsFormCommand")
             {
                 LargeImage = ConvertImage(Properties.Resources.IconInsertViewOnSheet),
-                ToolTip = "Insere as vistas nas folhas",
-                LongDescription = "Insere as vistas nas folhas de acordo com algum critério",
+                ToolTip = "Place Views On Sheet",
+                LongDescription = "Place selected Views Views On Sheet",
                 ToolTipImage = ConvertImage(Properties.Resources.RevitApiDocs)
             };
-            ContextualHelp contextualHelpInsertViews = new ContextualHelp(ContextualHelpType.Url, "https://www.revitapidocs.com/");
+            ContextualHelp contextualHelpInsertViews = new ContextualHelp(ContextualHelpType.Url, "https://github.com/CRUZHENRIQUEDEV/RevitEasy");
             InsertViewsOnSheetsButton.SetContextualHelp(contextualHelpInsertViews);
             pullDownButton.AddPushButton(InsertViewsOnSheetsButton);
 
@@ -165,43 +166,43 @@ namespace RevitEasy
                 ToolTipImage = ConvertImage(Properties.Resources.RevitApiDocs)
             };
             PushButtonData InsertSchedulesInSheetsButton = pushButtonData;
-            ContextualHelp contextualHelpInsertTables = new ContextualHelp(ContextualHelpType.Url, "https://www.revitapidocs.com/");
+            ContextualHelp contextualHelpInsertTables = new ContextualHelp(ContextualHelpType.Url, "https://github.com/CRUZHENRIQUEDEV/RevitEasy");
             InsertSchedulesInSheetsButton.SetContextualHelp(contextualHelpInsertTables);
             pullDownButton.AddPushButton(InsertSchedulesInSheetsButton);
 
             // Pushbutton inserir tabelas e elevações nas folhas
-            PushButtonData InsertSchedulesAndViewsInSheetsButton = new PushButtonData("InserirTabelasElevacoesNasFolhas", "Inserir Tabelas e Elevações nas Folhas", typeof(Ribbon).Assembly.Location, "RevitEasy.ToolsInDevelopment")
+            PushButtonData InsertSchedulesAndViewsInSheetsButton = new PushButtonData("PlaceViewsAndSchedulesOnSheets", "Place Views And Schedules On Sheets", typeof(Ribbon).Assembly.Location, "RevitEasy.ToolsInDevelopment")
             {
                 LargeImage = ConvertImage(Properties.Resources.IconInsertColun),
-                ToolTip = "Insere tabelas e elevações nas folhas",
-                LongDescription = "Insere tabelas e elevações nas folhas de acordo com algum critério",
+                ToolTip = "Place Views And Schedules On Sheets",
+                LongDescription = "Place selected Views And Schedules On Sheets",
                 ToolTipImage = ConvertImage(Properties.Resources.RevitApiDocs)
             };
-            ContextualHelp contextualHelpInsertSchedulesAndViews = new ContextualHelp(ContextualHelpType.Url, "https://www.revitapidocs.com/");
+            ContextualHelp contextualHelpInsertSchedulesAndViews = new ContextualHelp(ContextualHelpType.Url, "https://github.com/CRUZHENRIQUEDEV/RevitEasy");
             InsertSchedulesAndViewsInSheetsButton.SetContextualHelp(contextualHelpInsertSchedulesAndViews);
             pullDownButton.AddPushButton(InsertSchedulesAndViewsInSheetsButton);
 
             // Pushbutton para renomear tabelas
-            PushButtonData RenameSchedulesButton = new PushButtonData("RenomearTabelas", "Renomear Tabelas", typeof(Ribbon).Assembly.Location, "RevitEasy.ToolsInDevelopment")
+            PushButtonData RenameSchedulesButton = new PushButtonData("RenameSchedules", "Rename Schedules", typeof(Ribbon).Assembly.Location, "RevitEasy.ToolsInDevelopment")
             {
                 LargeImage = ConvertImage(Properties.Resources.IconInsertColun),
-                ToolTip = "Renomeia tabelas existentes",
+                ToolTip = "Rename Schedules",
                 LongDescription = "Renomeia tabelas existentes com novos nomes e critérios",
                 ToolTipImage = ConvertImage(Properties.Resources.RevitApiDocs)
             };
-            ContextualHelp contextualHelpRenameSchedules = new ContextualHelp(ContextualHelpType.Url, "https://www.revitapidocs.com/");
+            ContextualHelp contextualHelpRenameSchedules = new ContextualHelp(ContextualHelpType.Url, "https://github.com/CRUZHENRIQUEDEV/RevitEasy");
             RenameSchedulesButton.SetContextualHelp(contextualHelpRenameSchedules);
             pullDownButton.AddPushButton(RenameSchedulesButton);
 
             // Pushbutton para renomear folhas
-            PushButtonData RenameSheetsButton = new PushButtonData("RenomearFolhas", "Renomear Folhas", typeof(Ribbon).Assembly.Location, "RevitEasy.ToolsInDevelopment")
+            PushButtonData RenameSheetsButton = new PushButtonData("Rename Sheets", "Rename Sheets", typeof(Ribbon).Assembly.Location, "RevitEasy.ToolsInDevelopment")
             {
                 LargeImage = ConvertImage(Properties.Resources.IconRename),
-                ToolTip = "Renomeia folhas existentes",
-                LongDescription = "Renomeia folhas existentes com novos nomes e  números",
+                ToolTip = "Rename Sheets",
+                LongDescription = "Rename Sheets and numbers",
                 ToolTipImage = ConvertImage(Properties.Resources.RevitApiDocs)
             };
-            ContextualHelp contextualHelpRenameSheets = new ContextualHelp(ContextualHelpType.Url, "https://www.revitapidocs.com/");
+            ContextualHelp contextualHelpRenameSheets = new ContextualHelp(ContextualHelpType.Url, "https://github.com/CRUZHENRIQUEDEV/RevitEasy");
             RenameSheetsButton.SetContextualHelp(contextualHelpRenameSheets);
             pullDownButton.AddPushButton(RenameSheetsButton);
 
@@ -209,9 +210,6 @@ namespace RevitEasy
             #endregion
 
             #region CREATE PULLDOWNBUTTON -  ÁREAS MOLHADAS
-
-
-
 
             // Criando um novo painel dentro da aba "RevitEasy" para "Áreas Molhadas"
             RibbonPanel PanelTabAreasMolhadas = application.CreateRibbonPanel("RevitEasy", "Áreas Molhadas");
@@ -230,7 +228,7 @@ namespace RevitEasy
                 LongDescription = "Cria chamadas de detalhe, elevações, vista 3D, folhas, inserir vistas nas folhas de acordo com o nome da planta",
                 ToolTipImage = ConvertImage(Properties.Resources.RevitApiDocs)
             };
-            ContextualHelp contextualHelpCreateAllAreasMolhadas = new ContextualHelp(ContextualHelpType.Url, "https://www.revitapidocs.com/");
+            ContextualHelp contextualHelpCreateAllAreasMolhadas = new ContextualHelp(ContextualHelpType.Url, "https://github.com/CRUZHENRIQUEDEV/RevitEasy");
             CreateAllAreasMolhadas.SetContextualHelp(contextualHelpCreateAllAreasMolhadas);
             areasMolhadasButton.AddPushButton(CreateAllAreasMolhadas);
 
@@ -244,7 +242,7 @@ namespace RevitEasy
                 LongDescription = "Cria chamadas de detalhe das plantas de acordo com o nome da planta",
                 ToolTipImage = ConvertImage(Properties.Resources.RevitApiDocs)
             };
-            ContextualHelp contextualHelpCreateCallout = new ContextualHelp(ContextualHelpType.Url, "https://www.revitapidocs.com/");
+            ContextualHelp contextualHelpCreateCallout = new ContextualHelp(ContextualHelpType.Url, "https://github.com/CRUZHENRIQUEDEV/RevitEasy");
             CreateCalloutButton.SetContextualHelp(contextualHelpCreateCallout);
             areasMolhadasButton.AddPushButton(CreateCalloutButton);
 
@@ -256,7 +254,7 @@ namespace RevitEasy
                 LongDescription = "Cria elevações dentro das chamadas de detalhe de acordo com o nome da planta",
                 ToolTipImage = ConvertImage(Properties.Resources.RevitApiDocs)
             };
-            ContextualHelp contextualHelpCreateElevations = new ContextualHelp(ContextualHelpType.Url, "https://www.revitapidocs.com/");
+            ContextualHelp contextualHelpCreateElevations = new ContextualHelp(ContextualHelpType.Url, "https://github.com/CRUZHENRIQUEDEV/RevitEasy");
             CreateElevationsButton.SetContextualHelp(contextualHelpCreateElevations);
             areasMolhadasButton.AddPushButton(CreateElevationsButton);
 
@@ -268,7 +266,7 @@ namespace RevitEasy
                 LongDescription = "Renomeia elevações de áreas molhadas de acordo com o nome da planta",
                 ToolTipImage = ConvertImage(Properties.Resources.RevitApiDocs)
             };
-            ContextualHelp contextualHelpRenameElevations = new ContextualHelp(ContextualHelpType.Url, "https://www.revitapidocs.com/");
+            ContextualHelp contextualHelpRenameElevations = new ContextualHelp(ContextualHelpType.Url, "https://github.com/CRUZHENRIQUEDEV/RevitEasy");
             RenameElevationsButton.SetContextualHelp(contextualHelpRenameElevations);
             areasMolhadasButton.AddPushButton(RenameElevationsButton);
 
@@ -307,12 +305,12 @@ namespace RevitEasy
             PulldownButton DocumentacaoButton = PanelTabDocumentacao.AddItem(DocumentacaoButtonData) as PulldownButton;
             DocumentacaoButton.LargeImage = ConvertImage(Properties.Resources.IconDocument_32x32);
 
-            // Pushbutton "Criar Folha" no painel "Documentação"
-            PushButtonData CreateSheetButtonData = new PushButtonData("CriarFolhaButton", "Criar Folha", typeof(OpenCreateSheetsFormCommand).Assembly.Location, "RevitEasy.OpenCreateSheetsFormCommand")
+            // Pushbutton "Create Sheet" no painel "Documentation"
+            PushButtonData CreateSheetButtonData = new PushButtonData("CriarFolhaButton", "Create Sheets", typeof(OpenCreateSheetsFormCommand).Assembly.Location, "RevitEasy.OpenCreateSheetsFormCommand")
             {
                 LargeImage = ConvertImage(Properties.Resources.NewSheets),
-                ToolTip = "Criar Folhas",
-                LongDescription = "Abre o formulário para criar diversas folhas no projeto ",
+                ToolTip = "Create Sheets",
+                LongDescription = "Create Multiple Sheets ",
                 ToolTipImage = ConvertImage(Properties.Resources.NewSheets)
             };
 
@@ -322,17 +320,30 @@ namespace RevitEasy
 
 
             // Pushbutton "Criar Tabela" no painel "Documentação"
-            PushButtonData DuplicateSchedulesButton = new PushButtonData("DuplicastabelasButton", "Duplicar uma tabela", typeof(OpenDuplicateScheduleFormCommand).Assembly.Location, "RevitEasy.OpenDuplicateScheduleFormCommand")
+            PushButtonData DuplicateSchedulesButton = new PushButtonData("DuplicastabelasButton", "Duplicate Schedules", typeof(OpenDuplicateScheduleFormCommand).Assembly.Location, "RevitEasy.OpenDuplicateScheduleFormCommand")
             {
                 LargeImage = ConvertImage(Properties.Resources.IconDuplicate),
-                ToolTip = "Duplica uma tabela existente",
-                LongDescription = "Duplica uma tabela existente criando novos nomes e filtros inseridos",
+                ToolTip = "Duplicate Schedules",
+                LongDescription = "Rename Schedules and apply new values for filters",
                 ToolTipImage = ConvertImage(Properties.Resources.RevitApiDocs)
             };
 
             ContextualHelp contextualHelpDuplicateSchedules = new ContextualHelp(ContextualHelpType.Url, "https://www.example.com/help");
             DuplicateSchedulesButton.SetContextualHelp(contextualHelpDuplicateSchedules);
             DocumentacaoButton.AddPushButton(DuplicateSchedulesButton);
+
+            // Pushbutton "Duplicate Views" no painel "Documentação"
+            PushButtonData DuplicateViewsButtonData = new PushButtonData("DuplicateViewsButton", "Duplicate Views", typeof(OpenDuplicateViewsFormCommand).Assembly.Location, "RevitEasy.OpenDuplicateViewsFormCommand")
+            {
+                LargeImage = ConvertImage(Properties.Resources.IconDuplicateViews32x32),
+                ToolTip = "Duplicate Views",
+                LongDescription = "Duplicate Multiple Views",
+                ToolTipImage = ConvertImage(Properties.Resources.IconDuplicateViews32x32)
+            };
+
+            ContextualHelp contextualHelpDuplicateViews = new ContextualHelp(ContextualHelpType.Url, "https://www.example.com/duplicate-views-help");
+            DuplicateViewsButtonData.SetContextualHelp(contextualHelpDuplicateViews);
+            DocumentacaoButton.AddPushButton(DuplicateViewsButtonData);
 
 
             #endregion
@@ -378,7 +389,7 @@ namespace RevitEasy
                 LongDescription = "Info",
                 ToolTipImage = ConvertImage(Properties.Resources.RevitApiDocs)
             };
-            ContextualHelp contextualHelpShowInfo = new ContextualHelp(ContextualHelpType.Url, "https://www.revitapidocs.com/");
+            ContextualHelp contextualHelpShowInfo = new ContextualHelp(ContextualHelpType.Url, "https://github.com/CRUZHENRIQUEDEV/RevitEasy");
             showInfoButton.SetContextualHelp(contextualHelpShowInfo);
             aboutButton.AddPushButton(showInfoButton);
 
@@ -401,7 +412,7 @@ namespace RevitEasy
             //datosDelPushButton05.ToolTip = "Esta sera la descripcion corta del PushBotton";
             //datosDelPushButton05.LongDescription = "Esta sera la descipcion larga del PushButton";
             //datosDelPushButton05.ToolTipImage = ConvertImage(Properties.Resources.RevitApiDocs);
-            //ContextualHelp ayudaContextual05 = new ContextualHelp(ContextualHelpType.Url, "https://www.revitapidocs.com/");
+            //ContextualHelp ayudaContextual05 = new ContextualHelp(ContextualHelpType.Url, "https://github.com/CRUZHENRIQUEDEV/RevitEasy");
             //datosDelPushButton05.SetContextualHelp(ayudaContextual05);
             //splitButton.AddPushButton(datosDelPushButton05);
 
@@ -411,7 +422,7 @@ namespace RevitEasy
             //datosDelPushButton06.ToolTip = "Esta sera la descripcion corta del PushBotton";
             //datosDelPushButton06.LongDescription = "Esta sera la descipcion larga del PushButton";
             //datosDelPushButton06.ToolTipImage = ConvertImage(Properties.Resources.RevitApiDocs);
-            //ContextualHelp ayudaContextual06 = new ContextualHelp(ContextualHelpType.Url, "https://www.revitapidocs.com/");
+            //ContextualHelp ayudaContextual06 = new ContextualHelp(ContextualHelpType.Url, "https://github.com/CRUZHENRIQUEDEV/RevitEasy");
             //datosDelPushButton06.SetContextualHelp(ayudaContextual06);
             //splitButton.AddPushButton(datosDelPushButton06);
 
@@ -426,7 +437,7 @@ namespace RevitEasy
             //toggleButtonData.ToolTip = "Esta sera la descripcion corta del ToggleButton";
             //toggleButtonData.LongDescription = "Esta sera la descipcion larga del ToggleButton";
             //toggleButtonData.ToolTipImage = ConvertImage(Properties.Resources.RevitApiDocs);
-            //ContextualHelp contextualHelpTB_01 = new ContextualHelp(ContextualHelpType.Url, "https://www.revitapidocs.com/");
+            //ContextualHelp contextualHelpTB_01 = new ContextualHelp(ContextualHelpType.Url, "https://github.com/CRUZHENRIQUEDEV/RevitEasy");
             //toggleButtonData.SetContextualHelp(contextualHelpTB_01);
             //radioButtonGroup.AddItem(toggleButtonData);
 
@@ -435,7 +446,7 @@ namespace RevitEasy
             //toggleButtonData_02.ToolTip = "Esta sera la descripcion corta del ToggleButton";
             //toggleButtonData_02.LongDescription = "Esta sera la descipcion larga del ToggleButton";
             //toggleButtonData_02.ToolTipImage = ConvertImage(Properties.Resources.RevitApiDocs);
-            //ContextualHelp contextualHelpTB_02 = new ContextualHelp(ContextualHelpType.Url, "https://www.revitapidocs.com/");
+            //ContextualHelp contextualHelpTB_02 = new ContextualHelp(ContextualHelpType.Url, "https://github.com/CRUZHENRIQUEDEV/RevitEasy");
             //toggleButtonData_02.SetContextualHelp(contextualHelpTB_02);
             //radioButtonGroup.AddItem(toggleButtonData_02);
 
@@ -448,7 +459,7 @@ namespace RevitEasy
             //datosDelPushButton07.ToolTip = "Esta sera la descripcion corta del PushBotton";
             //datosDelPushButton07.LongDescription = "Esta sera la descipcion larga del PushButton";
             //datosDelPushButton07.ToolTipImage = ConvertImage(Properties.Resources.RevitApiDocs);
-            //ContextualHelp ayudaContextual07 = new ContextualHelp(ContextualHelpType.Url, "https://www.revitapidocs.com/");
+            //ContextualHelp ayudaContextual07 = new ContextualHelp(ContextualHelpType.Url, "https://github.com/CRUZHENRIQUEDEV/RevitEasy");
             //datosDelPushButton07.SetContextualHelp(ayudaContextual07);
 
             ////PushButton 08
@@ -457,7 +468,7 @@ namespace RevitEasy
             //datosDelPushButton08.ToolTip = "Esta sera la descripcion corta del PushBotton";
             //datosDelPushButton08.LongDescription = "Esta sera la descipcion larga del PushButton";
             //datosDelPushButton08.ToolTipImage = ConvertImage(Properties.Resources.RevitApiDocs);
-            //ContextualHelp ayudaContextual08 = new ContextualHelp(ContextualHelpType.Url, "https://www.revitapidocs.com/");
+            //ContextualHelp ayudaContextual08 = new ContextualHelp(ContextualHelpType.Url, "https://github.com/CRUZHENRIQUEDEV/RevitEasy");
             //datosDelPushButton08.SetContextualHelp(ayudaContextual08);
 
             ////PushButton 09
@@ -466,7 +477,7 @@ namespace RevitEasy
             //datosDelPushButton09.ToolTip = "Esta sera la descripcion corta del PushBotton";
             //datosDelPushButton09.LongDescription = "Esta sera la descipcion larga del PushButton";
             //datosDelPushButton09.ToolTipImage = ConvertImage(Properties.Resources.RevitApiDocs);
-            //ContextualHelp ayudaContextual09 = new ContextualHelp(ContextualHelpType.Url, "https://www.revitapidocs.com/");
+            //ContextualHelp ayudaContextual09 = new ContextualHelp(ContextualHelpType.Url, "https://github.com/CRUZHENRIQUEDEV/RevitEasy");
             //datosDelPushButton09.SetContextualHelp(ayudaContextual09);
 
             //panelDePestania.AddStackedItems(datosDelPushButton07, datosDelPushButton08, datosDelPushButton09);
@@ -480,7 +491,7 @@ namespace RevitEasy
             //comboBox.ToolTip = "Esta sera la descripcion corta del PushBotton";
             //comboBox.LongDescription = "Esta sera la descipcion larga del PushButton";
             //comboBox.ToolTipImage = ConvertImage(Properties.Resources.RevitApiDocs);
-            //ContextualHelp ayudaContextualCB = new ContextualHelp(ContextualHelpType.Url, "https://www.revitapidocs.com/");
+            //ContextualHelp ayudaContextualCB = new ContextualHelp(ContextualHelpType.Url, "https://github.com/CRUZHENRIQUEDEV/RevitEasy");
             //comboBox.SetContextualHelp(ayudaContextualCB);
 
             ////Item 01
@@ -490,7 +501,7 @@ namespace RevitEasy
             //comboBoxMemberData.ToolTip = "Esta sera la descripcion corta del PushBotton";
             //comboBoxMemberData.LongDescription = "Esta sera la descipcion larga del PushButton";
             //comboBoxMemberData.ToolTipImage = ConvertImage(Properties.Resources.RevitApiDocs);
-            //ContextualHelp ayudaContextualCBM_01 = new ContextualHelp(ContextualHelpType.Url, "https://www.revitapidocs.com/");
+            //ContextualHelp ayudaContextualCBM_01 = new ContextualHelp(ContextualHelpType.Url, "https://github.com/CRUZHENRIQUEDEV/RevitEasy");
             //comboBoxMemberData.SetContextualHelp(ayudaContextualCBM_01);
             //comboBox.AddItem(comboBoxMemberData);
 
@@ -501,7 +512,7 @@ namespace RevitEasy
             //comboBoxMemberData_02.ToolTip = "Esta sera la descripcion corta del PushBotton";
             //comboBoxMemberData_02.LongDescription = "Esta sera la descipcion larga del PushButton";
             //comboBoxMemberData_02.ToolTipImage = ConvertImage(Properties.Resources.RevitApiDocs);
-            //ContextualHelp ayudaContextualCBM_02 = new ContextualHelp(ContextualHelpType.Url, "https://www.revitapidocs.com/");
+            //ContextualHelp ayudaContextualCBM_02 = new ContextualHelp(ContextualHelpType.Url, "https://github.com/CRUZHENRIQUEDEV/RevitEasy");
             //comboBoxMemberData_02.SetContextualHelp(ayudaContextualCBM_02);
             //comboBox.AddItem(comboBoxMemberData_02);
 
@@ -513,7 +524,7 @@ namespace RevitEasy
             //comboBoxMemberData_03.ToolTip = "Esta sera la descripcion corta del PushBotton";
             //comboBoxMemberData_03.LongDescription = "Esta sera la descipcion larga del PushButton";
             //comboBoxMemberData_03.ToolTipImage = ConvertImage(Properties.Resources.RevitApiDocs);
-            //ContextualHelp ayudaContextualCBM_03 = new ContextualHelp(ContextualHelpType.Url, "https://www.revitapidocs.com/");
+            //ContextualHelp ayudaContextualCBM_03 = new ContextualHelp(ContextualHelpType.Url, "https://github.com/CRUZHENRIQUEDEV/RevitEasy");
             //comboBoxMemberData_03.SetContextualHelp(ayudaContextualCBM_03);
             //comboBox.AddItem(comboBoxMemberData_03);
 

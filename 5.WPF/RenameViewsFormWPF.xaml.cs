@@ -385,5 +385,33 @@ namespace RevitEasy._5.WPF
 
         #endregion
 
+        #region Minimize, Restore, Close window buttons
+        private void Btn_CloseClick(object sender, RoutedEventArgs e)
+        {
+            // Fecha o formulário
+            this.Close();
+        }
+
+        private void Btn_MinimizeClick(object sender, RoutedEventArgs e)
+        {
+            // Minimiza o formulário
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void Btn_RestoreClick(object sender, RoutedEventArgs e)
+        {
+            // Verifica se o formulário está maximizado
+            if (this.WindowState == WindowState.Maximized)
+            {
+                // Restaura para o tamanho normal
+                this.WindowState = WindowState.Normal;
+            }
+            else
+            {
+                // Maximiza o formulário
+                this.WindowState = WindowState.Maximized;
+            }
+        }
+        #endregion
     }
 }

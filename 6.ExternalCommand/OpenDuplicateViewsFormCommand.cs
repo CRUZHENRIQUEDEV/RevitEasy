@@ -7,7 +7,7 @@ using System;
 namespace RevitEasy
 {
     [Transaction(TransactionMode.Manual)]
-    public class OpenDuplicateScheduleFormCommand : IExternalCommand
+    public class OpenDuplicateViewsFormCommand : IExternalCommand
     {
         public Result Execute(
             ExternalCommandData commandData,
@@ -20,11 +20,11 @@ namespace RevitEasy
                 UIDocument uidoc = commandData.Application.ActiveUIDocument;
                 Document doc = uidoc.Document;
 
-                // Cria uma instância do formulário WPF DuplicateScheduleFormWPF
-                DuplicateScheduleFormWPF duplicateScheduleForm = new DuplicateScheduleFormWPF(doc);
+                // Cria uma instância do formulário WPF DuplicateViewsFormWPF
+                DuplicateViewsWPF duplicateViewsForm = new DuplicateViewsWPF(doc);
 
                 // Exibe o formulário WPF
-                duplicateScheduleForm.ShowDialog();
+                duplicateViewsForm.ShowDialog();
 
                 return Result.Succeeded;
             }

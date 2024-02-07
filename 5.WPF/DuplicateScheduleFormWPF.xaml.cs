@@ -1,40 +1,45 @@
-﻿using Autodesk.Internal.Windows;
-using Autodesk.Revit.DB;
-using Autodesk.Revit.DB.ExtensibleStorage;
+﻿using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Drawing.Text;
 using System.Linq;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
 
-namespace RevitEasy.DuplicateSheduleForm.Forms
+namespace RevitEasy._5.WPF
 {
-    public partial class DuplicateScheduleForm : System.Windows.Forms.Form
+    /// <summary>
+    /// Interação lógica para DuplicateScheduleFormWPF.xam
+    /// </summary>
+    public partial class DuplicateScheduleFormWPF : Window
     {
         private readonly Document doc;
-
-        // Construtor do formulário
-        public DuplicateScheduleForm(Document document)
+        public DuplicateScheduleFormWPF(Document document)
         {
             InitializeComponent();
             doc = document; // Inicializa o documento
         }
 
+        #region ação executtada ao abrir o formulário DuplicateScheduleForm_Load
         // Método chamado ao carregar o formulário
-        private void DuplicateScheduleForm_Load(object sender, EventArgs e)
+        private void DuplicateScheduleForm_Load(object sender, RoutedEventArgs e)
         {
             // Carrega as ViewSchedules no ComboBox
             LoadSchedules();
         }
 
+        #endregion
 
-
-
-
-        #region Métodos para obter as tabelas disponíveis no modelo aqui é onde o principal acontece, muito cuidado 
+        #region Métodos para obter as tabelas disponíveis no modelo aqui é onde o principal acontece, muito cuidado LoadSchedules()
         // Método para carregar as tabelas no ComboBox
         private void LoadSchedules()
         {
@@ -53,7 +58,7 @@ namespace RevitEasy.DuplicateSheduleForm.Forms
                 // Atualiza o ComboBox apenas se não estiver vazio
                 if (scheduleNames.Count > 0)
                 {
-                    Cb_DuplicateSchedule.DataSource = scheduleNames;
+                    Cb_DuplicateSchedule.ItemsSource = scheduleNames;
                 }
             }
             catch (Exception ex)
@@ -61,20 +66,20 @@ namespace RevitEasy.DuplicateSheduleForm.Forms
                 TaskDialog.Show("Erro ao carregar as tabelas do modelo", ex.ToString());
             }
         }
-
+        #endregion
 
         #region Métodos para receber os inputs do formulário e duplicar as tabelas
         // Método chamado quando o botão de duplicação é clicado
-        private void Btn_DuplicateScheduleDuplicate_Click(object sender, EventArgs e)
+        private void Btn_create_Click(object sender, RoutedEventArgs e)
         {
-            // Obtém a ViewSchedule selecionada no ComboBox
-            string selectedScheduleName = this.Cb_DuplicateSchedule.SelectedItem?.ToString();
+        // Obtém a ViewSchedule selecionada no ComboBox
+        string selectedScheduleName = this.Cb_DuplicateSchedule.SelectedItem?.ToString();
             ViewSchedule selectedSchedule = GetViewScheduleByName(selectedScheduleName);
 
             // Verifica se os campos obrigatórios foram preenchidos
             if (selectedSchedule == null)
             {
-                TaskDialog.Show("Campos vazios", "Selecione uma tabela para duplicar.");
+                TaskDialog.Show("Campos vazios", "Selecione uma Schedule para duplicar.");
             }
             else
             {
@@ -82,7 +87,7 @@ namespace RevitEasy.DuplicateSheduleForm.Forms
                 int starts = int.Parse(DuplicateScheduleNumberStarts);
                 int ends = int.Parse(DuplicateScheduleNumberEnds);
 
-                // Cria uma transação para a duplicação da tabela
+                // Cria uma transação para a duplicação da Schedule
                 using (TransactionGroup group = new TransactionGroup(doc, "Duplicate Schedules"))
                 {
                     group.Start();
@@ -96,17 +101,17 @@ namespace RevitEasy.DuplicateSheduleForm.Forms
                                                                     DuplicateScheduleNumber < 100 ? "" + DuplicateScheduleNumber :
                                                                     DuplicateScheduleNumber.ToString();
 
-                            // Duplica a tabela no Revit
+                            // Duplica a Schedule no Revit
                             using (Transaction duplicationTransaction = new Transaction(doc, "Duplicate Schedule"))
                             {
                                 duplicationTransaction.Start();
 
                                 ViewSchedule duplicatedSchedule = doc.GetElement(selectedSchedule.Duplicate(ViewDuplicateOption.Duplicate)) as ViewSchedule;
 
-                                // Nome da tabela duplicada (ajuste conforme necessário)
+                                // Nome da Schedule duplicada (ajuste conforme necessário)
                                 duplicatedSchedule.Name = DuplicateScheduleName + (FormattedScheduleNumberForName) + DuplicateScheduleNameSuffix;
 
-                                // Adiciona o filtro à tabela duplicada
+                                // Adiciona o filtro à Schedule duplicada
                                 AddFilterToDuplicatedSchedule(duplicatedSchedule,
                                                               this.Cb_DuplicateScheduleFilterValue.SelectedItem?.ToString(),
                                                               (ScheduleFilterType)Enum.Parse(typeof(ScheduleFilterType), this.Cb_ScheduleFilterType.SelectedItem?.ToString()),
@@ -132,7 +137,7 @@ namespace RevitEasy.DuplicateSheduleForm.Forms
 
         #endregion
 
-        #region Obtém os nome da tabela selecinada
+        #region Obtém os nome da Schedule selecionada
         private ViewSchedule GetViewScheduleByName(string name)
         {
             return new FilteredElementCollector(doc)
@@ -144,11 +149,8 @@ namespace RevitEasy.DuplicateSheduleForm.Forms
 
         #endregion
 
-
-        #endregion
-
-        #region  Método para adicionar filtro à tabela
-        // Método para adicionar filtro à tabela
+        #region  Método para adicionar filtro à Schedule
+        // Método para adicionar filtro à Schedule
         private void AddFilterToDuplicatedSchedule(ViewSchedule duplicatedSchedule, string selectedFilterName, ScheduleFilterType selectedFilterType, string FormattedScheduleNumberForName)
         {
             try
@@ -163,37 +165,31 @@ namespace RevitEasy.DuplicateSheduleForm.Forms
                 // Verifica se o filtro selecionado e os valores são válidos
                 if (!string.IsNullOrEmpty(selectedFilterName) && !string.IsNullOrEmpty(filterValue))
                 {
-                    // Adiciona o filtro à tabela
+                    // Adiciona o filtro à Schedule
                     ScheduleField scheduleField = FindField(duplicatedSchedule, selectedFilterName);
 
                     if (scheduleField != null)
                     {
-                        // Limpa todos os filtros que estão na tabela 
+                        // Limpa todos os filtros que estão na Schedule 
 
 
                         // Cria um filtro
                         ScheduleFilter filter = new ScheduleFilter(scheduleField.FieldId, selectedFilterType, filterValue);
 
-                        // Adiciona o filtro à tabela
+                        // Adiciona o filtro à Schedule
                         duplicatedSchedule.Definition.AddFilter(filter);
                     }
                     else
                     {
-                        TaskDialog.Show("Campo não encontrado", "O campo da tabela não foi encontrado.");
+                        TaskDialog.Show("Campo não encontrado", "O campo da Schedule não foi encontrado.");
                     }
                 }
             }
             catch (Exception ex)
             {
-                TaskDialog.Show("Erro ao adicionar filtro à tabela", ex.ToString());
+                TaskDialog.Show("Erro ao adicionar filtro à Schedule", ex.ToString());
             }
         }
-
-        #region Método que limpa os filtros adicionados a tabela e adiciona novos
-
-        #endregion
-
-
         #endregion
 
         #region Métodos para converter os valores dos inputs do usuário em texto
@@ -210,11 +206,10 @@ namespace RevitEasy.DuplicateSheduleForm.Forms
 
         #region Método chamado quando o botão de cancelar é clicado
         // Método chamado quando o botão de cancelar é clicado
-        private void Btn_DuplicateScheduleCancel_Click(object sender, EventArgs e)
+        private void Btn_CancelClick(object sender, RoutedEventArgs e)
         {
-            // Define o resultado do formulário como Cancel e o fecha
-            this.DialogResult = DialogResult.Cancel;
-            Close();
+            // Fecha o formulário
+            this.Close();
         }
         #endregion
 
@@ -227,24 +222,22 @@ namespace RevitEasy.DuplicateSheduleForm.Forms
         private void Label4_Click(object sender, EventArgs e) { }
         #endregion
 
-
-
-        #region Açao executada ao selecionar uma tabela disponível do modelo
+        #region Açao executada ao selecionar uma Schedule disponível do modelo
         //aqui ficará disponível os campos que poderão ser adicionados a schedule e carregar lista no combobox
 
 
-        private void Sic_DuplicateSchedule(object sender, EventArgs e)
+        private void Sic_DuplicateSchedule(object sender, SelectionChangedEventArgs e)
         {
-            // Obtém a ViewSchedule selecionada no ComboBox
-            string selectedScheduleName = this.Cb_DuplicateSchedule.SelectedItem?.ToString();
+        // Obtém a ViewSchedule selecionada no ComboBox
+        string selectedScheduleName = this.Cb_DuplicateSchedule.SelectedItem?.ToString();
             ViewSchedule selectedSchedule = GetViewScheduleByName(selectedScheduleName);
 
-            // Chama o método para carregar os campos da tabela no ComboBox
+            // Chama o método para carregar os campos da Schedule no ComboBox
             LoadFields(selectedSchedule);
 
         }
 
-        // Método para carregar os campos de filtro da tabela no ComboBox
+        // Método para carregar os campos de filtro da Schedule no ComboBox
         private void LoadFields(ViewSchedule selectedSchedule)
         {
             try
@@ -258,7 +251,7 @@ namespace RevitEasy.DuplicateSheduleForm.Forms
                     // Obtém a definição da tabela selecionada
                     ScheduleDefinition definition = selectedSchedule.Definition;
 
-                    // Itera sobre os campos da definição da tabela
+                    // Itera sobre os campos da definição da Schedule
                     foreach (ScheduleFieldId fieldId in definition.GetFieldOrder())
                     {
                         ScheduleField field = definition.GetField(fieldId);
@@ -276,18 +269,19 @@ namespace RevitEasy.DuplicateSheduleForm.Forms
             }
             catch (Exception ex)
             {
-                TaskDialog.Show("Erro ao carregar os campos da tabela", ex.ToString());
+                TaskDialog.Show("Erro ao carregar os campos da Schedule", ex.ToString());
             }
         }
+        #endregion
 
-        #region Métodos para obter os fields disponíveis na tabela
+        #region Métodos para obter os fields disponíveis na Schedule
 
-        // Método para encontrar um campo na definição da tabela
+        // Método para encontrar um campo na definição da Schedule
         private ScheduleField FindField(ViewSchedule schedule, string fieldName)
         {
             ScheduleDefinition definition = schedule.Definition;
 
-            // Itera sobre os campos da definição da tabela
+            // Itera sobre os campos da definição da Schedule
             foreach (ScheduleFieldId fieldId in definition.GetFieldOrder())
             {
                 ScheduleField field = definition.GetField(fieldId);
@@ -303,18 +297,19 @@ namespace RevitEasy.DuplicateSheduleForm.Forms
         }
 
 
-        #endregion de acão executada ao selecionar um modelo de tabela 
+        #endregion de acão executada ao selecionar um modelo de Schedule 
 
-        #region Obter tipos de filtro para tabela 
+        #region Obter tipos de filtro para Schedule 
 
-        // Vincule o evento SelectedIndexChanged ao Cb_DuplicateScheduleFilterValue
-        private void Cb_DuplicateScheduleFilterValue_SelectedIndexChanged(object sender, EventArgs e)
+        // Vincule o evento SelectionChanged ao Cb_DuplicateScheduleFilterValue
+        private void Cb_DuplicateScheduleFilterValue_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             // Chame o método Sic_FieldSelect quando o índice do item selecionado mudar
             Sic_FieldSelect(sender, e);
         }
 
-        private void Sic_FieldSelect(object sender, EventArgs e)
+
+        private void Sic_FieldSelect(object sender, SelectionChangedEventArgs e)
         {
             // Obtém o nome do campo selecionado
             string selectedFieldName = this.Cb_DuplicateScheduleFilterValue.SelectedItem?.ToString();
@@ -322,6 +317,8 @@ namespace RevitEasy.DuplicateSheduleForm.Forms
             // Chama o método para carregar os tipos de filtro no Cb_ScheduleFilterType
             LoadFilterTypes(selectedFieldName);
         }
+
+        #endregion
 
         #region Método para carregar os tipos de filtro no ComboBox de tipos de filtro
 
@@ -338,10 +335,10 @@ namespace RevitEasy.DuplicateSheduleForm.Forms
                 string selectedScheduleName = this.Cb_DuplicateSchedule.SelectedItem?.ToString();
                 ViewSchedule selectedSchedule = GetViewScheduleByName(selectedScheduleName);
 
-                // Obtém a definição da tabela selecionada
+                // Obtém a definição da Schedule selecionada
                 ScheduleDefinition definition = selectedSchedule.Definition;
 
-                // Encontra o campo da tabela
+                // Encontra o campo da Schedule
                 ScheduleField scheduleField = FindField(selectedSchedule, selectedFieldName);
 
                 // Verifica se o campo foi encontrado
@@ -364,7 +361,7 @@ namespace RevitEasy.DuplicateSheduleForm.Forms
                 }
                 else
                 {
-                    TaskDialog.Show("Campo não encontrado", "O campo da tabela não foi encontrado.");
+                    TaskDialog.Show("Campo não encontrado", "O campo da Schedule não foi encontrado.");
                 }
             }
         }
@@ -397,15 +394,40 @@ namespace RevitEasy.DuplicateSheduleForm.Forms
 
 
 
-        #endregion
+
 
         #endregion
 
-        #endregion
-
-        private void Tb_DuplicateScheduleNumberStarts_TextChanged(object sender, EventArgs e)
+        #region Minimize, Restore, Close window buttons
+        private void Btn_CloseClick(object sender, RoutedEventArgs e)
         {
-
+            // Fecha o formulário
+            this.Close();
         }
+
+        private void Btn_MinimizeClick(object sender, RoutedEventArgs e)
+        {
+            // Minimiza o formulário
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void Btn_RestoreClick(object sender, RoutedEventArgs e)
+        {
+            // Verifica se o formulário está maximizado
+            if (this.WindowState == WindowState.Maximized)
+            {
+                // Restaura para o tamanho normal
+                this.WindowState = WindowState.Normal;
+            }
+            else
+            {
+                // Maximiza o formulário
+                this.WindowState = WindowState.Maximized;
+            }
+        }
+
+
+        #endregion
+        
     }
 }
