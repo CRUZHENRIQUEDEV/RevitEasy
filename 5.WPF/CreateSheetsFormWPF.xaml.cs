@@ -9,6 +9,7 @@ using System.Windows.Input;
 
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
+using RevitEasy.WPF.Behaviors;
 
 namespace RevitEasy._5.WPF
 {
@@ -17,41 +18,6 @@ namespace RevitEasy._5.WPF
     /// </summary>
     public partial class CreateSheetsFormWPF : Window
     {
-        #region Método para mover janela com o mouse ao clicar e arrastar
-        private bool isDragging = false;
-        private System.Windows.Point startPoint;
-
-
-        private void FormWPF_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.ChangedButton == MouseButton.Left)
-            {
-                isDragging = true;
-                startPoint = e.GetPosition(this);
-            }
-        }
-        private void FormWPF_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
-        {
-            if (isDragging && e.LeftButton == MouseButtonState.Pressed)
-            {
-                System.Windows.Point currentPosition = e.GetPosition(this);
-                double deltaX = currentPosition.X - startPoint.X;
-                double deltaY = currentPosition.Y - startPoint.Y;
-
-                this.Left += deltaX;
-                this.Top += deltaY;
-            }
-        }
-        private void FormWPF_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            if (e.ChangedButton == MouseButton.Left)
-            {
-                isDragging = false;
-            }
-        }
-
-        #endregion
-
 
         private readonly Document doc;
 
@@ -60,6 +26,7 @@ namespace RevitEasy._5.WPF
         {
             InitializeComponent();
             doc = document; // Inicializa o documento
+            RevitFormBehavior.Register(this); //back common to all forms
         }
 
         // Método chamado ao carregar o formulário
@@ -175,13 +142,13 @@ namespace RevitEasy._5.WPF
         #endregion
 
         #region Métodos vazios para eventos que não exigem ação
-        // Métodos vazios para eventos que não exigem ação
+        // Métodos vazios para eventos que não exigem ação LIMPAR 
         private void Label1_Click(object sender, EventArgs e) { }
         private void Label_Click(object sender, EventArgs e) { }
         private void Sheet_name_TextChanged(object sender, EventArgs e) { }
         private void Sheet_number_TextChanged(object sender, EventArgs e) { }
 
-        // Método chamado quando o item selecionado no ComboBox de Title Blocks é alterado
+        // Método chamado quando o item selecionado no ComboBox de Title Blocks é alterado  LIMPAR 
         private void Sheet_titleBlock_SelectedIndexChanged(object sender, EventArgs e) { }
         private void Label3_Click(object sender, EventArgs e) { }
         private void Label7_Click(object sender, EventArgs e) { }
@@ -190,7 +157,6 @@ namespace RevitEasy._5.WPF
         private void Sheet_name_TextChanged_1(object sender, EventArgs e) { }
         private void Sheet_name_preffix_TextChanged_1(object sender, EventArgs e) { }
         private void Sheet_number_preffix_TextChanged(object sender, EventArgs e) { }
-        private void Guna2Button1_Click(object sender, EventArgs e) { }
         private void Sheet_number_starts_TextChanged(object sender, EventArgs e) { }
         #endregion
 
@@ -243,34 +209,6 @@ namespace RevitEasy._5.WPF
         {
 
         }
-
-        #region Minimize, Restore, Close window buttons
-
-        private void Btn_CloseClick(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
-        private void Btn_RestoreClick(object sender, RoutedEventArgs e)
-        {
-            if (this.WindowState == WindowState.Maximized)
-            {
-                this.WindowState = WindowState.Normal;
-            }
-            else
-            {
-                this.WindowState = WindowState.Maximized;
-            }
-        }
-
-        private void Btn_MinimizeClick(object sender, RoutedEventArgs e)
-        {
-            this.WindowState = WindowState.Minimized;
-        }
-
-
-        #endregion
-
 
     }
 }

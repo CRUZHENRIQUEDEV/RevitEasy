@@ -10,10 +10,7 @@
              Background="#FF3A4453" 
              Height="0400" 
              Width="500">
-    <Grid x:Name="AboutFormWPF"
-          MouseDown="FormWPF_MouseDown" 
-          MouseUp="FormWPF_MouseUp" 
-          MouseMove="FormWPF_MouseMove"> 
+    <Grid x:Name="AboutFormWPF"> 
 
         <Border x:Name="ExternalBorderGray"
             BorderBrush="#FF5D5D5D"
@@ -47,7 +44,6 @@
                 <Button x:Name="Btn_Restore" 
                         Content="2" 
                         Margin="16,-1,12,2" 
-                        Click="Btn_RestoreClick" 
                         Background="{x:Null}" 
                         Foreground="{x:Null}" 
                         BorderBrush="{x:Null}" 
@@ -57,7 +53,6 @@
                 <Button x:Name="Btn_Minimize" 
                         Content="0" 
                         Margin="0,0,31,1" 
-                        Click="Btn_MinimizeClick" 
                         Background="{x:Null}" 
                         Foreground="#FFD8D8DA" 
                         BorderBrush="{x:Null}" 
@@ -66,8 +61,7 @@
                         FontFamily="Marlett"/>
                 <Button x:Name="Btn_Close" 
                         Content="r" 
-                        Margin="31,1,0,0"
-                        Click="Btn_CloseClick" 
+                        Margin="31,1,0,0" 
                         Background="{x:Null}" 
                         Foreground="#FFD8D8DA" 
                         BorderBrush="{x:Null}" 

@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
+using RevitEasy.WPF.Behaviors;
 using RevitPoint = Autodesk.Revit.DB.Point;
 
 
@@ -26,41 +27,7 @@ namespace RevitEasy._5.WPF
     public partial class DuplicateViewsWPF :Window
     {
 
-        #region Método para mover janela com o mouse ao clicar e arrastar
-        private bool isDragging = false;
-        private System.Windows.Point startPoint;
-
-
-        private void FormWPF_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.ChangedButton == MouseButton.Left)
-            {
-                isDragging = true;
-                startPoint = e.GetPosition(this);
-            }
-        }
-        private void FormWPF_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
-        {
-            if (isDragging && e.LeftButton == MouseButtonState.Pressed)
-            {
-                System.Windows.Point currentPosition = e.GetPosition(this);
-                double deltaX = currentPosition.X - startPoint.X;
-                double deltaY = currentPosition.Y - startPoint.Y;
-
-                this.Left += deltaX;
-                this.Top += deltaY;
-            }
-        }
-        private void FormWPF_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            if (e.ChangedButton == MouseButton.Left)
-            {
-                isDragging = false;
-            }
-        }
-
-        #endregion
-
+        
         private readonly Document doc;
 
         public DuplicateViewsWPF(Document document)
@@ -68,7 +35,8 @@ namespace RevitEasy._5.WPF
             InitializeComponent();
             doc = document; // Initialize the document
             Loaded += DuplicateViewsWPF_Loaded;
-            
+            RevitFormBehavior.Register(this); //back common to all forms
+
         }
 
 
@@ -219,43 +187,12 @@ namespace RevitEasy._5.WPF
         #endregion
         
 
-        #region Minimize, Restore, Close and Cancel window buttons
 
         private void Btn_CancelClick(object sender, RoutedEventArgs e)
         {
             // Close the form
             this.Close();
         }
-
-        private void Btn_RestoreClick(object sender, RoutedEventArgs e)
-        {
-            // Check if the form is maximized
-            if (this.WindowState == WindowState.Maximized)
-            {
-                // Restore to normal size
-                this.WindowState = WindowState.Normal;
-            }
-            else
-            {
-                // Maximize the form
-                this.WindowState = WindowState.Maximized;
-            }
-        }
-
-        private void Btn_MinimizeClick(object sender, RoutedEventArgs e)
-        {
-            // Minimize the form
-            this.WindowState = WindowState.Minimized;
-        }
-        private void Btn_CloseClick(object sender, RoutedEventArgs e)
-        {
-            // Close the form
-            this.Close();
-        }
-
-
-        #endregion
-
         private void Lb_DuplicateViewPreffixName_TextChanged(object sender, TextChangedEventArgs e)
         {
 

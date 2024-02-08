@@ -86,6 +86,7 @@
     <Compile Include="5.WPF\DuplicateViewsWPF.xaml.cs">
       <DependentUpon>DuplicateViewsWPF.xaml</DependentUpon>
     </Compile>
+    <Compile Include="5.WPF\TemplateWPF\BehaviorsWPF.cs" />
     <Compile Include="6.ExternalCommand\OpenDuplicateViewsFormCommand.cs" />
     <Compile Include="5.WPF\AboutWPF.xaml.cs">
       <DependentUpon>AboutWPF.xaml</DependentUpon>

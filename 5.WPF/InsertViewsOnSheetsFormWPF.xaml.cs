@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Globalization;
 using System.Threading;
+using RevitEasy.WPF.Behaviors;
 
 
 namespace RevitEasy.InsertViewsOnSheetsWPF
@@ -26,40 +27,7 @@ namespace RevitEasy.InsertViewsOnSheetsWPF
     public partial class InsertViewsOnSheetsFormWPF : Window
     {
 
-        #region Método para mover janela com o mouse ao clicar e arrastar
-        private bool isDragging = false;
-        private System.Windows.Point startPoint;
-
-
-        private void FormWPF_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.ChangedButton == MouseButton.Left)
-            {
-                isDragging = true;
-                startPoint = e.GetPosition(this);
-            }
-        }
-        private void FormWPF_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
-        {
-            if (isDragging && e.LeftButton == MouseButtonState.Pressed)
-            {
-                System.Windows.Point currentPosition = e.GetPosition(this);
-                double deltaX = currentPosition.X - startPoint.X;
-                double deltaY = currentPosition.Y - startPoint.Y;
-
-                this.Left += deltaX;
-                this.Top += deltaY;
-            }
-        }
-        private void FormWPF_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            if (e.ChangedButton == MouseButton.Left)
-            {
-                isDragging = false;
-            }
-        }
-
-        #endregion
+       
 
         private readonly Document doc;
         private ObservableCollection<string> filterValues;
@@ -86,6 +54,7 @@ namespace RevitEasy.InsertViewsOnSheetsWPF
             doc = document; // Inicializa o documento
             viewTypeManager = new ViewTypeManager(doc); // Adiciona a instância do ViewTypeManager                                            
             FilterValues = new ObservableCollection<string>(); // Inicializa a coleção
+            RevitFormBehavior.Register(this); //back common to all forms
         }
 
         #region Ação que é executada ao abrir o formulário 
@@ -278,34 +247,6 @@ namespace RevitEasy.InsertViewsOnSheetsWPF
 
         #endregion
 
-        #region Minimize, Restore, Close window buttons
-        private void Btn_CloseClick(object sender, RoutedEventArgs e)
-        {
-            // Fecha o formulário
-            this.Close();
-        }
-
-        private void Btn_MinimizeClick(object sender, RoutedEventArgs e)
-        {
-            // Minimiza o formulário
-            this.WindowState = WindowState.Minimized;
-        }
-
-        private void Btn_RestoreClick(object sender, RoutedEventArgs e)
-        {
-            // Verifica se o formulário está maximizado
-            if (this.WindowState == WindowState.Maximized)
-            {
-                // Restaura para o tamanho normal
-                this.WindowState = WindowState.Normal;
-            }
-            else
-            {
-                // Maximiza o formulário
-                this.WindowState = WindowState.Maximized;
-            }
-        }
-        #endregion
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 

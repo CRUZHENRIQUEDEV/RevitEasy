@@ -39,10 +39,7 @@
           Height="450"
           Width="220"
           IsManipulationEnabled="True"
-          Margin="0,1,0,0"
-          MouseDown="FormWPF_MouseDown" 
-          MouseUp="FormWPF_MouseUp" 
-          MouseMove="FormWPF_MouseMove">
+          Margin="0,1,0,0">
         
         <Grid.RowDefinitions>
             <RowDefinition Height="30*"/>
@@ -309,9 +306,9 @@
                Foreground="#FFD8D8D8" Grid.Column="1" Grid.Row="1"/>
         <Border x:Name="Manage_Window" Height="NaN" Margin="71,2,8,2" Grid.Column="2">
             <Grid>
-                <Button x:Name="Btn_Restore" Content="2" Margin="16,-1,12,2" Click="Btn_RestoreClick" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}" Height="25" FontFamily="Marlett" FontSize="13"/>
-                <Button x:Name="Btn_Minimize" Content="0" Margin="0,0,31,1" Click="Btn_MinimizeClick" Background="{x:Null}" Foreground="#FFD8D8DA" BorderBrush="{x:Null}" Width="15" Height="25" FontSize="10" FontFamily="Marlett"/>
-                <Button x:Name="Btn_Close" Content="r" Margin="31,1,0,0" Click="Btn_CloseClick" Background="{x:Null}" Foreground="#FFD8D8DA" BorderBrush="{x:Null}" Width="15" Height="25" FontSize="10" FontFamily="Marlett"/>
+                <Button x:Name="Btn_Restore" Content="2" Margin="16,-1,12,2" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}" Height="25" FontFamily="Marlett" FontSize="13"/>
+                <Button x:Name="Btn_Minimize" Content="0" Margin="0,0,31,1" Background="{x:Null}" Foreground="#FFD8D8DA" BorderBrush="{x:Null}" Width="15" Height="25" FontSize="10" FontFamily="Marlett"/>
+                <Button x:Name="Btn_Close" Content="r" Margin="31,1,0,0" Background="{x:Null}" Foreground="#FFD8D8DA" BorderBrush="{x:Null}" Width="15" Height="25" FontSize="10" FontFamily="Marlett"/>
 
             </Grid>
         </Border>
