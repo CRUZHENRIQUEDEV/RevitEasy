@@ -1,18 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Forms;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
@@ -25,32 +18,39 @@ namespace RevitEasy._5.WPF
     public partial class CreateSheetsFormWPF : Window
     {
         #region Método para mover janela com o mouse ao clicar e arrastar
-        bool move = false;
-        Autodesk.Revit.DB.UV initialPosition; 
+        private bool isDragging = false;
+        private System.Windows.Point startPoint;
 
-        private void CreateSheetFormWPF_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
+
+        private void FormWPF_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (move)
+            if (e.ChangedButton == MouseButton.Left)
             {
-                Autodesk.Revit.DB.UV novo = new Autodesk.Revit.DB.UV(e.GetPosition(this).X, e.GetPosition(this).Y);
-                this.Left = novo.U - initialPosition.U;
-                this.Top = novo.V - initialPosition.V;
+                isDragging = true;
+                startPoint = e.GetPosition(this);
+            }
+        }
+        private void FormWPF_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            if (isDragging && e.LeftButton == MouseButtonState.Pressed)
+            {
+                System.Windows.Point currentPosition = e.GetPosition(this);
+                double deltaX = currentPosition.X - startPoint.X;
+                double deltaY = currentPosition.Y - startPoint.Y;
+
+                this.Left += deltaX;
+                this.Top += deltaY;
+            }
+        }
+        private void FormWPF_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                isDragging = false;
             }
         }
 
-        private void CreateSheetFormWPF_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            move = true;
-            initialPosition = new Autodesk.Revit.DB.UV(e.GetPosition(this).X, e.GetPosition(this).Y);
-        }
-
-        private void CreateSheetFormWPF_MouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            move = false;
-        }
-
         #endregion
-
 
 
         private readonly Document doc;
@@ -81,7 +81,7 @@ namespace RevitEasy._5.WPF
             // Verifica se os campos obrigatórios foram preenchidos
             if (string.IsNullOrEmpty(SheetName) || string.IsNullOrEmpty(SheetNumberStarts) || string.IsNullOrEmpty(SheetNumberEnds) || titleBlock == null)
             {
-                TaskDialog.Show("Campos vazios", "Um ou mais campos estão vazios ou não foram preenchidos corretamente");
+                TaskDialog.Show("Fields Empry", "One or more fields are empty or not filled in correctly");
             }
             else
             {
@@ -230,10 +230,9 @@ namespace RevitEasy._5.WPF
 
         private void Btn_CancelClick(object sender, RoutedEventArgs e)
         {
-            // Define o resultado do formulário como Cancel e o fecha
-            // Fecha o formulário
             this.Close();
         }
+
 
         private void Btn_RenameViews_Click(object sender, RoutedEventArgs e)
         {
@@ -249,35 +248,29 @@ namespace RevitEasy._5.WPF
 
         private void Btn_CloseClick(object sender, RoutedEventArgs e)
         {
-            // Fecha o formulário
             this.Close();
         }
 
         private void Btn_RestoreClick(object sender, RoutedEventArgs e)
         {
-            // Verifica se o formulário está maximizado
             if (this.WindowState == WindowState.Maximized)
             {
-                // Restaura para o tamanho normal
                 this.WindowState = WindowState.Normal;
             }
             else
             {
-                // Maximiza o formulário
                 this.WindowState = WindowState.Maximized;
             }
         }
 
         private void Btn_MinimizeClick(object sender, RoutedEventArgs e)
         {
-            // Minimiza o formulário
             this.WindowState = WindowState.Minimized;
         }
 
 
-
         #endregion
 
-        
+
     }
 }

@@ -22,7 +22,10 @@
         VerticalAlignment="Top"
         Height="400" 
         Width="220" 
-        IsManipulationEnabled="True">
+        IsManipulationEnabled="True"
+        MouseDown="FormWPF_MouseDown" 
+        MouseUp="FormWPF_MouseUp" 
+        MouseMove="FormWPF_MouseMove">
         <Grid.Style>
             <Style/>
         </Grid.Style>

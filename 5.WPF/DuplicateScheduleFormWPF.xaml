@@ -18,7 +18,10 @@
             Height="570" 
             VerticalAlignment="Center"
             Width="220" 
-            Opacity="0.95"/>
+            Opacity="0.95"
+            MouseDown="FormWPF_MouseDown" 
+            MouseUp="FormWPF_MouseUp" 
+            MouseMove="FormWPF_MouseMove"/>
 
 
         <Label x:Name="Lb_ViewType"

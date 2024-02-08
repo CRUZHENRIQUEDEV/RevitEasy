@@ -10,7 +10,11 @@
              Background="#FF3A4453" 
              Height="570" 
              Width="220">
-    <Grid x:Name="Create" Loaded="CreateSheetFormWPF_Loaded" MouseDown="CreateSheetFormWPF_MouseDown" MouseUp="CreateSheetFormWPF_MouseUp" MouseMove="CreateSheetFormWPF_MouseMove">
+    <Grid x:Name="Create" 
+          Loaded="CreateSheetFormWPF_Loaded" 
+          MouseDown="FormWPF_MouseDown" 
+          MouseUp="FormWPF_MouseUp" 
+          MouseMove="FormWPF_MouseMove">
         <Border x:Name="ExternalBorderGray"
             BorderBrush="#FF5D5D5D"
             BorderThickness="1,1,1,1"
@@ -167,7 +171,7 @@
             Background="#FF212933"
             BorderBrush="#FFABADB3"
             Foreground="#FFD8D8D8" 
-            TabIndex="3">
+            TabIndex="5">
             <TextBox.ToolTip>
                 <ToolTip Content="sufixo do número da folha(Opcional)"/>
             </TextBox.ToolTip>

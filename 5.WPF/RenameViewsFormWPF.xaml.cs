@@ -22,6 +22,41 @@ namespace RevitEasy._5.WPF
 {
     public partial class RenameViewsFormWPF : Window
     {
+
+        #region Método para mover janela com o mouse ao clicar e arrastar
+        private bool isDragging = false;
+        private System.Windows.Point startPoint;
+
+
+        private void FormWPF_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                isDragging = true;
+                startPoint = e.GetPosition(this);
+            }
+        }
+        private void FormWPF_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            if (isDragging && e.LeftButton == MouseButtonState.Pressed)
+            {
+                System.Windows.Point currentPosition = e.GetPosition(this);
+                double deltaX = currentPosition.X - startPoint.X;
+                double deltaY = currentPosition.Y - startPoint.Y;
+
+                this.Left += deltaX;
+                this.Top += deltaY;
+            }
+        }
+        private void FormWPF_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                isDragging = false;
+            }
+        }
+
+        #endregion
         private readonly Document doc;
         private readonly ViewTypeManager viewTypeManager;
         private ObservableCollection<string> filterValues;

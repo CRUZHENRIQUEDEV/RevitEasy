@@ -38,7 +38,12 @@
           VerticalAlignment="Top"
           Height="450"
           Width="220"
-          IsManipulationEnabled="True" Margin="0,1,0,0">
+          IsManipulationEnabled="True"
+          Margin="0,1,0,0"
+          MouseDown="FormWPF_MouseDown" 
+          MouseUp="FormWPF_MouseUp" 
+          MouseMove="FormWPF_MouseMove">
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="30*"/>
             <RowDefinition Height="409*"/>

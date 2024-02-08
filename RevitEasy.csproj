@@ -192,12 +192,6 @@
     <None Include="Resources\IconCreateWall.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\IconDocument 32x32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\IconDocument 50x50.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\IconDuplicate.png" />
   </ItemGroup>
   <ItemGroup>

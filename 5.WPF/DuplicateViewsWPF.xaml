@@ -12,7 +12,11 @@
         Width="220"
         SizeToContent="Height">
     <Grid Loaded="DuplicateViewsWPF_Loaded" 
-          HorizontalAlignment="Left">
+          HorizontalAlignment="Left"
+          MouseDown="FormWPF_MouseDown" 
+          MouseUp="FormWPF_MouseUp" 
+          MouseMove="FormWPF_MouseMove">
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -26,15 +30,20 @@
             VerticalAlignment="Top" 
             BorderBrush="#FFD8D8D8" 
             Background="{x:Null}" 
-            Foreground="#FFD8D8D8" HorizontalAlignment="Left" Grid.RowSpan="2"/>
+            Foreground="#FFD8D8D8" 
+            HorizontalAlignment="Left" 
+            Grid.RowSpan="2"
+            MouseDown="FormWPF_MouseDown" 
+            MouseUp="FormWPF_MouseUp" 
+            MouseMove="FormWPF_MouseMove"/>
         <Border x:Name="ExternalBorderGray"
             BorderBrush="#FF5D5D5D"
             BorderThickness="3,1,1,1" 
             Opacity="0.95"
             Grid.RowSpan="3" 
             Width="220" 
-                Height="Auto" 
-                CornerRadius="1,1,1,1"/>
+            Height="Auto" 
+            CornerRadius="1,1,1,1"/>
 
 
         <Border BorderBrush="#FFD8D8D8" 

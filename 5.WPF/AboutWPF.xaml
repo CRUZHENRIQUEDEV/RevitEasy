@@ -10,7 +10,10 @@
              Background="#FF3A4453" 
              Height="0400" 
              Width="500">
-    <Grid>
+    <Grid x:Name="AboutFormWPF"
+          MouseDown="FormWPF_MouseDown" 
+          MouseUp="FormWPF_MouseUp" 
+          MouseMove="FormWPF_MouseMove"> 
 
         <Border x:Name="ExternalBorderGray"
             BorderBrush="#FF5D5D5D"

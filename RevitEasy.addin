@@ -10,5 +10,8 @@
 		<VisibilityMode>AlwaysVisible</VisibilityMode>
 		<VendorId>HENRIQUE DA CRUZ SILVA</VendorId>
 		<VendorDescription>RevitEasy</VendorDescription>
+		<VendorURL>https://github.com/CRUZHENRIQUEDEV</VendorURL>
+		<Issuer>Revit Certification Authority</Issuer>
+		<Date>2024-02-07</Date>
 	</AddIn>
 </RevitAddIns>
