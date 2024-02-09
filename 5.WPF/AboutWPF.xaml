@@ -72,7 +72,7 @@
             </Grid>
         </Border>
         <Label x:Name="Lb_TitleCreateSheets_Copiar" 
-            Content="Revit Easy Version 0.02 - BETA"
+            Content="Revit Easy Version 0.03 - BETA"
             HorizontalAlignment="Left" 
             Margin="3,34,0,0" 
             VerticalAlignment="Top" 
@@ -89,13 +89,11 @@
                    Text="https://github.com/CRUZHENRIQUEDEV/RevitEasy" 
                    Foreground="#FFD8D8D8"/>
         <Label Content="Henriquecruz.dev@gmail.com" 
-               HorizontalAlignment="Left"
-               Height="27" 
+               HorizontalAlignment="Left" 
                VerticalAlignment="Top"
-               Width="169"
                Background="{x:Null}"
                Foreground="#FFD8D8D8"
-               Margin="41,336,0,0"/>
+               Margin="37,340,0,0"/>
         <TextBlock Margin="41,312,176,72" 
             Text="https://www.linkedin.com/in/henriquecruzarq/" 
             Foreground="#FFD8D8D8"/>

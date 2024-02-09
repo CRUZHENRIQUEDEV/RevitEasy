@@ -86,6 +86,9 @@
     <Compile Include="5.WPF\DuplicateViewsWPF.xaml.cs">
       <DependentUpon>DuplicateViewsWPF.xaml</DependentUpon>
     </Compile>
+    <Compile Include="5.WPF\RenumberSheetsFormWPF.xaml.cs">
+      <DependentUpon>RenumberSheetsFormWPF.xaml</DependentUpon>
+    </Compile>
     <Compile Include="5.WPF\TemplateWPF\BehaviorsWPF.cs" />
     <Compile Include="6.ExternalCommand\OpenDuplicateViewsFormCommand.cs" />
     <Compile Include="5.WPF\AboutWPF.xaml.cs">
@@ -118,6 +121,7 @@
     <Compile Include="6.ExternalCommand\OpenDuplicateScheduleFormCommand.cs" />
     <Compile Include="6.ExternalCommand\OpenInsertViewsOnSheetCommand.cs" />
     <Compile Include="6.ExternalCommand\OpenRenameViewsFormCommand.cs" />
+    <Compile Include="6.ExternalCommand\OpenRenumberSheetsFormCommand.cs" />
     <Compile Include="7.Tests\SetIdElement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -170,6 +174,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="5.WPF\RenameViewsFormWPF.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="5.WPF\RenumberSheetsFormWPF.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -237,7 +245,7 @@
     <Content Include="Installer.xml" />
     <Content Include="Resources\email_RGB216,216,216.png" />
     <Content Include="Resources\github_216_216_216.png" />
-    <Content Include="Resources\IconAboutButton16x16.png" />
+    <None Include="Resources\IconRenumberSheets32x32.png" />
     <None Include="Resources\IconCalculateGif.gif" />
     <None Include="Resources\IconDocument32x32.png" />
     <None Include="Resources\IconTools32x32.png" />

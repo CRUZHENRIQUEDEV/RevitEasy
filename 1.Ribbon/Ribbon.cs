@@ -345,6 +345,20 @@ namespace RevitEasy
             DuplicateViewsButtonData.SetContextualHelp(contextualHelpDuplicateViews);
             DocumentacaoButton.AddPushButton(DuplicateViewsButtonData);
 
+            // Pushbutton "Renumber Sheets" no painel "Documentação"
+            PushButtonData RenumberSheetsButtonData = new PushButtonData("RenumberSheetsButton", "Renumber Sheets", typeof(OpenRenumberSheetsFormCommand).Assembly.Location, "RevitEasy.OpenRenumberSheetsFormCommand")
+            {
+                LargeImage = ConvertImage(Properties.Resources.IconRenumberSheets32x32),
+                ToolTip = "Renumber Sheets",
+                LongDescription = "Renumber Multiple Sheets",
+                ToolTipImage = ConvertImage(Properties.Resources.IconRenumberSheets32x32)
+            };
+
+            ContextualHelp contextualHelpRenumberSheets = new ContextualHelp(ContextualHelpType.Url, "https://www.example.com/renumber-sheets-help");
+            RenumberSheetsButtonData.SetContextualHelp(contextualHelpRenumberSheets);
+            DocumentacaoButton.AddPushButton(RenumberSheetsButtonData);
+
+
 
             #endregion
 

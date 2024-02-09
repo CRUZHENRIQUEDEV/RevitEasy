@@ -219,7 +219,6 @@ namespace RevitEasy._5.WPF
 
         #endregion
 
-
         #region Evento que é executado sempre que o Tipo de vista é selecionado no combobox Cb_RenameViewsType Cb_RenameViewsType_SelectionChanged
         // Evento que é executado sempre que o Tipo de vista é selecionado no combobox Cb_RenameViewsType
         private void Cb_RenameViewsType_SelectionChanged(object sender, SelectionChangedEventArgs e)

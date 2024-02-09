@@ -2,7 +2,7 @@
 ; VEJA A DOCUMENTAÇÃO PARA DETALHES SOBRE A CRIAÇÃO DE ARQUIVOS DE SCRIPT INNO SETUP!
 
 #define MyAppName "Revit Easy Plugin"
-#define MyAppVersion "0.0.1"
+#define MyAppVersion "0.03"
 #define MyAppPublisher "RevitEasyPlugin"
 #define MyAppURL "https://github.com/CRUZHENRIQUEDEV/RevitEasy"
 
