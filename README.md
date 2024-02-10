@@ -1,14 +1,15 @@
 # RevitEasy
-Este é o repositório para o plugin de revit que estou desenvolvendo 
-- Desenvolvido em C#
--  Visual Studio 
-- .NETFramework
+This is the repository for the revit plugin I'm developing
 
- ![image](https://github.com/CRUZHENRIQUEDEV/RevitEasy/assets/143232644/d9c33d86-957c-437e-8306-9f5ba47bceb8)
+Developed in C#
+Visual Studio
+.NETFramework
+
+![image](https://github.com/CRUZHENRIQUEDEV/RevitEasy/assets/143232644/7215792b-8268-477b-ba39-a9923e7bf409)
 
 
 # Revit API
-Este é um plugin para automatizar tarefas repetitivas no Software Autodesk Revit
+This is a plugin to automate repetitive tasks in Autodesk Revit Software
 
 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.pt"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
 
@@ -22,9 +23,10 @@ Este é um plugin para automatizar tarefas repetitivas no Software Autodesk Revi
 
 ### 01 - PullButton Wall
 
-01.1 Rename Multiple Views
+01.1 Rename Multiple Views keeping the same order
 
-![image](https://github.com/CRUZHENRIQUEDEV/RevitEasy/assets/143232644/4dd84a72-8518-4e48-96b0-0ae8f2733a60)
+![image](https://github.com/CRUZHENRIQUEDEV/RevitEasy/assets/143232644/0b3b6064-64e9-43d2-92c8-2a8bb55fff8e)
+
 
 01.3 Place Views On Sheets (under development)
 
@@ -42,16 +44,22 @@ Este é um plugin para automatizar tarefas repetitivas no Software Autodesk Revi
 
 03.1 Create multiple Sheets 
 
+![image](https://github.com/CRUZHENRIQUEDEV/RevitEasy/assets/143232644/98416320-5946-4f59-ad27-fe18b9bfd1fe)
 
-![image](https://github.com/CRUZHENRIQUEDEV/RevitEasy/assets/143232644/311a128e-7033-42ac-a291-ec96a3c822c7)
 
 03.2 Duplicate Shedules 
 
-![image](https://github.com/CRUZHENRIQUEDEV/RevitEasy/assets/143232644/8eabfb33-9701-4287-be28-9ff2edee7a11)
+![image](https://github.com/CRUZHENRIQUEDEV/RevitEasy/assets/143232644/b75b09e6-98b5-499c-b6db-49bd32d942d9)
+
 
 03.3 Duplicate Views 
 
-![image](https://github.com/CRUZHENRIQUEDEV/RevitEasy/assets/143232644/82239086-e22c-40a2-9b31-df4eeae6ebaf)
+
+![image](https://github.com/CRUZHENRIQUEDEV/RevitEasy/assets/143232644/a58ee0c7-b087-403d-b267-354d0952f5bb)
+
+03.4 renumber sheets keeping the same order
+
+![image](https://github.com/CRUZHENRIQUEDEV/RevitEasy/assets/143232644/f8081757-7b79-4969-a21e-80c3fab20c2b)       ![image](https://github.com/CRUZHENRIQUEDEV/RevitEasy/assets/143232644/712f5224-17ff-437e-94dd-a6f5246c867f)
 
 
 
