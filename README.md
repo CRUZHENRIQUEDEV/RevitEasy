@@ -21,12 +21,8 @@ Este é um plugin para automatizar tarefas repetitivas no Software Autodesk Revi
 ## Projetos
 
 ### 01 - PullButton Wall
-01.1 Create multiple Sheets
 
-![image](https://github.com/CRUZHENRIQUEDEV/RevitEasy/assets/143232644/311a128e-7033-42ac-a291-ec96a3c822c7)
-
-
-01.2 Rename Multiple Views
+01.1 Rename Multiple Views
 
 ![image](https://github.com/CRUZHENRIQUEDEV/RevitEasy/assets/143232644/4dd84a72-8518-4e48-96b0-0ae8f2733a60)
 
@@ -47,7 +43,7 @@ Este é um plugin para automatizar tarefas repetitivas no Software Autodesk Revi
 03.1 Create multiple Sheets 
 
 
-![image](https://github.com/CRUZHENRIQUEDEV/RevitEasy/assets/143232644/d68ad2a6-9373-48ad-9e5f-299486bb98ed)
+![image](https://github.com/CRUZHENRIQUEDEV/RevitEasy/assets/143232644/311a128e-7033-42ac-a291-ec96a3c822c7)
 
 03.2 Duplicate Shedules 
 
