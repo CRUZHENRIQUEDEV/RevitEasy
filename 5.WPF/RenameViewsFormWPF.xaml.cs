@@ -110,18 +110,28 @@ namespace RevitEasy._5.WPF
                         }
                     }
 
-                    // Ordena as vistas com base nos números contidos em seus nomes
+                    // Ordena as vistas com base nos números contidos em seus nomes, ou alfabeticamente se não houver números
                     filteredViews.Sort((v1, v2) =>
                     {
                         string name1 = v1.Name;
                         string name2 = v2.Name;
 
-                        // Extrai os números dos nomes
-                        int num1 = int.Parse(new string(name1.Where(char.IsDigit).ToArray()));
-                        int num2 = int.Parse(new string(name2.Where(char.IsDigit).ToArray()));
+                        // Extrai os números dos nomes (se existirem)
+                        string numStr1 = new string(name1.Where(char.IsDigit).ToArray());
+                        string numStr2 = new string(name2.Where(char.IsDigit).ToArray());
 
-                        // Compara os números
-                        return num1.CompareTo(num2);
+                        if (!string.IsNullOrEmpty(numStr1) && !string.IsNullOrEmpty(numStr2))
+                        {
+                            // Ambos os nomes contêm números, compara os números
+                            int num1 = int.Parse(numStr1);
+                            int num2 = int.Parse(numStr2);
+                            return num1.CompareTo(num2);
+                        }
+                        else
+                        {
+                            // Se um dos nomes não contiver números, compara alfabeticamente
+                            return name1.CompareTo(name2);
+                        }
                     });
 
                     // Renomear todas as vistas

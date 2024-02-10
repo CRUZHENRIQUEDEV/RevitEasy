@@ -60,7 +60,7 @@
             Background="{x:Null}" 
             Foreground="#FFD8D8D8"/>
         <Label x:Name="Lb_TitleRenomearVistas" 
-            Content="Renumber Sheet"
+            Content="Renumber Sheets"
             HorizontalAlignment="Left" 
             Margin="3,0,0,0" 
             VerticalAlignment="Top" 
