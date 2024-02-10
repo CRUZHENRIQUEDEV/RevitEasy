@@ -20,8 +20,8 @@ namespace RevitEasy
                 UIDocument uidoc = commandData.Application.ActiveUIDocument;
                 Document doc = uidoc.Document;
 
-                // Cria uma instância do formulário WPF RenumberSheetsFormWPF
-                RenumberSheetsFormWPF renumberSheetsForm = new RenumberSheetsFormWPF();
+                // Cria uma instância do formulário WPF RenumberSheetsFormWPF, passando o documento como parâmetro
+                RenumberSheetsFormWPF renumberSheetsForm = new RenumberSheetsFormWPF(doc);
 
                 // Exibe o formulário WPF
                 renumberSheetsForm.ShowDialog();

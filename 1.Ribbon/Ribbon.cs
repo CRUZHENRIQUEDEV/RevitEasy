@@ -120,20 +120,9 @@ namespace RevitEasy
             #endregion
 
             #region CREATE PULLDOWNBUTTONS - WALL
-            //Pullbutton create sheets
-            PushButtonData CreateSheetButton = new PushButtonData("Create Sheets", "Create Sheets", typeof(OpenCreateSheetsFormCommand).Assembly.Location, "RevitEasy.OpenCreateSheetsFormCommand")
-            {
-                LargeImage = ConvertImage(Properties.Resources.IconDuplicate32x32),
-                ToolTip = "Create Multiple Sheets",
-                LongDescription = "Creates multiple new sheets in the project where the user can define the number, name and family of the new sheets",
-                ToolTipImage = ConvertImage(Properties.Resources.RevitApiDocs)
-            };
-            ContextualHelp ayudaContextual03 = new ContextualHelp(ContextualHelpType.Url, "https://github.com/CRUZHENRIQUEDEV/RevitEasy");
-            CreateSheetButton.SetContextualHelp(ayudaContextual03);
-            pullDownButton.AddPushButton(CreateSheetButton);
+          
 
-
-            // Pushbutton renomear vistas
+            // Pushbutton Rename views
             PushButtonData RenameViewsButton = new PushButtonData("RenameViews", "Rename Views", typeof(OpenRenameViewsFormCommand).Assembly.Location, "RevitEasy.OpenRenameViewsFormCommand")
             {
                 LargeImage = ConvertImage(Properties.Resources.IconRename),
@@ -332,7 +321,7 @@ namespace RevitEasy
             DuplicateSchedulesButton.SetContextualHelp(contextualHelpDuplicateSchedules);
             DocumentacaoButton.AddPushButton(DuplicateSchedulesButton);
 
-            // Pushbutton "Duplicate Views" no painel "Documentação"
+            // Pushbutton "Duplicate Views" in the label "Documentação"
             PushButtonData DuplicateViewsButtonData = new PushButtonData("DuplicateViewsButton", "Duplicate Views", typeof(OpenDuplicateViewsFormCommand).Assembly.Location, "RevitEasy.OpenDuplicateViewsFormCommand")
             {
                 LargeImage = ConvertImage(Properties.Resources.IconDuplicateViews32x32),
@@ -345,13 +334,13 @@ namespace RevitEasy
             DuplicateViewsButtonData.SetContextualHelp(contextualHelpDuplicateViews);
             DocumentacaoButton.AddPushButton(DuplicateViewsButtonData);
 
-            // Pushbutton "Renumber Sheets" no painel "Documentação"
+            // Pushbutton "Renumber Sheets" in the label "Documentation"
             PushButtonData RenumberSheetsButtonData = new PushButtonData("RenumberSheetsButton", "Renumber Sheets", typeof(OpenRenumberSheetsFormCommand).Assembly.Location, "RevitEasy.OpenRenumberSheetsFormCommand")
             {
-                LargeImage = ConvertImage(Properties.Resources.IconRenumberSheets32x32),
+                LargeImage = ConvertImage(Properties.Resources.IconChangeNumber32x32),
                 ToolTip = "Renumber Sheets",
                 LongDescription = "Renumber Multiple Sheets",
-                ToolTipImage = ConvertImage(Properties.Resources.IconRenumberSheets32x32)
+                ToolTipImage = ConvertImage(Properties.Resources.IconChangeNumber32x32)
             };
 
             ContextualHelp contextualHelpRenumberSheets = new ContextualHelp(ContextualHelpType.Url, "https://www.example.com/renumber-sheets-help");
@@ -497,7 +486,6 @@ namespace RevitEasy
             //panelDePestania.AddStackedItems(datosDelPushButton07, datosDelPushButton08, datosDelPushButton09);
             #endregion
 
-
             #region CRIANDO UM COMBOBOX
             //ComboBoxData comboBoxData = new ComboBoxData("ComboBox");
             //ComboBox comboBox = panelDePestania.AddItem(comboBoxData) as ComboBox;
@@ -550,8 +538,6 @@ namespace RevitEasy
 
 
             #endregion
-
-
 
 
             return Result.Succeeded;

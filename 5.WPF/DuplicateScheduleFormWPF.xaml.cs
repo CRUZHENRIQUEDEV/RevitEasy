@@ -33,7 +33,7 @@ namespace RevitEasy._5.WPF
             RevitFormBehavior.Register(this); //back common to all forms
         }
 
-        #region ação executtada ao abrir o formulário DuplicateScheduleForm_Load
+        #region ação executada ao abrir o formulário DuplicateScheduleForm_Load
         // Método chamado ao carregar o formulário
         private void DuplicateScheduleForm_Load(object sender, RoutedEventArgs e)
         {

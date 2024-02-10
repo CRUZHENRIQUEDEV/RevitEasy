@@ -8,9 +8,9 @@
              ResizeMode="NoResize" 
              WindowStyle="None"
              Background="#FF3A4453" 
-             Height="345" 
+             Height="347" 
              Width="220">
-    <Grid Margin="0,0,0,10">
+    <Grid x:Name="RenumberSheetsFormWPF1" Loaded="RenumberSheetsFormWPF_Loaded">
         <Border x:Name="ExternalBorderGray"
             BorderBrush="#FF5D5D5D"
             BorderThickness="1,1,1,1"
@@ -109,7 +109,7 @@
 
 
 
-        <TextBox x:Name="Tb_SheetNumberSuffix"
+        <TextBox x:Name="Tb_SheetNumberPreffix"
             HorizontalAlignment="Center"
             Height="20" 
             Margin="0,186,0,0" 
@@ -135,7 +135,8 @@
             Width="200" 
             Background="#FF212933" 
             BorderBrush="#FFABADB3" 
-            Foreground="#FFD8D8D8">
+            Foreground="#FFD8D8D8"
+            PreviewKeyDown="Tb_SheetNumberStart_PreviewKeyDown">
             <TextBox.ToolTip>
                 <ToolTip Content="NÚMERO INTEIRO que a primeira vista receberá"/>
             </TextBox.ToolTip>
@@ -150,7 +151,9 @@
             Background="#FF212933" 
             Foreground="#FFD8D8D8" 
             BorderBrush="#FFD8D8D8" 
-            BorderThickness="1,1,1,1"/>
+            BorderThickness="1,1,1,1"
+            TabIndex="100" 
+            Click="Btn_OK_Click"/>
         <Button 
             x:Name="Btn_Cancel" 
             Content="Cancel" 
@@ -161,7 +164,8 @@
             Background="#FF212933" 
             Foreground="#FFD8D8D8" 
             BorderBrush="#FFD8D8D8" 
-            BorderThickness="1,1,1,1"/>
+            BorderThickness="1,1,1,1"
+            TabIndex="99" Click="Btn_Cancel_Click"/>
         <Label Content="Set Sheet Number" 
             HorizontalAlignment="Left" 
             Margin="5,137,0,0" 
@@ -175,40 +179,40 @@
             VerticalAlignment="Top" 
             BorderBrush="#FFD8D8D8"
             Background="{x:Null}" 
-            Foreground="#FFD8D8D8"/>
-        <RadioButton Content="1,2,3" 
+            Foreground="#FFD8D8D8" IsEnabled="False"/>
+        <RadioButton x:Name="Rb_123" Content="1,2,3" 
                      HorizontalAlignment="Left" 
                      Height="15" 
-                     Margin="118,222,0,0" 
+                     Margin="65,222,0,0" 
                      VerticalAlignment="Top" 
                      Width="46" 
                      Checked="RadioButton_Checked" 
                      Background="White" 
                      Foreground="#FFD8D8D4"
-                     TabIndex="4"/>
-        <RadioButton Content="A,B,C" 
+                     TabIndex="4" IsChecked="True" IsEnabled="False"/>
+        <RadioButton x:Name="Rb_ABC" Content="A,B,C" 
                      HorizontalAlignment="Left" 
                      Height="15" 
-                     Margin="68,222,0,0" 
+                     Margin="113,222,0,0" 
                      VerticalAlignment="Top" 
                      Width="46" 
                      Checked="RadioButton_Checked"
                      Background="White" 
                      Foreground="#FFD8D8D4"
-                     TabIndex="5"/>
-        <RadioButton Content="a,b,c" 
+                     TabIndex="5" IsChecked="False" IsEnabled="False"/>
+        <RadioButton x:Name="Rb_abc" Content="a,b,c" 
                      HorizontalAlignment="Left"
                      Height="15" 
-                     Margin="166,222,0,0" 
+                     Margin="163,222,0,0" 
                      VerticalAlignment="Top"
                      Width="46" 
                      Checked="RadioButton_Checked"
                      Background="White"
                      Foreground="#FFD8D8D4"
-                     TabIndex="6"/>
-        <Border x:Name="Manage_Window_Copiar" 
+                     TabIndex="6" IsEnabled="False"/>
+        <Border x:Name="Manage_Window" 
                 Height="NaN"
-                Margin="172,1,2,308">
+                Margin="172,-6,2,315">
             <Grid>
                 <Button x:Name="Btn_Restore" 
                     Content="2" 

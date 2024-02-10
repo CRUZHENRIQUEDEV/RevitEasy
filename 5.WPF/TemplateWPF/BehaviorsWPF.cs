@@ -118,6 +118,7 @@ namespace RevitEasy.WPF.Behaviors
 
         #endregion
 
+
         #region Helper Methods
 
         private static Button FindCloseButton(Window window)
@@ -133,6 +134,11 @@ namespace RevitEasy.WPF.Behaviors
         private static Button FindRestoreButton(Window window)
         {
             return window.FindName("Btn_Restore") as Button;
+        }
+
+        private static Button FindCancelButton(Window window)
+        {
+            return window.FindName("Btn_cancel") as Button;
         }
 
         private static Window FindParentWindow(FrameworkElement element)
@@ -154,5 +160,8 @@ namespace RevitEasy.WPF.Behaviors
         }
 
         #endregion
+
+        
+
     }
 }

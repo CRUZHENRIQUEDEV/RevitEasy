@@ -8,27 +8,29 @@
              ResizeMode="NoResize"
              WindowStyle="None"
              Background="#FF3A4453" 
-             Height="0400" 
-             Width="500">
-    <Grid x:Name="AboutFormWPF"> 
+             Height="400" 
+             Width="310">
+    <Grid x:Name="AboutFormWPF" RenderTransformOrigin="0.465,0.506" Width="310">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="62*"/>
+            <ColumnDefinition Width="69*"/>
+        </Grid.ColumnDefinitions>
 
         <Border x:Name="ExternalBorderGray"
             BorderBrush="#FF5D5D5D"
             BorderThickness="1,1,1,1"
-            HorizontalAlignment="Center"
             Height="400" 
-            VerticalAlignment="Center"
-            Width="500" 
-            Opacity="0.95" d:IsLocked="True"/>
+            VerticalAlignment="Center" 
+            Opacity="0.95" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="311"/>
 
 
         <Border BorderBrush="#FFD8D8D8" 
             BorderThickness="1" 
-            HorizontalAlignment="Center" 
+            HorizontalAlignment="Left" 
             Height="29" 
             VerticalAlignment="Top" 
-            Width="500" 
-            Background="#FF3A4453" d:IsLocked="True"/>
+            Width="310" 
+            Background="#FF3A4453" Grid.ColumnSpan="2"/>
         <Label x:Name="Lb_TitleCreateSheets" 
             Content="About"
             HorizontalAlignment="Left" 
@@ -39,40 +41,8 @@
             Foreground="#FFD8D8D8"
             FontSize="14" 
             FontWeight="Bold"/>
-        <Border x:Name="Manage_Window" Height="NaN" Margin="444,0,10,374">
-            <Grid>
-                <Button x:Name="Btn_Restore" 
-                        Content="2" 
-                        Margin="16,-1,12,2" 
-                        Background="{x:Null}" 
-                        Foreground="{x:Null}" 
-                        BorderBrush="{x:Null}" 
-                        Height="25" 
-                        FontFamily="Marlett" 
-                        FontSize="13"/>
-                <Button x:Name="Btn_Minimize" 
-                        Content="0" 
-                        Margin="0,0,31,1" 
-                        Background="{x:Null}" 
-                        Foreground="#FFD8D8DA" 
-                        BorderBrush="{x:Null}" 
-                        Width="15" Height="25" 
-                        FontSize="10" 
-                        FontFamily="Marlett"/>
-                <Button x:Name="Btn_Close" 
-                        Content="r" 
-                        Margin="31,1,0,0" 
-                        Background="{x:Null}" 
-                        Foreground="#FFD8D8DA" 
-                        BorderBrush="{x:Null}" 
-                        Width="15" Height="25" 
-                        FontSize="10" 
-                        FontFamily="Marlett"/>
-
-            </Grid>
-        </Border>
         <Label x:Name="Lb_TitleCreateSheets_Copiar" 
-            Content="Revit Easy Version 0.03 - BETA"
+            Content="Revit Easy Version 0.04 - BETA"
             HorizontalAlignment="Left" 
             Margin="3,34,0,0" 
             VerticalAlignment="Top" 
@@ -80,22 +50,76 @@
             Background="{x:Null}" 
             Foreground="#FFD8D8D8"
             FontSize="14" 
-            FontWeight="Bold"/>
-        <Button x:Name="Btn_Github" Content="" BorderBrush="{x:Null}" Width="25" Height="25" Margin="6,366,470,9" Background="{x:Null}"/>
+            FontWeight="Bold" Grid.ColumnSpan="2" Width="280"/>
+        <Button x:Name="Btn_Github" Content="" BorderBrush="{x:Null}" Width="25" Height="25" Margin="18,366,206,9" Background="{x:Null}"/>
 
         <Button x:Name="Btn_Email"
-                Content="" BorderBrush="{x:Null}" Height="20" Margin="6,336,466,44" Background="{x:Null}"/>
-        <TextBlock Margin="41,371,176,13" 
-                   Text="https://github.com/CRUZHENRIQUEDEV/RevitEasy" 
-                   Foreground="#FFD8D8D8"/>
+                Content="" BorderBrush="{x:Null}" Height="20" Margin="6,336,190,44" Background="{x:Null}"/>
+
+        <TextBlock 
+            Foreground="#FFD8D8D8"
+            TextWrapping="Wrap" 
+            Margin="31,368,0,8"
+            Grid.ColumnSpan="2">
+        <Hyperlink 
+            NavigateUri="https://github.com/CRUZHENRIQUEDEV/RevitEasy"
+            RequestNavigate="Hyperlink_RequestNavigate">
+            https://github.com/CRUZHENRIQUEDEV/RevitEasy
+        </Hyperlink>
+        </TextBlock>
+
         <Label Content="Henriquecruz.dev@gmail.com" 
                HorizontalAlignment="Left" 
                VerticalAlignment="Top"
                Background="{x:Null}"
                Foreground="#FFD8D8D8"
-               Margin="37,340,0,0"/>
-        <TextBlock Margin="41,312,176,72" 
-            Text="https://www.linkedin.com/in/henriquecruzarq/" 
-            Foreground="#FFD8D8D8"/>
+               Margin="25,337,0,0" 
+               Height="30" Grid.ColumnSpan="2" Width="247"/>
+        <TextBlock 
+            Margin="30,312,12,72" 
+            Foreground="#FFD8D8D8"
+            FontWeight="Bold" 
+            Grid.ColumnSpan="2">
+    <Hyperlink 
+        NavigateUri="https://www.linkedin.com/in/henriquecruzarq/" 
+        RequestNavigate="Hyperlink_RequestNavigate">
+        https://www.linkedin.com/in/henriquecruzarq/
+    </Hyperlink>
+        </TextBlock>
+        <Border x:Name="Manage_Window" 
+            Height="NaN"
+            Margin="107,1,10,373" Grid.Column="1">
+            <Grid>
+                <Button x:Name="Btn_Restore" 
+                    Content="2" 
+                    Margin="16,-1,12,2" 
+                    Background="{x:Null}" 
+                    Foreground="{x:Null}" 
+                    BorderBrush="{x:Null}" 
+                    Height="25" 
+                    FontFamily="Marlett" 
+                    FontSize="13"/>
+                <Button x:Name="Btn_Minimize" 
+                    Content="0" 
+                    Margin="0,0,31,1" 
+                    Background="{x:Null}" 
+                    Foreground="#FFD8D8DA" 
+                    BorderBrush="{x:Null}" 
+                    Width="15" Height="25" 
+                    FontSize="10" 
+                    FontFamily="Marlett"/>
+                <Button x:Name="Btn_Close" 
+                    Content="r" 
+                    Margin="31,1,0,0" 
+                    Background="{x:Null}" 
+                    Foreground="#FFD8D8DA" 
+                    BorderBrush="{x:Null}" 
+                    Width="15" Height="25" 
+                    FontSize="10" 
+                    FontFamily="Marlett"/>
+
+            </Grid>
+        </Border>
+
     </Grid>
 </Window>
