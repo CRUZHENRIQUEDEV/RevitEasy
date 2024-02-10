@@ -1,8 +1,9 @@
 # RevitEasy
-Este é o repositório para o plugin de revit que estou desenvolvendo 
-- Desenvolvido em C#
--  Visual Studio 
-- .NETFramework
+This is the repository for the revit plugin I'm developing
+
+Developed in C#
+Visual Studio
+.NETFramework
 
 ![image](https://github.com/CRUZHENRIQUEDEV/RevitEasy/assets/143232644/7215792b-8268-477b-ba39-a9923e7bf409)
 
