@@ -10,7 +10,9 @@
              Background="#FF3A4453" 
              Height="347" 
              Width="220">
-    <Grid x:Name="RenumberSheetsFormWPF1" Loaded="RenumberSheetsFormWPF_Loaded">
+    <Grid x:Name="RenumberSheetsFormWPF1" 
+          Loaded="RenumberSheetsFormWPF_Loaded">
+        
         <Border x:Name="ExternalBorderGray"
             BorderBrush="#FF5D5D5D"
             BorderThickness="1,1,1,1"
@@ -44,7 +46,9 @@
             VerticalAlignment="Top" 
             BorderBrush="#FFD8D8D8" 
             Background="{x:Null}" 
-            Foreground="#FFD8D8D8" Width="65"/>
+            Foreground="#FFD8D8D8" 
+            Width="65"/>
+        
         <Label Content="Sheet Preffix" 
             HorizontalAlignment="Left" 
             Margin="5,0,0,0" 
@@ -122,7 +126,7 @@
             RenderTransformOrigin="0.705,3.3"
             TabIndex="3">
             <TextBox.ToolTip>
-                <ToolTip Content="Nome + Prefixo do nome das vistas - EX: PAREDE A"/>
+                <ToolTip Content="Sheet Number preffix(optional)"/>
             </TextBox.ToolTip>
         </TextBox>
 
@@ -138,7 +142,7 @@
             Foreground="#FFD8D8D8"
             PreviewKeyDown="Tb_SheetNumberStart_PreviewKeyDown">
             <TextBox.ToolTip>
-                <ToolTip Content="NÚMERO INTEIRO que a primeira vista receberá"/>
+                <ToolTip Content="Starting sheet number "/>
             </TextBox.ToolTip>
         </TextBox>
         <Button 
@@ -179,8 +183,10 @@
             VerticalAlignment="Top" 
             BorderBrush="#FFD8D8D8"
             Background="{x:Null}" 
-            Foreground="#FFD8D8D8" IsEnabled="False"/>
-        <RadioButton x:Name="Rb_123" Content="1,2,3" 
+            Foreground="#FFD8D8D8" 
+            IsEnabled="False"/>
+        <RadioButton x:Name="Rb_123" 
+                     Content="1,2,3" 
                      HorizontalAlignment="Left" 
                      Height="15" 
                      Margin="65,222,0,0" 
@@ -189,7 +195,8 @@
                      Checked="RadioButton_Checked" 
                      Background="White" 
                      Foreground="#FFD8D8D4"
-                     TabIndex="4" IsChecked="True" IsEnabled="False"/>
+                     TabIndex="4" IsChecked="True" 
+                     IsEnabled="False"/>
         <RadioButton x:Name="Rb_ABC" Content="A,B,C" 
                      HorizontalAlignment="Left" 
                      Height="15" 
@@ -199,7 +206,8 @@
                      Checked="RadioButton_Checked"
                      Background="White" 
                      Foreground="#FFD8D8D4"
-                     TabIndex="5" IsChecked="False" IsEnabled="False"/>
+                     TabIndex="5" IsChecked="False" 
+                     IsEnabled="False"/>
         <RadioButton x:Name="Rb_abc" Content="a,b,c" 
                      HorizontalAlignment="Left"
                      Height="15" 
