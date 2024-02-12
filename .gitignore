@@ -27,12 +27,13 @@ x86/
 [Aa][Rr][Mm]/
 [Aa][Rr][Mm]64/
 bld/
+/5.WPF/*.cs
 [Bb]in/
 [Oo]bj/
 [Oo]ut/
 [Ll]og/
 [Ll]ogs/
-/5.WPF/*.cs
+
 
 
 # Visual Studio 2015/2017 cache/options directory
