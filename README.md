@@ -64,9 +64,6 @@ This is a plugin to automate repetitive tasks in Autodesk Revit Software
 
 
 
-## Licença
-
-<p>Este projeto está licenciado sob <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.pt">Atribuição-NãoComercial-CompartilhaIgual 4.0 Internacional</a>.</p>
 
 ---
 
