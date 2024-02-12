@@ -183,17 +183,7 @@ namespace RevitEasy
             RenameSchedulesButton.SetContextualHelp(contextualHelpRenameSchedules);
             pullDownButton.AddPushButton(RenameSchedulesButton);
 
-            // Pushbutton para renomear folhas
-            PushButtonData RenameSheetsButton = new PushButtonData("Rename Sheets", "Rename Sheets", typeof(Ribbon).Assembly.Location, "RevitEasy.ToolsInDevelopment")
-            {
-                LargeImage = ConvertImage(Properties.Resources.IconRename),
-                ToolTip = "Rename Sheets",
-                LongDescription = "Rename Sheets and numbers",
-                ToolTipImage = ConvertImage(Properties.Resources.RevitApiDocs)
-            };
-            ContextualHelp contextualHelpRenameSheets = new ContextualHelp(ContextualHelpType.Url, "https://github.com/CRUZHENRIQUEDEV/RevitEasy");
-            RenameSheetsButton.SetContextualHelp(contextualHelpRenameSheets);
-            pullDownButton.AddPushButton(RenameSheetsButton);
+
 
 
             #endregion
@@ -347,6 +337,18 @@ namespace RevitEasy
             RenumberSheetsButtonData.SetContextualHelp(contextualHelpRenumberSheets);
             DocumentacaoButton.AddPushButton(RenumberSheetsButtonData);
 
+            // Pushbutton "Rename Sheets" in the label "Documentation"
+            PushButtonData RenameSheetsButtonData = new PushButtonData("RenameSheetsButton", "Rename Sheets", typeof(OpenRenameSheetFormCommand).Assembly.Location, "RevitEasy.OpenRenameSheetFormCommand")
+            {
+                LargeImage = ConvertImage(Properties.Resources.IconRenameSheets32x32),
+                ToolTip = "Rename Sheets",
+                LongDescription = "Rename Multiple Sheets",
+                ToolTipImage = ConvertImage(Properties.Resources.IconRenameSheets32x32)
+            };
+
+            ContextualHelp contextualHelpRenameSheets = new ContextualHelp(ContextualHelpType.Url, "https://www.example.com/rename-sheets-help");
+            RenameSheetsButtonData.SetContextualHelp(contextualHelpRenameSheets);
+            DocumentacaoButton.AddPushButton(RenameSheetsButtonData);
 
 
             #endregion

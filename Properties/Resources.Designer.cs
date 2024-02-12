@@ -263,6 +263,16 @@ namespace RevitEasy.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap IconRenameSheets32x32 {
+            get {
+                object obj = ResourceManager.GetObject("IconRenameSheets32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap IconRenumberSheets16x16 {
             get {
                 object obj = ResourceManager.GetObject("IconRenumberSheets16x16", resourceCulture);

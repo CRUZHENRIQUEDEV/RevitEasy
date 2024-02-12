@@ -61,8 +61,7 @@
             Background="#FF212933" 
             Foreground="#FFD8D8D8" 
             BorderBrush="#FFD8D8D8" 
-            BorderThickness="1,1,1,1"
-            Click="Btn_RenameViews_Click"/>
+            BorderThickness="1,1,1,1"/>
         <Label x:Name="Lb_Title" 
             Content="Rename Sheets"
             HorizontalAlignment="Left" 
@@ -83,8 +82,7 @@
             Background="#FF212933" 
             Foreground="#FFD8D8D8" 
             BorderBrush="#FFD8D8D8" 
-            BorderThickness="1,1,1,1" 
-            Click="Btn_RenameViewsExit_Click"/>
+            BorderThickness="1,1,1,1"/>
 
 
 
@@ -98,7 +96,7 @@
             Background="#FF212933"
             BorderBrush="#FFD8D8D8" 
             Foreground="#FFD8D8D8"
-            TextChanged="Tb_RenameViewNamePreffix_TextChanged" RenderTransformOrigin="0.705,3.3">
+            RenderTransformOrigin="0.705,3.3">
             <TextBox.ToolTip>
                 <ToolTip Content="Nome + Prefixo do nome das vistas - EX: PAREDE A"/>
             </TextBox.ToolTip>
@@ -113,9 +111,7 @@
             Width="200" 
             Background="#FF212933" 
             BorderBrush="#FFABADB3" 
-            Foreground="#FFD8D8D8"
-            PreviewKeyDown="Tb_RenameViewNameNumberStarts_PreviewKeyDown"
-            TextChanged="Tb_RenameViewNameNumberStarts_TextChanged">
+            Foreground="#FFD8D8D8">
             <TextBox.ToolTip>
                 <ToolTip Content="NÚMERO INTEIRO que a primeira vista receberá"/>
             </TextBox.ToolTip>
@@ -149,8 +145,8 @@
             Foreground="#FFD8D8D8" 
             BorderBrush="#FFD8D8D8" 
             BorderThickness="1,1,1,1"
-            TabIndex="100" 
-            Click="Btn_OK_Click"/>
+            TabIndex="100" Click="Btn_OK_Click" 
+            />
         <Button 
             x:Name="Btn_Cancel" 
             Content="Cancel" 
@@ -162,7 +158,8 @@
             Foreground="#FFD8D8D8" 
             BorderBrush="#FFD8D8D8" 
             BorderThickness="1,1,1,1"
-            TabIndex="99" Click="Btn_Cancel_Click"/>
+            TabIndex="99"
+            />
         <Label x:Name="Lb_ViewType"
             Content="Start Sheet"
             HorizontalAlignment="Left" 

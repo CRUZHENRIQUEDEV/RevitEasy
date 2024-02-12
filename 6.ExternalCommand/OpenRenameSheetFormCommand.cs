@@ -7,7 +7,7 @@ using System;
 namespace RevitEasy
 {
     [Transaction(TransactionMode.Manual)]
-    public class OpenRenumberSheetsFormCommand : IExternalCommand
+    public class OpenRenameSheetFormCommand : IExternalCommand
     {
         public Result Execute(
             ExternalCommandData commandData,
@@ -20,11 +20,11 @@ namespace RevitEasy
                 UIDocument uidoc = commandData.Application.ActiveUIDocument;
                 Document doc = uidoc.Document;
 
-                // Cria uma instância do formulário WPF RenumberSheetsFormWPF
-                RenumberSheetsFormWPF renumberSheetsForm = new RenumberSheetsFormWPF(doc);
+                // Cria uma instância do formulário WPF RenameSheetFormWPF
+                RenameSheetFormWPF renameSheetForm = new RenameSheetFormWPF(doc);
 
                 // Exibe o formulário WPF
-                renumberSheetsForm.ShowDialog();
+                renameSheetForm.ShowDialog();
 
                 return Result.Succeeded;
             }

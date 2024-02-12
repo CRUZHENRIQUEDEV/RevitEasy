@@ -86,8 +86,8 @@
     <Compile Include="5.WPF\DuplicateViewsWPF.xaml.cs">
       <DependentUpon>DuplicateViewsWPF.xaml</DependentUpon>
     </Compile>
-    <Compile Include="5.WPF\RenameSheetFormWPF.xaml.cs">
-      <DependentUpon>RenameSheetFormWPF.xaml</DependentUpon>
+    <Compile Include="5.WPF\RenameSheetsFormWPF.xaml.cs">
+      <DependentUpon>RenameSheetsFormWPF.xaml</DependentUpon>
     </Compile>
     <Compile Include="5.WPF\RenumberSheetsFormWPF.xaml.cs">
       <DependentUpon>RenumberSheetsFormWPF.xaml</DependentUpon>
@@ -123,6 +123,7 @@
     <Compile Include="6.ExternalCommand\OpenCreateSheetsFormCommand.cs" />
     <Compile Include="6.ExternalCommand\OpenDuplicateScheduleFormCommand.cs" />
     <Compile Include="6.ExternalCommand\OpenInsertViewsOnSheetCommand.cs" />
+    <Compile Include="6.ExternalCommand\OpenRenameSheetFormCommand.cs" />
     <Compile Include="6.ExternalCommand\OpenRenameViewsFormCommand.cs" />
     <Compile Include="6.ExternalCommand\OpenRenumberSheetsFormCommand.cs" />
     <Compile Include="7.Tests\SetIdElement.cs" />
@@ -176,7 +177,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="5.WPF\RenameSheetFormWPF.xaml">
+    <Page Include="5.WPF\RenameSheetsFormWPF.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -252,6 +253,7 @@
     <Content Include="Installer.xml" />
     <Content Include="Resources\email_RGB216,216,216.png" />
     <Content Include="Resources\github_216_216_216.png" />
+    <None Include="Resources\IconRenameSheets32x32.png" />
     <None Include="Resources\IconChangeNumber32x32.png" />
     <None Include="Resources\IconRenumberSheets16x16.png" />
     <None Include="Resources\IconRenumberSheets32x32.png" />
