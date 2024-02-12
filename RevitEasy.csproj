@@ -86,6 +86,9 @@
     <Compile Include="5.WPF\DuplicateViewsWPF.xaml.cs">
       <DependentUpon>DuplicateViewsWPF.xaml</DependentUpon>
     </Compile>
+    <Compile Include="5.WPF\RenameSheetFormWPF.xaml.cs">
+      <DependentUpon>RenameSheetFormWPF.xaml</DependentUpon>
+    </Compile>
     <Compile Include="5.WPF\RenumberSheetsFormWPF.xaml.cs">
       <DependentUpon>RenumberSheetsFormWPF.xaml</DependentUpon>
     </Compile>
@@ -170,6 +173,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="5.WPF\InsertViewsOnSheetsFormWPF.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="5.WPF\RenameSheetFormWPF.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

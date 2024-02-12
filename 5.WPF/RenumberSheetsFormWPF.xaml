@@ -20,7 +20,7 @@
             Height="353" 
             VerticalAlignment="Center"
             Width="220" 
-            Opacity="0.95"/>
+            Opacity="0.95" d:IsHidden="True"/>
 
 
         <Label x:Name="Lb_ViewType"
@@ -39,7 +39,7 @@
             Height="29" 
             VerticalAlignment="Top" 
             Width="220" 
-            Background="#FF3A4453"/>
+            Background="#FF3A4453" d:IsHidden="True"/>
         <Label Content="End Sheet" 
             HorizontalAlignment="Left" 
             Margin="5,80,0,0"
