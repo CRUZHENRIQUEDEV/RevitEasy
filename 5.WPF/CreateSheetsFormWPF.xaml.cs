@@ -137,8 +137,6 @@ namespace RevitEasy._5.WPF
         public string SheetNumberEnds => this.Sheet_number_ends.Text;
         public string SheetNumberSuffix => this.Sheet_number_suffix.Text;
 
-       
-      
         #endregion
 
         #region Métodos vazios para eventos que não exigem ação

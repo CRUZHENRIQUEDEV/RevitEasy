@@ -83,6 +83,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="5.WPF\CreateListSheetsFormWPF.xaml.cs">
+      <DependentUpon>CreateListSheetsFormWPF.xaml</DependentUpon>
+    </Compile>
     <Compile Include="5.WPF\DuplicateViewsWPF.xaml.cs">
       <DependentUpon>DuplicateViewsWPF.xaml</DependentUpon>
     </Compile>
@@ -93,6 +96,7 @@
       <DependentUpon>RenumberSheetsFormWPF.xaml</DependentUpon>
     </Compile>
     <Compile Include="5.WPF\TemplateWPF\BehaviorsWPF.cs" />
+    <Compile Include="6.ExternalCommand\OpenCreateListSheetsFormCommand.cs" />
     <Compile Include="6.ExternalCommand\OpenDuplicateViewsFormCommand.cs" />
     <Compile Include="5.WPF\AboutWPF.xaml.cs">
       <DependentUpon>AboutWPF.xaml</DependentUpon>
@@ -158,6 +162,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="5.WPF\AboutWPF.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="5.WPF\CreateListSheetsFormWPF.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

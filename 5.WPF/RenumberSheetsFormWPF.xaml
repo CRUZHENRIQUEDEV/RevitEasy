@@ -20,7 +20,7 @@
             Height="353" 
             VerticalAlignment="Center"
             Width="220" 
-            Opacity="0.95" d:IsHidden="True"/>
+            Opacity="0.95"/>
 
 
         <Label x:Name="Lb_ViewType"
@@ -39,7 +39,7 @@
             Height="29" 
             VerticalAlignment="Top" 
             Width="220" 
-            Background="#FF3A4453" d:IsHidden="True"/>
+            Background="#FF3A4453"/>
         <Label Content="End Sheet" 
             HorizontalAlignment="Left" 
             Margin="5,80,0,0"
@@ -220,7 +220,7 @@
                      TabIndex="6" IsEnabled="False"/>
         <Border x:Name="Manage_Window" 
                 Height="NaN"
-                Margin="172,-6,2,315">
+                Margin="169,-6,5,315">
             <Grid>
                 <Button x:Name="Btn_Restore" 
                     Content="2" 

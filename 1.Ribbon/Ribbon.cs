@@ -285,7 +285,7 @@ namespace RevitEasy
             DocumentacaoButton.LargeImage = ConvertImage(Properties.Resources.IconDocument32x32);
 
             // Pushbutton "Create Sheet" no painel "Documentation"
-            PushButtonData CreateSheetButtonData = new PushButtonData("CreateSheetsButton", "Create Sheets", typeof(OpenCreateSheetsFormCommand).Assembly.Location, "RevitEasy.OpenCreateSheetsFormCommand")
+            PushButtonData CreateSheetButtonData = new PushButtonData("CreateSheetsButton", "Create multiple Sheets", typeof(OpenCreateSheetsFormCommand).Assembly.Location, "RevitEasy.OpenCreateSheetsFormCommand")
             {
                 LargeImage = ConvertImage(Properties.Resources.NewSheets),
                 ToolTip = "Create Sheets",
@@ -293,7 +293,7 @@ namespace RevitEasy
                 ToolTipImage = ConvertImage(Properties.Resources.NewSheets)
             };
 
-            ContextualHelp contextualHelpCreateSheet = new ContextualHelp(ContextualHelpType.Url, "https://www.example.com/help");
+            ContextualHelp contextualHelpCreateSheet = new ContextualHelp(ContextualHelpType.Url, "https://github.com/CRUZHENRIQUEDEV/RevitEasy");
             CreateSheetButtonData.SetContextualHelp(contextualHelpCreateSheet);
             DocumentacaoButton.AddPushButton(CreateSheetButtonData);
 
@@ -307,7 +307,7 @@ namespace RevitEasy
                 ToolTipImage = ConvertImage(Properties.Resources.RevitApiDocs)
             };
 
-            ContextualHelp contextualHelpDuplicateSchedules = new ContextualHelp(ContextualHelpType.Url, "https://www.example.com/help");
+            ContextualHelp contextualHelpDuplicateSchedules = new ContextualHelp(ContextualHelpType.Url, "https://github.com/CRUZHENRIQUEDEV/RevitEasy");
             DuplicateSchedulesButton.SetContextualHelp(contextualHelpDuplicateSchedules);
             DocumentacaoButton.AddPushButton(DuplicateSchedulesButton);
 
@@ -320,7 +320,7 @@ namespace RevitEasy
                 ToolTipImage = ConvertImage(Properties.Resources.IconDuplicateViews32x32)
             };
 
-            ContextualHelp contextualHelpDuplicateViews = new ContextualHelp(ContextualHelpType.Url, "https://www.example.com/duplicate-views-help");
+            ContextualHelp contextualHelpDuplicateViews = new ContextualHelp(ContextualHelpType.Url, "https://github.com/CRUZHENRIQUEDEV/RevitEasy");
             DuplicateViewsButtonData.SetContextualHelp(contextualHelpDuplicateViews);
             DocumentacaoButton.AddPushButton(DuplicateViewsButtonData);
 
@@ -333,7 +333,7 @@ namespace RevitEasy
                 ToolTipImage = ConvertImage(Properties.Resources.IconChangeNumber32x32)
             };
 
-            ContextualHelp contextualHelpRenumberSheets = new ContextualHelp(ContextualHelpType.Url, "https://www.example.com/renumber-sheets-help");
+            ContextualHelp contextualHelpRenumberSheets = new ContextualHelp(ContextualHelpType.Url, "https://github.com/CRUZHENRIQUEDEV/RevitEasy");
             RenumberSheetsButtonData.SetContextualHelp(contextualHelpRenumberSheets);
             DocumentacaoButton.AddPushButton(RenumberSheetsButtonData);
 
@@ -346,9 +346,23 @@ namespace RevitEasy
                 ToolTipImage = ConvertImage(Properties.Resources.IconRenameSheets32x32)
             };
 
-            ContextualHelp contextualHelpRenameSheets = new ContextualHelp(ContextualHelpType.Url, "https://www.example.com/rename-sheets-help");
+            ContextualHelp contextualHelpRenameSheets = new ContextualHelp(ContextualHelpType.Url, "https://github.com/CRUZHENRIQUEDEV/RevitEasy");
             RenameSheetsButtonData.SetContextualHelp(contextualHelpRenameSheets);
             DocumentacaoButton.AddPushButton(RenameSheetsButtonData);
+
+            // Pushbutton "Create List of Sheets" in the label "Documentation"
+            PushButtonData CreateListSheetsButtonData = new PushButtonData("CreateListSheetsButton", "Create List of Sheets", typeof(OpenCreateListSheetsFormCommand).Assembly.Location, "RevitEasy.OpenCreateListSheetsFormCommand")
+            {
+                LargeImage = ConvertImage(Properties.Resources.NewSheets),
+                ToolTip = "Create List of Sheets",
+                LongDescription = "Create a List of Sheets",
+                ToolTipImage = ConvertImage(Properties.Resources.NewSheets)
+            };
+
+            ContextualHelp contextualHelpCreateListSheets = new ContextualHelp(ContextualHelpType.Url, "https://github.com/CRUZHENRIQUEDEV/RevitEasy");
+            CreateListSheetsButtonData.SetContextualHelp(contextualHelpCreateListSheets);
+            DocumentacaoButton.AddPushButton(CreateListSheetsButtonData);
+
 
 
             #endregion

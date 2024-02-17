@@ -3,14 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:RevitEasy._5.WPF"
              mc:Ignorable="d" 
              ResizeMode="NoResize" 
              WindowStyle="None"
              Background="#FF3A4453" 
              Height="440" 
              Width="220">
-    <Grid>
+    <Grid x:Name="RenameSheetsFormWPF" 
+          Loaded="RenameSheetsFormWPF_Loaded">
         <Border x:Name="ExternalBorderGray"
             BorderBrush="#FF5D5D5D"
             BorderThickness="1,1,1,1"
@@ -21,21 +21,22 @@
             Opacity="0.95" Margin="0,10,0,0"/>
 
 
-        <Border x:Name="TitleBorder" BorderBrush="#FFD8D8D8" 
+        <Border x:Name="TitleBorder" 
+            BorderBrush="#FFD8D8D8" 
             BorderThickness="1" 
             HorizontalAlignment="Left" 
             Height="29" 
             VerticalAlignment="Top" 
             Width="220" 
             Background="#FF3A4453"/>
-        <Label Content="Preffix + View Name" 
+        <Label Content="Preffix + Sheet Name" 
             HorizontalAlignment="Left" 
             Margin="10,190,0,0" 
             VerticalAlignment="Top" 
             BorderBrush="#FFD8D8D8" 
             Background="{x:Null}" 
             Foreground="#FFD8D8D8"/>
-        <Label Content="Number of first View" 
+        <Label Content="Number first sheet" 
             HorizontalAlignment="Left" 
             Margin="10,250,0,0" 
             VerticalAlignment="Top" 
@@ -43,25 +44,13 @@
             Background="{x:Null}" 
             Foreground="#FFD8D8D8"/>
         <Label x:Name="Tb_RenameViewsSuffixName" 
-            Content="View Name Suffix" 
+            Content="Sheet Name Suffix" 
             HorizontalAlignment="Left" 
             Margin="10,310,0,0"
             VerticalAlignment="Top"
             BorderBrush="#FFD8D8D8"
             Background="{x:Null}"
             Foreground="#FFD8D8D8"/>
-
-        <Button 
-            x:Name="Btn_ViewNameRename" 
-            Content="Ok" 
-            HorizontalAlignment="Right" 
-            Margin="0,400,590,0" 
-            VerticalAlignment="Top" 
-            Width="80" 
-            Background="#FF212933" 
-            Foreground="#FFD8D8D8" 
-            BorderBrush="#FFD8D8D8" 
-            BorderThickness="1,1,1,1"/>
         <Label x:Name="Lb_Title" 
             Content="Rename Sheets"
             HorizontalAlignment="Left" 
@@ -72,21 +61,10 @@
             Foreground="#FFD8D8D8"
             FontSize="14" 
             FontWeight="Bold"/>
-        <Button 
-            x:Name="Btn_RenameViewsExit" 
-            Content="Cancel" 
-            HorizontalAlignment="Right" 
-            Margin="0,400,681,0" 
-            VerticalAlignment="Top" 
-            Width="80" 
-            Background="#FF212933" 
-            Foreground="#FFD8D8D8" 
-            BorderBrush="#FFD8D8D8" 
-            BorderThickness="1,1,1,1"/>
 
 
 
-        <TextBox x:Name="Tb_RenameViewNamePreffix"
+        <TextBox x:Name="Tb_RenameSheetsNamePreffix"
             HorizontalAlignment="Left"
             Height="20" 
             Margin="10,220,0,0" 
@@ -98,11 +76,11 @@
             Foreground="#FFD8D8D8"
             RenderTransformOrigin="0.705,3.3">
             <TextBox.ToolTip>
-                <ToolTip Content="Nome + Prefixo do nome das vistas - EX: PAREDE A"/>
+                <ToolTip Content="Suffix name + Sheet name"/>
             </TextBox.ToolTip>
         </TextBox>
 
-        <TextBox x:Name="Tb_RenameViewNameNumberStarts"
+        <TextBox x:Name="Tb_RenameSheetsNameNumberStarts"
             HorizontalAlignment="Left"
             Height="20" 
             Margin="10,280,0,0" 
@@ -113,14 +91,14 @@
             BorderBrush="#FFABADB3" 
             Foreground="#FFD8D8D8">
             <TextBox.ToolTip>
-                <ToolTip Content="NÚMERO INTEIRO que a primeira vista receberá"/>
+                <ToolTip Content="Intereger number for Sheet Name"/>
             </TextBox.ToolTip>
         </TextBox>
 
 
 
 
-        <TextBox x:Name="Tb_RenameViewNameSuffix" 
+        <TextBox x:Name="Tb_RenameSheetsNameSuffix" 
             HorizontalAlignment="Left" 
             Height="20" 
             Margin="10,340,0,0" 
@@ -131,7 +109,7 @@
             BorderBrush="#FFABADB3"
             Foreground="#FFD8D8D8">
             <TextBox.ToolTip>
-                <ToolTip Content="Sufixo do nome da vista(Opcional)"/>
+                <ToolTip Content="Sheet Name suffix (optional)"/>
             </TextBox.ToolTip>
         </TextBox>
         <Button 
@@ -158,7 +136,7 @@
             Foreground="#FFD8D8D8" 
             BorderBrush="#FFD8D8D8" 
             BorderThickness="1,1,1,1"
-            TabIndex="99"
+            TabIndex="99" Click="Btn_Cancel_Click"
             />
         <Label x:Name="Lb_ViewType"
             Content="Start Sheet"
@@ -187,7 +165,7 @@
             Background="#FF212933"
             TabIndex="1">
             <ComboBox.ToolTip>
-                <ToolTip Content="Selecione o tipo de vista que deseja renomear (Planta de piso, elevação e etc."/>
+                <ToolTip Content="Select start sheet"/>
             </ComboBox.ToolTip>
             <ComboBox.Style>
                 <Style TargetType="{x:Type ComboBox}">
@@ -207,12 +185,12 @@
             Foreground="#FF212933"
             TabIndex="2">
             <ComboBox.ToolTip>
-                <ToolTip Content="Selecione o nome do parâmetro que será usando para filtrar as vistas que deseja renomear (Normalmente um parâmetro de projeto)"/>
+                <ToolTip Content="Select end sheet"/>
             </ComboBox.ToolTip>
         </ComboBox>
         <Border x:Name="Manage_Window" 
             Height="NaN"
-            Margin="172,-6,2,408">
+            Margin="169,-6,5,408">
             <Grid>
                 <Button x:Name="Btn_Restore" 
                     Content="2" 

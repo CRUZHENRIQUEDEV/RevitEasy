@@ -19,6 +19,11 @@ namespace RevitEasy.WPF.Behaviors
             window.MouseMove += Window_MouseMove;
             window.MouseUp += Window_MouseUp;
 
+            // Configurações de posicionamento
+            window.Topmost = true;
+            window.ShowInTaskbar = true;
+            window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
             // Register close, minimize, and restore button events
             Button btnClose = FindCloseButton(window);
             Button btnMinimize = FindMinimizeButton(window);
@@ -38,8 +43,8 @@ namespace RevitEasy.WPF.Behaviors
             {
                 btnRestore.Click += Btn_RestoreClick;
             }
+   
         }
-
         private static void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             // Handle mouse down event for dragging
@@ -49,7 +54,6 @@ namespace RevitEasy.WPF.Behaviors
                 startPoint = e.GetPosition(sender as Window);
             }
         }
-
         private static void Window_MouseMove(object sender, MouseEventArgs e)
         {
             // Handle mouse move event for dragging
@@ -65,7 +69,6 @@ namespace RevitEasy.WPF.Behaviors
                 window.Top += deltaY;
             }
         }
-
         private static void Window_MouseUp(object sender, MouseButtonEventArgs e)
         {
             // Handle mouse up event for dragging
@@ -88,7 +91,6 @@ namespace RevitEasy.WPF.Behaviors
                 window.Close();
             }
         }
-
         private static void Btn_MinimizeClick(object sender, RoutedEventArgs e)
         {
             // Handle minimize button click
@@ -115,6 +117,15 @@ namespace RevitEasy.WPF.Behaviors
                 }
             }
         }
+        private void Btn_CancelClick(object sender, RoutedEventArgs e)
+        { 
+            // Handle close button click
+            Window window = FindParentWindow(sender as FrameworkElement);
+            if (window != null)
+            {
+                window.Close();
+            }
+        }
 
         #endregion
 
@@ -125,17 +136,14 @@ namespace RevitEasy.WPF.Behaviors
         {
             return window.FindName("Btn_Close") as Button;
         }
-
         private static Button FindMinimizeButton(Window window)
         {
             return window.FindName("Btn_Minimize") as Button;
         }
-
         private static Button FindRestoreButton(Window window)
         {
             return window.FindName("Btn_Restore") as Button;
         }
-
         private static Button FindCancelButton(Window window)
         {
             return window.FindName("Btn_cancel") as Button;
@@ -160,8 +168,6 @@ namespace RevitEasy.WPF.Behaviors
         }
 
         #endregion
-
-        
 
     }
 }
