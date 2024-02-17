@@ -62,6 +62,12 @@ This is a plugin to automate repetitive tasks in Autodesk Revit Software
 ![image](https://github.com/CRUZHENRIQUEDEV/RevitEasy/assets/143232644/f8081757-7b79-4969-a21e-80c3fab20c2b)       ![image](https://github.com/CRUZHENRIQUEDEV/RevitEasy/assets/143232644/712f5224-17ff-437e-94dd-a6f5246c867f)
 
 
+03.5 Rename sheets keeping the same order
+
+
+03.6 Create List sheets keeping the same order
+
+![image](https://github.com/CRUZHENRIQUEDEV/RevitEasy/assets/143232644/3b19cee8-687f-43dd-9533-96225d2852a6)
 
 
 
