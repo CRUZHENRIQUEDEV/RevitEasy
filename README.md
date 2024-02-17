@@ -67,8 +67,6 @@ This is a plugin to automate repetitive tasks in Autodesk Revit Software
 
 03.6 Create List sheets keeping the same order
 
-![image](https://github.com/CRUZHENRIQUEDEV/RevitEasy/assets/143232644/3b19cee8-687f-43dd-9533-96225d2852a6)
-
 
 
 ---
