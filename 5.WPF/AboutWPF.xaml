@@ -42,7 +42,7 @@
             FontSize="14" 
             FontWeight="Bold"/>
         <Label x:Name="Lb_TitleCreateSheets_Copiar" 
-            Content="Revit Easy Version 0.04 - BETA"
+            Content="Revit Easy Version 0.05 - BETA"
             HorizontalAlignment="Left" 
             Margin="3,34,0,0" 
             VerticalAlignment="Top" 

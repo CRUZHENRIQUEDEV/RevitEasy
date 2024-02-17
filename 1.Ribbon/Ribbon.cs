@@ -351,7 +351,7 @@ namespace RevitEasy
             DocumentacaoButton.AddPushButton(RenameSheetsButtonData);
 
             // Pushbutton "Create List of Sheets" in the label "Documentation"
-            PushButtonData CreateListSheetsButtonData = new PushButtonData("CreateListSheetsButton", "Create List of Sheets", typeof(OpenCreateListSheetsFormCommand).Assembly.Location, "RevitEasy.OpenCreateListSheetsFormCommand")
+            PushButtonData CreateListSheetsButtonData = new PushButtonData("CreateListSheetsButton", "Create List Sheets", typeof(OpenCreateListSheetsFormCommand).Assembly.Location, "RevitEasy.OpenCreateListSheetsFormCommand")
             {
                 LargeImage = ConvertImage(Properties.Resources.NewSheets),
                 ToolTip = "Create List of Sheets",

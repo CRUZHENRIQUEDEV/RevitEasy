@@ -10,7 +10,7 @@
              Height="659" 
              Width="220">
     <Grid x:Name="CreateListSheetFormWPF" Loaded="CreateListSheetFormWPF_Loaded">
-        <Grid>
+        <Grid d:IsHidden="True">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <!-- Para o ScrollViewer -->
@@ -59,7 +59,7 @@
             Height="29" 
             VerticalAlignment="Top" 
             Width="220" 
-            Background="#FF3A4453"/>
+            Background="#FF3A4453" d:IsHidden="True"/>
         <Label Content="Sheet Number" 
             HorizontalAlignment="Left" 
             Margin="10,80,0,0"

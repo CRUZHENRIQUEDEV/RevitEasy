@@ -7,7 +7,7 @@
              ResizeMode="NoResize" 
              WindowStyle="None"
              Background="#FF3A4453" 
-             Height="440" 
+             Height="380" 
              Width="220">
     <Grid x:Name="RenameSheetsFormWPF" 
           Loaded="RenameSheetsFormWPF_Loaded">
@@ -15,10 +15,10 @@
             BorderBrush="#FF5D5D5D"
             BorderThickness="1,1,1,1"
             HorizontalAlignment="Left"
-            Height="430" 
+            Height="330" 
             VerticalAlignment="Top"
             Width="220" 
-            Opacity="0.95" Margin="0,10,0,0"/>
+            Opacity="0.95" Margin="0,10,0,0" d:IsHidden="True"/>
 
 
         <Border x:Name="TitleBorder" 
@@ -31,14 +31,14 @@
             Background="#FF3A4453"/>
         <Label Content="Preffix + Sheet Name" 
             HorizontalAlignment="Left" 
-            Margin="10,190,0,0" 
+            Margin="10,147,0,0" 
             VerticalAlignment="Top" 
             BorderBrush="#FFD8D8D8" 
             Background="{x:Null}" 
             Foreground="#FFD8D8D8"/>
         <Label Content="Number first sheet" 
             HorizontalAlignment="Left" 
-            Margin="10,250,0,0" 
+            Margin="10,207,0,0" 
             VerticalAlignment="Top" 
             BorderBrush="#FFD8D8D8"
             Background="{x:Null}" 
@@ -46,13 +46,13 @@
         <Label x:Name="Tb_RenameViewsSuffixName" 
             Content="Sheet Name Suffix" 
             HorizontalAlignment="Left" 
-            Margin="10,310,0,0"
+            Margin="10,267,0,0"
             VerticalAlignment="Top"
             BorderBrush="#FFD8D8D8"
             Background="{x:Null}"
             Foreground="#FFD8D8D8"/>
         <Label x:Name="Lb_Title" 
-            Content="Rename Sheets"
+            Content="Rename Sheets (BETA)"
             HorizontalAlignment="Left" 
             Margin="3,0,0,0" 
             VerticalAlignment="Top" 
@@ -65,31 +65,29 @@
 
 
         <TextBox x:Name="Tb_RenameSheetsNamePreffix"
-            HorizontalAlignment="Left"
+            HorizontalAlignment="Center"
             Height="20" 
-            Margin="10,220,0,0" 
             TextWrapping="Wrap"
             VerticalAlignment="Top"
             Width="200" 
             Background="#FF212933"
             BorderBrush="#FFD8D8D8" 
             Foreground="#FFD8D8D8"
-            RenderTransformOrigin="0.705,3.3">
+            RenderTransformOrigin="0.705,3.3" Margin="0,187,0,0">
             <TextBox.ToolTip>
                 <ToolTip Content="Suffix name + Sheet name"/>
             </TextBox.ToolTip>
         </TextBox>
 
         <TextBox x:Name="Tb_RenameSheetsNameNumberStarts"
-            HorizontalAlignment="Left"
+            HorizontalAlignment="Center"
             Height="20" 
-            Margin="10,280,0,0" 
             TextWrapping="Wrap" 
             VerticalAlignment="Top"
             Width="200" 
             Background="#FF212933" 
             BorderBrush="#FFABADB3" 
-            Foreground="#FFD8D8D8">
+            Foreground="#FFD8D8D8" Margin="0,238,0,0">
             <TextBox.ToolTip>
                 <ToolTip Content="Intereger number for Sheet Name"/>
             </TextBox.ToolTip>
@@ -99,9 +97,9 @@
 
 
         <TextBox x:Name="Tb_RenameSheetsNameSuffix" 
-            HorizontalAlignment="Left" 
+            HorizontalAlignment="Center" 
             Height="20" 
-            Margin="10,340,0,0" 
+            Margin="0,297,0,0" 
             TextWrapping="Wrap"
             VerticalAlignment="Top"
             Width="200"
@@ -116,7 +114,7 @@
             x:Name="Btn_OK" 
             Content="Ok" 
             HorizontalAlignment="Right" 
-            Margin="0,394,15,0" 
+            Margin="0,351,14,0" 
             VerticalAlignment="Top" 
             Width="80" 
             Background="#FF212933" 
@@ -129,7 +127,7 @@
             x:Name="Btn_Cancel" 
             Content="Cancel" 
             HorizontalAlignment="Left" 
-            Margin="37,395,0,0" 
+            Margin="38,352,0,0" 
             VerticalAlignment="Top" 
             Width="80" 
             Background="#FF212933" 
@@ -141,14 +139,14 @@
         <Label x:Name="Lb_ViewType"
             Content="Start Sheet"
             HorizontalAlignment="Left" 
-            Margin="5,30,0,0" 
+            Margin="10,30,0,0" 
             VerticalAlignment="Top" 
             BorderBrush="#FFD8D8D8" 
             Background="{x:Null}" 
             Foreground="#FFD8D8D8"/>
         <Label Content="End Sheet" 
             HorizontalAlignment="Left" 
-            Margin="5,80,0,0"
+            Margin="10,80,0,0"
             VerticalAlignment="Top" 
             BorderBrush="#FFD8D8D8" 
             Background="{x:Null}" 
@@ -188,37 +186,11 @@
                 <ToolTip Content="Select end sheet"/>
             </ComboBox.ToolTip>
         </ComboBox>
-        <Border x:Name="Manage_Window" 
-            Height="NaN"
-            Margin="169,-6,5,408">
+        <Border x:Name="Manage_Window" Height="NaN" Margin="166,2,8,352">
             <Grid>
-                <Button x:Name="Btn_Restore" 
-                    Content="2" 
-                    Margin="16,-1,12,2" 
-                    Background="{x:Null}" 
-                    Foreground="{x:Null}" 
-                    BorderBrush="{x:Null}" 
-                    Height="25" 
-                    FontFamily="Marlett" 
-                    FontSize="13"/>
-                <Button x:Name="Btn_Minimize" 
-                    Content="0" 
-                    Margin="0,0,31,1" 
-                    Background="{x:Null}" 
-                    Foreground="#FFD8D8DA" 
-                    BorderBrush="{x:Null}" 
-                    Width="15" Height="25" 
-                    FontSize="10" 
-                    FontFamily="Marlett"/>
-                <Button x:Name="Btn_Close" 
-                    Content="r" 
-                    Margin="31,1,0,0" 
-                    Background="{x:Null}" 
-                    Foreground="#FFD8D8DA" 
-                    BorderBrush="{x:Null}" 
-                    Width="15" Height="25" 
-                    FontSize="10" 
-                    FontFamily="Marlett"/>
+                <Button x:Name="Btn_Restore" Content="2" Margin="16,-1,12,2" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}" Height="25" FontFamily="Marlett" FontSize="13"/>
+                <Button x:Name="Btn_Minimize" Content="0" Margin="0,0,31,1" Background="{x:Null}" Foreground="#FFD8D8DA" BorderBrush="{x:Null}" Width="15" Height="25" FontSize="10" FontFamily="Marlett"/>
+                <Button x:Name="Btn_Close" Content="r" Margin="31,1,0,0" Background="{x:Null}" Foreground="#FFD8D8DA" BorderBrush="{x:Null}" Width="15" Height="25" FontSize="10" FontFamily="Marlett"/>
 
             </Grid>
         </Border>
