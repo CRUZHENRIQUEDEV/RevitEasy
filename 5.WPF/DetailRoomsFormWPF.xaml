@@ -1,0 +1,682 @@
+﻿<Window x:Class="RevitEasy._5.WPF.DetailRoomsFormWPF"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:RevitEasy._5.WPF"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        Background="#FF3A4453"
+        Height="672"
+        Width="707" HorizontalAlignment="Left">
+
+    <Grid Height="668"
+          VerticalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="36*"/>
+            <ColumnDefinition Width="19*"/>
+            <ColumnDefinition Width="645*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border BorderBrush="#FFD8D8D8" 
+        BorderThickness="1" 
+        Height="29" 
+        VerticalAlignment="Top" 
+        Width="706" 
+        Background="#FF3A4453" 
+        HorizontalAlignment="Left" Margin="0,-1,0,0" Grid.ColumnSpan="3" />
+
+        <Label x:Name="Lb_TitleCreateSheets" 
+        Content="Detail Rooms(BETA)" 
+        VerticalAlignment="Top" 
+        BorderBrush="#FFD8D8D8" 
+        Background="{x:Null}" 
+        Foreground="#FFD8D8D8"
+        FontSize="14" 
+        FontWeight="Bold" 
+        HorizontalAlignment="Left" Margin="0,-2,0,0" Grid.ColumnSpan="3"/>
+
+        <ListView x:Name="RoomListView" 
+                  Background="#FF3A4453"
+                  Foreground="#FFD8D8D8"
+                  BorderBrush="#FFD8D8D8"
+                  ItemsSource="{Binding RoomItems}" 
+                  Margin="6,55,485,354" Grid.ColumnSpan="3">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Selected" Width="60">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Room" DisplayMemberBinding="{Binding RoomName}" Width="120"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label Content="1. Select Rooms" 
+            Margin="6,26,0,0"
+            VerticalAlignment="Top" 
+            BorderBrush="#FFD8D8D8" 
+            Background="{x:Null}" 
+            Foreground="#FFD8D8D8" 
+            FontWeight="Bold" 
+            HorizontalAlignment="Left" Grid.ColumnSpan="3"/>
+        <StackPanel x:Name="___StackPanel__3DViews" HorizontalAlignment="Left" Margin="197,362,0,0" Orientation="Vertical" VerticalAlignment="Top" Grid.Column="2">
+            <CheckBox x:Name="Ckb_3D" 
+                Content="4. 3D VIEW" 
+                Height="18" 
+                Width="88" 
+                Foreground="#FFD8D8D8" 
+                BorderBrush="#FFD8D8D8" 
+                IsChecked="True" HorizontalAlignment="Left" FontWeight="Bold"/>
+            <Label Content="Name" 
+                BorderBrush="#FFD8D8D8" 
+                Background="{x:Null}" 
+                Foreground="#FFD8D8D8" 
+                FontWeight="Bold" HorizontalAlignment="Left" 
+            />
+            <Label Content="Preffix(Optional)" 
+                BorderBrush="#FFD8D8D8" 
+                Background="{x:Null}" 
+                Foreground="#FFD8D8D8" 
+                RenderTransformOrigin="0.836,2.696" HorizontalAlignment="Left"/>
+            <TextBox x:Name="Tb_3DNamePreffix"
+                Height="20" 
+                TextWrapping="Wrap"
+                Width="200" 
+                Background="#FF212933"
+                BorderBrush="#FFD8D8D8" 
+                Foreground="#FFD8D8D8" 
+                RenderTransformOrigin="0.705,3.3" 
+                TabIndex="2" 
+                 
+            >
+                <TextBox.ToolTip>
+                    <ToolTip Content="Nome + Prefixo do nome das vistas - EX: PAREDE A"/>
+                </TextBox.ToolTip>
+            </TextBox>
+            <Label Content="Suffix(Optional)" 
+                BorderBrush="#FFD8D8D8" 
+                Background="{x:Null}" 
+                Foreground="#FFD8D8D8" 
+                RenderTransformOrigin="0.836,2.696" HorizontalAlignment="Left"/>
+            <TextBox x:Name="Tb_3DNameSuffix"
+                Height="20" 
+                TextWrapping="Wrap"
+                Width="200" 
+                Background="#FF212933"
+                BorderBrush="#FFD8D8D8" 
+                Foreground="#FFD8D8D8" 
+                RenderTransformOrigin="0.705,3.3" 
+                TabIndex="2" 
+            >
+                <TextBox.ToolTip>
+                    <ToolTip Content="Nome + Prefixo do nome das vistas - EX: PAREDE A"/>
+                </TextBox.ToolTip>
+            </TextBox>
+            <Label Content="Select View Template" 
+                BorderBrush="#FFD8D8D8" 
+                Background="{x:Null}" 
+                Foreground="#FFD8D8D8" 
+                RenderTransformOrigin="0.836,2.696" HorizontalAlignment="Left"/>
+            <ComboBox x:Name="Cb_3DViewTemplate"
+                Height="20"
+                Width="200"
+                BorderBrush="#FFD8D8D8"
+                Foreground="#FF212933"
+                Background="#FF212933" 
+                TabIndex="1" 
+            >
+                <ComboBox.ToolTip>
+                    <ToolTip Content="Select the family sheet"/>
+                </ComboBox.ToolTip>
+                <ComboBox.Style>
+                    <Style TargetType="{x:Type ComboBox}">
+                        <Setter Property="Background" 
+                            Value="#FF212933"/>
+                    </Style>
+                </ComboBox.Style>
+            </ComboBox>
+            <Label Content="Name Ex:" 
+                BorderBrush="#FFD8D8D8" 
+                Background="{x:Null}" 
+                Foreground="#FFD8D8D8" 
+                RenderTransformOrigin="0.836,2.696"/>
+            <Label x:Name="Lb_3DNamePreview" 
+                Content="Lb_3DNamePreview" 
+                BorderBrush="#FFD8D8D8" 
+                Background="{x:Null}" 
+                Foreground="#FFD8D8D8" 
+                RenderTransformOrigin="0.836,2.696"/>
+        </StackPanel>
+        <StackPanel x:Name="StackPanel_Elevations" 
+                    HorizontalAlignment="Left" 
+                    Margin="198,42,0,0" 
+                    Orientation="Vertical" 
+                    VerticalAlignment="Top" 
+                    Grid.Column="2">
+            <CheckBox x:Name="Ckb_Elevations" 
+                Content=" 3. Elevations" 
+                Height="21" 
+                Width="162" 
+                Foreground="#FFD8D8D8" 
+                BorderBrush="#FFD8D8D8"
+                IsChecked="True" 
+                HorizontalAlignment="Left" 
+                FontWeight="Bold"/>
+            <Label Content="Name" 
+                BorderBrush="#FFD8D8D8" 
+                Background="{x:Null}" 
+                Foreground="#FFD8D8D8" 
+                FontWeight="Bold" Height="25" 
+            />
+            <Label Content="Preffix(Optional)" 
+                BorderBrush="#FFD8D8D8" 
+                Background="{x:Null}" 
+                Foreground="#FFD8D8D8" 
+                RenderTransformOrigin="0.836,2.696" VerticalAlignment="Top"/>
+            <TextBox x:Name="Tb_ElevationsNamePreffix"
+                Height="20" 
+                TextWrapping="Wrap"
+                Width="200" 
+                Background="#FF212933"
+                BorderBrush="#FFD8D8D8" 
+                Foreground="#FFD8D8D8" 
+                RenderTransformOrigin="0.705,3.3" 
+                TabIndex="2" 
+                 
+            >
+                <TextBox.ToolTip>
+                    <ToolTip Content="Nome + Prefixo do nome das vistas - EX: PAREDE A"/>
+                </TextBox.ToolTip>
+            </TextBox>
+            <Label Content="Suffix(Optional)" 
+                BorderBrush="#FFD8D8D8" 
+                Background="{x:Null}" 
+                Foreground="#FFD8D8D8" 
+                RenderTransformOrigin="0.836,2.696"/>
+            <TextBox x:Name="Tb_ElevationsNameSuffix"
+                Height="20" 
+                TextWrapping="Wrap"
+                Width="200" 
+                Background="#FF212933"
+                BorderBrush="#FFD8D8D8" 
+                Foreground="#FFD8D8D8" 
+                RenderTransformOrigin="0.705,3.3" 
+                TabIndex="2" 
+            >
+                <TextBox.ToolTip>
+                    <ToolTip Content="Nome + Prefixo do nome das vistas - EX: PAREDE A"/>
+                </TextBox.ToolTip>
+            </TextBox>
+            <Label Content="Select View Template" 
+                BorderBrush="#FFD8D8D8" 
+                Background="{x:Null}" 
+                Foreground="#FFD8D8D8" 
+                RenderTransformOrigin="0.836,2.696"/>
+            <ComboBox x:Name="Cb_ElevationsViewTemplate"
+                Height="20"
+                Width="200"
+                BorderBrush="#FFD8D8D8"
+                Foreground="#FF212933"
+                Background="#FF212933" 
+                TabIndex="1">
+                <ComboBox.ToolTip>
+                    <ToolTip Content="Select the family sheet"/>
+                </ComboBox.ToolTip>
+                <ComboBox.Style>
+                    <Style TargetType="{x:Type ComboBox}">
+                        <Setter Property="Background" 
+                            Value="#FF212933"/>
+                    </Style>
+                </ComboBox.Style>
+            </ComboBox>
+            <CheckBox x:Name="Ckb_ABCD" 
+                      Content="A,B,C,D" 
+                      
+                      IsChecked="True" 
+                      Width="64" 
+                      HorizontalAlignment="Left" 
+                      Foreground="#FFD8D8D8" 
+                      Height="20" 
+                      Background="#FFD8D8D8"/>
+            <CheckBox x:Name="Cbk_1234" 
+                      Content="1,2,3,4" 
+                      
+                      Width="66" 
+                      HorizontalAlignment="Left" 
+                      Background="#FFD8D8D8" 
+                      Foreground="#FFD8D8D8" 
+                      Height="20"/>
+            <CheckBox x:Name="Cbk_abcd"
+                      Content="a,b,c,d" 
+                      Width="60" 
+                      HorizontalAlignment="Left" 
+                      Foreground="#FFD8D8D8" 
+                      Height="20" 
+                      Background="#FFD8D8D8"/>
+            <Label Content="Name Ex:" 
+                BorderBrush="#FFD8D8D8" 
+                Background="{x:Null}" 
+                Foreground="#FFD8D8D8" 
+                RenderTransformOrigin="0.836,2.696" 
+                   Height="23"/>
+            <Label x:Name="Lb_ElevationNamePreview" 
+                Content="Lb_ElevationNamePreview" 
+                BorderBrush="#FFD8D8D8" 
+                Background="{x:Null}" 
+                Foreground="#FFD8D8D8" 
+                RenderTransformOrigin="0.836,2.696" 
+                Height="26"/>
+        </StackPanel>
+        <StackPanel x:Name="StackPanel_Callout_" 
+                    HorizontalAlignment="Left" 
+                    Margin="6,323,0,0" 
+                    Orientation="Vertical" 
+                    VerticalAlignment="Top" 
+                    Grid.ColumnSpan="3">
+
+
+
+            <CheckBox x:Name="Ckb_CalloutPlan" 
+                Content="2. Callout Plan" 
+                Height="18" 
+                Width="171" 
+                Foreground="#FFD8D8D8" 
+                BorderBrush="#FFD8D8D8"
+                IsChecked="True" 
+                      Checked="Ckb_CalloutPlan_Checked" 
+                      RenderTransformOrigin="-0.282,0.5" HorizontalAlignment="Left" FontWeight="Bold"/>
+            <Label Content="Name" 
+                BorderBrush="#FFD8D8D8" 
+                Background="{x:Null}" 
+                Foreground="#FFD8D8D8" 
+                FontWeight="Bold" 
+            />
+
+
+
+            <Label Content="Preffix(Optional)" 
+                BorderBrush="#FFD8D8D8" 
+                Background="{x:Null}" 
+                Foreground="#FFD8D8D8" 
+                RenderTransformOrigin="0.836,2.696"/>
+
+            <TextBox x:Name="Tb_FloorPlanNamePreffix"
+                Height="20" 
+                TextWrapping="Wrap"
+                Width="200" 
+                Background="#FF212933"
+                BorderBrush="#FFD8D8D8" 
+                Foreground="#FFD8D8D8" 
+                RenderTransformOrigin="0.705,3.3" 
+                TabIndex="3" 
+                
+            >
+                <TextBox.ToolTip>
+                    <ToolTip Content="Floor Plan Name Suffix"/>
+                </TextBox.ToolTip>
+            </TextBox>
+
+
+
+            <Label Content="Suffix(Optional)" 
+                BorderBrush="#FFD8D8D8" 
+                Background="{x:Null}" 
+                Foreground="#FFD8D8D8" 
+                RenderTransformOrigin="0.836,2.696"/>
+            <TextBox x:Name="Tb_FloorPlanNameSuffix"
+                Height="20" 
+                TextWrapping="Wrap"
+                Width="200" 
+                Background="#FF212933"
+                BorderBrush="#FFD8D8D8" 
+                Foreground="#FFD8D8D8" 
+                RenderTransformOrigin="0.705,3.3" 
+                TabIndex="2" 
+                 >
+                <TextBox.ToolTip>
+                    <ToolTip Content="Floor Plan Name Suffix"/>
+                </TextBox.ToolTip>
+            </TextBox>
+            <Label Content="OffSet viewport Callout(cm)" 
+                BorderBrush="#FFD8D8D8" 
+                Background="{x:Null}" 
+                Foreground="#FFD8D8D8" 
+                RenderTransformOrigin="0.836,2.696"/>
+            <TextBox x:Name="Tb_OffSetViewportCallout"
+                Height="20" 
+                TextWrapping="Wrap"
+                Width="200" 
+                Background="#FF212933"
+                BorderBrush="#FFD8D8D8" 
+                Foreground="#FFD8D8D8" 
+                RenderTransformOrigin="0.705,3.3" 
+                TabIndex="2" 
+                 >
+                <TextBox.ToolTip>
+                    <ToolTip Content="Floor Plan Name Suffix"/>
+                </TextBox.ToolTip>
+            </TextBox>
+
+            <Label Content="Select the floor Plan View Hospedage" 
+                BorderBrush="#FFD8D8D8" 
+                Background="{x:Null}" 
+                Foreground="#FFD8D8D8" 
+                RenderTransformOrigin="0.836,2.696"/>
+
+            <ComboBox x:Name="Cb_FloorPlanHospedage"
+                Height="20"
+                Width="200"
+                BorderBrush="#FFD8D8D8"
+                Foreground="#FF212933"
+                Background="#FF212933" 
+                TabIndex="1">
+                <ComboBox.ToolTip>
+                    <ToolTip Content="Select the family sheet"/>
+                </ComboBox.ToolTip>
+                <ComboBox.Style>
+                    <Style TargetType="{x:Type ComboBox}">
+                        <Setter Property="Background" 
+                            Value="#FF212933"/>
+                    </Style>
+                </ComboBox.Style>
+            </ComboBox>
+            <Label Content="Select View Template" 
+                BorderBrush="#FFD8D8D8" 
+                Background="{x:Null}" 
+                Foreground="#FFD8D8D8" 
+                RenderTransformOrigin="0.836,2.696"/>
+            <ComboBox x:Name="Cb_FloorPlanViewTemplate"
+                Height="20"
+                Width="200"
+                BorderBrush="#FFD8D8D8"
+                Foreground="#FF212933"
+                Background="#FF212933" 
+                TabIndex="1" SelectionChanged="Cb_FloorPlanViewTemplate_SelectionChanged">
+                <ComboBox.ToolTip>
+                    <ToolTip Content="Select the family sheet"/>
+                </ComboBox.ToolTip>
+                <ComboBox.Style>
+                    <Style TargetType="{x:Type ComboBox}">
+                        <Setter Property="Background" 
+                            Value="#FF212933"/>
+                    </Style>
+                </ComboBox.Style>
+            </ComboBox>
+            <Label Content="Name Ex:" 
+                BorderBrush="#FFD8D8D8" 
+                Background="{x:Null}" 
+                Foreground="#FFD8D8D8" 
+                RenderTransformOrigin="0.836,2.696"/>
+            <Label x:Name="Lb_FloorPlanNamePreview" 
+                Content="Lb_FloorPlanNamePreview" 
+                BorderBrush="#FFD8D8D8" 
+                Background="{x:Null}" 
+                Foreground="#FFD8D8D8" 
+                RenderTransformOrigin="0.836,2.696"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Right"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Top" 
+                    Margin="0,624,16,0" 
+                    Grid.Column="2">
+            <Button 
+                x:Name="Btn_Cancel" 
+                Content="Cancel" 
+                Width="80" 
+                Background="#FF212933" 
+                Foreground="#FFD8D8D8" 
+                BorderBrush="#FFD8D8D8" 
+                BorderThickness="1,1,1,1"
+                TabIndex="99" 
+                Click="Btn_Cancel_Click" Margin="0,0,20,0"/>
+            <Button 
+                x:Name="Btn_OK" 
+                Content="Ok" 
+                Width="80" 
+                Background="#FF212933" 
+                Foreground="#FFD8D8D8" 
+                BorderBrush="#FFD8D8D8" 
+                BorderThickness="1,1,1,1"
+                TabIndex="100" 
+                Click="Btn_OK_Click"/>
+        </StackPanel>
+        <Border x:Name="Manage_Window" 
+            Height="NaN"
+            Margin="595,0,4,640" Grid.Column="2">
+            <Grid>
+                <Button x:Name="Btn_Restore" 
+                    Content="2" 
+                    Margin="16,-1,12,2" 
+                    Background="{x:Null}" 
+                    Foreground="{x:Null}" 
+                    BorderBrush="{x:Null}" 
+                    Height="25" 
+                    FontFamily="Marlett" 
+                    FontSize="13"/>
+                <Button x:Name="Btn_Minimize" 
+                    Content="0" 
+                    Margin="0,0,31,1" 
+                    Background="{x:Null}" 
+                    Foreground="#FFD8D8DA" 
+                    BorderBrush="{x:Null}" 
+                    Width="15" Height="25" 
+                    FontSize="10" 
+                    FontFamily="Marlett"/>
+                <Button x:Name="Btn_Close" 
+                    Content="r" 
+                    Margin="31,1,0,0" 
+                    Background="{x:Null}" 
+                    Foreground="#FFD8D8DA" 
+                    BorderBrush="{x:Null}" 
+                    Width="15" Height="25" 
+                    FontSize="10" 
+                    FontFamily="Marlett"/>
+
+            </Grid>
+        </Border>
+        <StackPanel x:Name="CreateSheets" 
+                    HorizontalAlignment="Left" 
+                    Margin="435,40,0,0"
+                    Orientation="Vertical" 
+                    VerticalAlignment="Top" 
+                    Grid.Column="2">
+            <CheckBox x:Name="Ckb_Sheets" 
+            Content="5. Sheets" 
+            Foreground="#FFD8D8D8" 
+            BorderBrush="#FFD8D8D8"
+            IsChecked="True" Height="18" 
+                      Width="66" 
+                      HorizontalAlignment="Left" 
+                      FontWeight="Bold"/>
+            <Label x:Name="Lb_ViewType"
+                Content="TitleBlock Family" 
+                BorderBrush="#FFD8D8D8" 
+                Background="{x:Null}" 
+                Foreground="#FFD8D8D8" Height="27"/>
+            <ComboBox x:Name="sheet_titleBlock"
+                Height="20"
+                Width="200"
+                BorderBrush="#FFD8D8D8"
+                Foreground="#FF212933"
+                Background="#FF212933" 
+                TabIndex="1">
+                <ComboBox.ToolTip>
+                    <ToolTip Content="Select the family sheet"/>
+                </ComboBox.ToolTip>
+                <ComboBox.Style>
+                    <Style TargetType="{x:Type ComboBox}">
+                        <Setter Property="Background" 
+                            Value="#FF212933"/>
+                    </Style>
+                </ComboBox.Style>
+            </ComboBox>
+            <Label Content="Sheet Number" 
+                BorderBrush="#FFD8D8D8" 
+                Background="{x:Null}" 
+                Foreground="#FFD8D8D8" 
+                FontWeight="Bold" Height="24"/>
+            <Label Content="Preffix(Optional)" 
+                BorderBrush="#FFD8D8D8" 
+                Background="{x:Null}" 
+                Foreground="#FFD8D8D8" Height="26"/>
+            <TextBox x:Name="Sheet_number_preffix"
+                Height="20" 
+                TextWrapping="Wrap"
+                Width="200" 
+                Background="#FF212933"
+                BorderBrush="#FFD8D8D8" 
+                Foreground="#FFD8D8D8" 
+                RenderTransformOrigin="0.705,3.3" 
+                TabIndex="2">
+                <TextBox.ToolTip>
+                    <ToolTip Content="Suffix Sheet Number(Optional)"/>
+                </TextBox.ToolTip>
+            </TextBox>
+            <Label Content="First Sheet Number" 
+                BorderBrush="#FFD8D8D8" 
+                Background="{x:Null}" 
+                Foreground="#FFD8D8D8"/>
+            <TextBox x:Name="Sheet_number_starts"
+                Height="20" 
+                TextWrapping="Wrap"
+                Width="200" 
+                Background="#FF212933"
+                BorderBrush="#FFD8D8D8" 
+                Foreground="#FFD8D8D8" 
+                RenderTransformOrigin="0.705,3.3" 
+                TabIndex="3">
+                <TextBox.ToolTip>
+                    <ToolTip Content=" Number the first Sheet"/>
+                </TextBox.ToolTip>
+            </TextBox>
+            <Label Content="Last Sheet Number" 
+                BorderBrush="#FFD8D8D8"
+                Background="{x:Null}" 
+                Foreground="#FFD8D8D8"/>
+            <TextBox x:Name="Sheet_number_ends"
+                Height="20" 
+                TextWrapping="Wrap"
+                Width="200" 
+                Background="#FF212933" 
+                BorderBrush="#FFABADB3" 
+                Foreground="#FFD8D8D8" 
+                TabIndex="4">
+                <TextBox.ToolTip>
+                    <ToolTip Content="Number the last sheet"/>
+                </TextBox.ToolTip>
+            </TextBox>
+            <Label Content="Suffix(Optional)" 
+                BorderBrush="#FFD8D8D8"
+                Background="{x:Null}" 
+                Foreground="#FFD8D8D8"/>
+            <TextBox x:Name="Sheet_number_suffix" 
+                Height="20" 
+                TextWrapping="Wrap"
+                Width="200"
+                Background="#FF212933"
+                BorderBrush="#FFABADB3"
+                Foreground="#FFD8D8D8" 
+                TabIndex="5">
+                <TextBox.ToolTip>
+                    <ToolTip Content="Sheet Preffix(Optional)"/>
+                </TextBox.ToolTip>
+            </TextBox>
+            <Label Content="Sheet Name" 
+                BorderBrush="#FFD8D8D8" 
+                Background="{x:Null}" 
+                Foreground="#FFD8D8D8" FontWeight="Bold" Height="24"/>
+            <Label x:Name="Lb_Preffix_Optional_" 
+                Content="Preffix(Optional)"
+                BorderBrush="#FFD8D8D8"
+                Background="{x:Null}"
+                Foreground="#FFD8D8D8" Height="26"/>
+            <TextBox x:Name="Sheet_name_preffix" 
+                Height="20" 
+                TextWrapping="Wrap"
+                Width="200"
+                Background="#FF212933"
+                BorderBrush="#FFABADB3"
+                Foreground="#FFD8D8D8" TabIndex="6">
+                <TextBox.ToolTip>
+                    <ToolTip Content="Preffix The Sheet Name(Optional)"/>
+                </TextBox.ToolTip>
+            </TextBox>
+            <Label x:Name="Tb_RenameViewsSuffixName" 
+                Content="Sheet Name"
+                BorderBrush="#FFD8D8D8"
+                Background="{x:Null}"
+                Foreground="#FFD8D8D8" Height="25"/>
+            <TextBox x:Name="Sheet_name" 
+                Height="20" 
+                TextWrapping="Wrap"
+                Width="200"
+                Background="#FF212933"
+                BorderBrush="#FFABADB3"
+                Foreground="#FFD8D8D8" TabIndex="7" 
+                VerticalAlignment="Top">
+                <TextBox.ToolTip>
+                    <ToolTip Content="New Sheet Name"/>
+                </TextBox.ToolTip>
+            </TextBox>
+            <Label x:Name="Tb_RenameViewsSuffixName_Copiar2" 
+                Content="Suffix(Optional)"
+                BorderBrush="#FFD8D8D8"
+                Background="{x:Null}"
+                Foreground="#FFD8D8D8" Height="27"/>
+            <TextBox x:Name="Sheet_name_suffix" 
+                Height="20" 
+                TextWrapping="Wrap"
+                Width="200"
+                Background="#FF212933"
+                BorderBrush="#FFABADB3"
+                Foreground="#FFD8D8D8" 
+                TabIndex="8" 
+                VerticalAlignment="Top">
+                <TextBox.ToolTip>
+                    <ToolTip Content="Suffix Sheet Name(Otrcional)"/>
+                </TextBox.ToolTip>
+            </TextBox>
+
+
+
+        </StackPanel>
+        <StackPanel x:Name="___StackPanel__InsertViewOnSheet" 
+                    Grid.Column="2" Margin="434,501,16,78" 
+                    Orientation="Vertical">
+            <CheckBox x:Name="Ckb_Sheets_Copiar" 
+                Content="6. Insert views on Sheets" 
+                Foreground="#FFD8D8D8" 
+                BorderBrush="#FFD8D8D8"
+                IsChecked="True"
+                Height="18" 
+                      Width="183" 
+                      HorizontalAlignment="Left" 
+                      FontWeight="Bold"/>
+            <Label x:Name="Lb_3DNamePreview_Copiar" 
+            Content="Rooms Per Sheet" 
+            BorderBrush="#FFD8D8D8" 
+            Background="{x:Null}" 
+            Foreground="#FFD8D8D8" 
+            RenderTransformOrigin="0.836,2.696" Height="26" Width="103" 
+                   HorizontalAlignment="Left"/>
+            <Slider x:Name="Sd_NumberRoomsPerSheet" 
+                    Height="18" Width="165"
+                    AutoToolTipPlacement="BottomRight" 
+                    Minimum="1" Value="1"
+                    ValueChanged="Sd_NumberRoomsPerSheet_ValueChanged" 
+                    HorizontalAlignment="Left"/>
+
+
+
+        </StackPanel>
+
+
+
+    </Grid>
+
+
+</Window>

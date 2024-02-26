@@ -49,6 +49,9 @@
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Aspose.Cells, Version=24.2.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>packages\Aspose.Cells.24.2.0\lib\net40\Aspose.Cells.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="RevitAPI, Version=24.0.0.0, Culture=neutral, processorArchitecture=AMD64">
@@ -83,8 +86,13 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="2.ExtracFromRevit\ExtractRevit.cs" />
+    <Compile Include="2.ExtracFromRevit\ViewTypeManager .cs" />
     <Compile Include="5.WPF\CreateListSheetsFormWPF.xaml.cs">
       <DependentUpon>CreateListSheetsFormWPF.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="5.WPF\DetailRoomsFormWPF.xaml.cs">
+      <DependentUpon>DetailRoomsFormWPF.xaml</DependentUpon>
     </Compile>
     <Compile Include="5.WPF\DuplicateViewsWPF.xaml.cs">
       <DependentUpon>DuplicateViewsWPF.xaml</DependentUpon>
@@ -97,6 +105,7 @@
     </Compile>
     <Compile Include="5.WPF\TemplateWPF\BehaviorsWPF.cs" />
     <Compile Include="6.ExternalCommand\OpenCreateListSheetsFormCommand.cs" />
+    <Compile Include="6.ExternalCommand\OpenDetailRoomsFormCommand.cs" />
     <Compile Include="6.ExternalCommand\OpenDuplicateViewsFormCommand.cs" />
     <Compile Include="5.WPF\AboutWPF.xaml.cs">
       <DependentUpon>AboutWPF.xaml</DependentUpon>
@@ -106,7 +115,6 @@
     </Compile>
     <Compile Include="6.ExternalCommand\OpenAboutFormCommand.cs" />
     <Compile Include="1.Ribbon\Ribbon.cs" />
-    <Compile Include="2.ExtracFromRevit\ViewTypeManager .cs" />
     <Compile Include="3.TransformInToRevit\ToolsInDevelopment.cs" />
     <Compile Include="4.Forms\CoatingCalculateForm.cs">
       <SubType>Form</SubType>
@@ -117,16 +125,12 @@
     <Compile Include="5.WPF\CreateSheetsFormWPF.xaml.cs">
       <DependentUpon>CreateSheetsFormWPF.xaml</DependentUpon>
     </Compile>
-    <Compile Include="5.WPF\InsertViewsOnSheetsFormWPF.xaml.cs">
-      <DependentUpon>InsertViewsOnSheetsFormWPF.xaml</DependentUpon>
-    </Compile>
     <Compile Include="5.WPF\RenameViewsFormWPF.xaml.cs">
       <DependentUpon>RenameViewsFormWPF.xaml</DependentUpon>
     </Compile>
     <Compile Include="6.ExternalCommand\OpenCoatingCalculateFormCommand.cs" />
     <Compile Include="6.ExternalCommand\OpenCreateSheetsFormCommand.cs" />
     <Compile Include="6.ExternalCommand\OpenDuplicateScheduleFormCommand.cs" />
-    <Compile Include="6.ExternalCommand\OpenInsertViewsOnSheetCommand.cs" />
     <Compile Include="6.ExternalCommand\OpenRenameSheetFormCommand.cs" />
     <Compile Include="6.ExternalCommand\OpenRenameViewsFormCommand.cs" />
     <Compile Include="6.ExternalCommand\OpenRenumberSheetsFormCommand.cs" />
@@ -139,6 +143,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include=".editorconfig" />
     <None Include="App.config" />
     <None Include="packages.config" />
     <None Include="RevitEasy.addin">
@@ -173,15 +178,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="5.WPF\DetailRoomsFormWPF.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="5.WPF\DuplicateScheduleFormWPF.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="5.WPF\DuplicateViewsWPF.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="5.WPF\InsertViewsOnSheetsFormWPF.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -261,6 +266,7 @@
     <Content Include="Installer.xml" />
     <Content Include="Resources\email_RGB216,216,216.png" />
     <Content Include="Resources\github_216_216_216.png" />
+    <None Include="Resources\IconDetailRoom32x32.png" />
     <None Include="Resources\IconRenameSheets32x32.png" />
     <None Include="Resources\IconChangeNumber32x32.png" />
     <None Include="Resources\IconRenumberSheets16x16.png" />

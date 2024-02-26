@@ -139,27 +139,7 @@ namespace RevitEasy._5.WPF
 
         #endregion
 
-        #region Métodos vazios para eventos que não exigem ação
-        // Métodos vazios para eventos que não exigem ação LIMPAR 
-        private void Label1_Click(object sender, EventArgs e) { }
-        private void Label_Click(object sender, EventArgs e) { }
-        private void Sheet_name_TextChanged(object sender, EventArgs e) { }
-        private void Sheet_number_TextChanged(object sender, EventArgs e) { }
-
-        // Método chamado quando o item selecionado no ComboBox de Title Blocks é alterado  LIMPAR 
-        private void Sheet_titleBlock_SelectedIndexChanged(object sender, EventArgs e) { }
-        private void Label3_Click(object sender, EventArgs e) { }
-        private void Label7_Click(object sender, EventArgs e) { }
-        private void Sheet_number_suffix_TextChanged(object sender, EventArgs e) { }
-        private void Sheet_name_preffix_TextChanged(object sender, EventArgs e) { }
-        private void Sheet_name_TextChanged_1(object sender, EventArgs e) { }
-        private void Sheet_name_preffix_TextChanged_1(object sender, EventArgs e) { }
-        private void Sheet_number_preffix_TextChanged(object sender, EventArgs e) { }
-        private void Sheet_number_starts_TextChanged(object sender, EventArgs e) { }
-        #endregion
-
         #region Métodos para  verificar se os inputs dos usuários são válidos
-       
         private void Sheet_number_starts_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Verifica se a tecla pressionada é um número ou a tecla "Backspace"
@@ -174,7 +154,6 @@ namespace RevitEasy._5.WPF
 
             }
         }
-
 
         private void Sheet_number_ends_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -191,21 +170,9 @@ namespace RevitEasy._5.WPF
             #endregion
 
         }
-
         private void Btn_CancelClick(object sender, RoutedEventArgs e)
         {
             this.Close();
-        }
-
-
-        private void Btn_RenameViews_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Tb_RenameViewNameNumberStarts_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
         }
 
     }

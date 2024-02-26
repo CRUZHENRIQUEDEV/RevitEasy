@@ -1,13 +1,13 @@
 ﻿using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
-using RevitEasy.InsertViewsOnSheetsWPF;
+using RevitEasy._5.WPF; // Importe o namespace correto para a classe DetailRoomsFormWPF
 using System;
 
 namespace RevitEasy
 {
     [Transaction(TransactionMode.Manual)]
-    public class OpenInsertViewsOnSheetsFormCommand : IExternalCommand
+    public class OpenDetailRoomsFormCommand : IExternalCommand
     {
         public Result Execute(
             ExternalCommandData commandData,
@@ -20,11 +20,11 @@ namespace RevitEasy
                 UIDocument uidoc = commandData.Application.ActiveUIDocument;
                 Document doc = uidoc.Document;
 
-                // Cria uma instância do formulário WPF InsertViewsOnSheetsFormWPF
-                InsertViewsOnSheetsFormWPF insertViewsForm = new InsertViewsOnSheetsFormWPF(doc);
+                // Cria uma instância do formulário WPF DetailRoomsFormWPF
+                DetailRoomsFormWPF detailRoomsForm = new DetailRoomsFormWPF(doc);
 
                 // Exibe o formulário WPF
-                insertViewsForm.ShowDialog();
+                detailRoomsForm.ShowDialog();
 
                 return Result.Succeeded;
             }

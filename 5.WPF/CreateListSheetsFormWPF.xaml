@@ -10,11 +10,9 @@
              Height="659" 
              Width="220">
     <Grid x:Name="CreateListSheetFormWPF" Loaded="CreateListSheetFormWPF_Loaded">
-        <Grid d:IsHidden="True">
+        <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
-                <!-- Para o ScrollViewer -->
-                <!-- Para o TextBox -->
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
@@ -35,8 +33,12 @@
                 </TextBox.ToolTip>
             </TextBox>
 
-            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Margin="180,430,10,127" Width="20" Height="102" Grid.Column="1">
-                <!-- Conteúdo do ScrollViewer, se necessário -->
+            <ScrollViewer 
+                VerticalScrollBarVisibility="Auto" 
+                HorizontalScrollBarVisibility="Disabled" 
+                Margin="180,430,10,127" Width="20" 
+                Height="102" 
+                Grid.Column="1">
             </ScrollViewer>
         </Grid>
 
@@ -59,7 +61,7 @@
             Height="29" 
             VerticalAlignment="Top" 
             Width="220" 
-            Background="#FF3A4453" d:IsHidden="True"/>
+            Background="#FF3A4453"/>
         <Label Content="Sheet Number" 
             HorizontalAlignment="Left" 
             Margin="10,80,0,0"

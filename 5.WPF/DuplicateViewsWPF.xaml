@@ -37,7 +37,7 @@
             Grid.RowSpan="3" 
             Width="220" 
             Height="Auto" 
-            CornerRadius="1,1,1,1"/>
+            CornerRadius="1,1,1,1" d:IsHidden="True"/>
 
 
         <Border BorderBrush="#FFD8D8D8" 
@@ -174,7 +174,6 @@
             BorderBrush="#FFD8D8D8" 
             Background="{x:Null}" 
             Foreground="#FFD8D8D8" HorizontalAlignment="Left" Grid.Row="1"/>
-        <Border x:Name="Manage_Window" Height="NaN" Margin="153,-14,0,66" HorizontalAlignment="Left" d:IsHidden="True"/>
         <Label Content="Amount" 
             Margin="7,47,0,0" 
             VerticalAlignment="Top" 
@@ -195,7 +194,7 @@
                 <ToolTip Content="Number the last sheet"/>
             </TextBox.ToolTip>
         </TextBox>
-        <Border x:Name="Manage_Window_Copiar" Height="NaN" Margin="168,2,0,24" HorizontalAlignment="Left">
+        <Border x:Name="Manage_Window" Height="NaN" Margin="168,2,0,24" HorizontalAlignment="Left">
             <Grid HorizontalAlignment="Left">
                 <Button x:Name="Btn_Restore" Content="2" Margin="16,-1,12,2" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}" Height="25" FontFamily="Marlett" FontSize="13" HorizontalAlignment="Left"/>
                 <Button x:Name="Btn_Minimize" Content="0" Margin="0,0,31,1" Background="{x:Null}" Foreground="#FFD8D8DA" BorderBrush="{x:Null}" Width="15" Height="25" FontSize="10" FontFamily="Marlett" HorizontalAlignment="Left"/>

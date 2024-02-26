@@ -21,7 +21,7 @@
             BorderThickness="1,1,1,1"
             Height="400" 
             VerticalAlignment="Center" 
-            Opacity="0.95" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="311"/>
+            Opacity="0.95" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="311" d:IsLocked="True"/>
 
 
         <Border BorderBrush="#FFD8D8D8" 
@@ -30,7 +30,7 @@
             Height="29" 
             VerticalAlignment="Top" 
             Width="310" 
-            Background="#FF3A4453" Grid.ColumnSpan="2"/>
+            Background="#FF3A4453" Grid.ColumnSpan="2" d:IsLocked="True"/>
         <Label x:Name="Lb_TitleCreateSheets" 
             Content="About"
             HorizontalAlignment="Left" 
@@ -50,7 +50,7 @@
             Background="{x:Null}" 
             Foreground="#FFD8D8D8"
             FontSize="14" 
-            FontWeight="Bold" Grid.ColumnSpan="2" Width="280"/>
+            FontWeight="Bold" Grid.ColumnSpan="2" Width="280" d:IsLocked="True"/>
         <Button x:Name="Btn_Github" Content="" BorderBrush="{x:Null}" Width="25" Height="25" Margin="18,366,206,9" Background="{x:Null}"/>
 
         <Button x:Name="Btn_Email"

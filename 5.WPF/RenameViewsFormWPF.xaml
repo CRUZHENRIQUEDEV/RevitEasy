@@ -144,7 +144,7 @@
           Foreground="#FF212933"
           Background="#FF212933">
             <ComboBox.ToolTip>
-                <ToolTip Content="Selecione o tipo de vista que deseja renomear (Planta de piso, elevação e etc."/>
+                <ToolTip Content="Select the viewtype."/>
             </ComboBox.ToolTip>
             <ComboBox.Style>
                 <Style TargetType="ComboBox">

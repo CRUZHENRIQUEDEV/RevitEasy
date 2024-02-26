@@ -50,6 +50,7 @@ namespace RevitEasy._5.WPF
         private Dictionary<string, List<string>> instanceParametersByViewType = new Dictionary<string, List<string>>();
 
         #region Ação que é executada ao abrir o formulário WPF_RenameViews_Loaded
+
         private void WPF_RenameViews_Loaded(object sender, RoutedEventArgs e)
         {
             // Adicione o evento ao combobox Cb_RenameViewsInstanceParameters aqui
@@ -154,10 +155,11 @@ namespace RevitEasy._5.WPF
             }
         }
 
-        #endregion 
+        #endregion
 
         #region Método para obter as vistas disponíveis no modelo filtrando pela viewType que foi selecionada no combobox Cb_RenameViewsType -LoadInstanceParametersInSelectView
         // Método para obter as vistas disponíveis no modelo e associar os parâmetros de instância ao tipo de vista
+        [Obsolete]
         private void LoadInstanceParametersInSelectView()
         {
             // Obtém o ViewType que foi selecionado no combobox Cb_RenameViewsType
@@ -223,6 +225,7 @@ namespace RevitEasy._5.WPF
 
         #region Evento que é executado sempre que o Tipo de vista é selecionado no combobox Cb_RenameViewsType Cb_RenameViewsType_SelectionChanged
         // Evento que é executado sempre que o Tipo de vista é selecionado no combobox Cb_RenameViewsType
+        [System.Obsolete]
         private void Cb_RenameViewsType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             // Carrega o método que obtém as vistas disponíveis no modelo correspondente ao viewType que foi selecionado no combobox Cb_RenameViewsType
@@ -380,6 +383,7 @@ namespace RevitEasy._5.WPF
 
         #region Acão executada quando o botão sair é clicado
         //Acão executada quando o botão sair é clicado
+        [System.Obsolete]
         private void Btn_RenameViewsExit_Click(object sender, RoutedEventArgs e)
         {
             // Fecha o formulário

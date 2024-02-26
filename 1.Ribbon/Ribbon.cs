@@ -134,17 +134,6 @@ namespace RevitEasy
             RenameViewsButton.SetContextualHelp(contextualHelpRenameViews);
             pullDownButton.AddPushButton(RenameViewsButton);
 
-            // Pushbutton inserir vistas nas folhas
-            PushButtonData InsertViewsOnSheetsButton = new PushButtonData("PlaceViewsOnSheet", "Place Views On Sheet", typeof(OpenInsertViewsOnSheetsFormCommand).Assembly.Location, "RevitEasy.OpenInsertViewsOnSheetsFormCommand")
-            {
-                LargeImage = ConvertImage(Properties.Resources.IconInsertViewOnSheet),
-                ToolTip = "Place Views On Sheet",
-                LongDescription = "Place selected Views Views On Sheet",
-                ToolTipImage = ConvertImage(Properties.Resources.RevitApiDocs)
-            };
-            ContextualHelp contextualHelpInsertViews = new ContextualHelp(ContextualHelpType.Url, "https://github.com/CRUZHENRIQUEDEV/RevitEasy");
-            InsertViewsOnSheetsButton.SetContextualHelp(contextualHelpInsertViews);
-            pullDownButton.AddPushButton(InsertViewsOnSheetsButton);
 
             // Pushbutton inserir tabelas nas folhas
             PushButtonData pushButtonData = new PushButtonData("InserirTabelasNasFolhas", "Inserir Tabelas nas Folhas", typeof(Ribbon).Assembly.Location, "RevitEasy.ToolsInDevelopment")
@@ -362,6 +351,20 @@ namespace RevitEasy
             ContextualHelp contextualHelpCreateListSheets = new ContextualHelp(ContextualHelpType.Url, "https://github.com/CRUZHENRIQUEDEV/RevitEasy");
             CreateListSheetsButtonData.SetContextualHelp(contextualHelpCreateListSheets);
             DocumentacaoButton.AddPushButton(CreateListSheetsButtonData);
+
+            // Pushbutton "Open Detail Rooms Form" in the label "Documentation"
+            PushButtonData OpenDetailRoomsFormButtonData = new PushButtonData("OpenDetailRoomsFormButton", "Open Detail Rooms Form", typeof(OpenDetailRoomsFormCommand).Assembly.Location, "RevitEasy.OpenDetailRoomsFormCommand")
+            {
+                LargeImage = ConvertImage(Properties.Resources.IconDetailRoom32x32),
+                ToolTip = "Open Detail Rooms Form",
+                LongDescription = "Open a Form to Work with Detail Rooms",
+                ToolTipImage = ConvertImage(Properties.Resources.IconDetailRoom32x32)
+            };
+
+            ContextualHelp contextualHelpDetailRooms = new ContextualHelp(ContextualHelpType.Url, "https://github.com/CRUZHENRIQUEDEV/RevitEasy");
+            OpenDetailRoomsFormButtonData.SetContextualHelp(contextualHelpDetailRooms);
+            DocumentacaoButton.AddPushButton(OpenDetailRoomsFormButtonData);
+
 
 
 

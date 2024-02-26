@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Autodesk.Revit.DB;
+using System.Collections.Generic;
 using System.Linq;
-using Autodesk.Revit.DB;
 
 namespace RevitEasy.LoadViewTypes
 {
@@ -23,6 +23,7 @@ namespace RevitEasy.LoadViewTypes
             return viewTypes.Select(t => t.Name).ToList();
         }
 
+        [System.Obsolete]
         public IList<string> GetInstanceParametersForViewType(string selectedViewsType)
         {
             if (string.IsNullOrEmpty(selectedViewsType))
@@ -42,7 +43,7 @@ namespace RevitEasy.LoadViewTypes
                     .OfCategory(BuiltInCategory.OST_Views)
                     .OfClass(typeof(Autodesk.Revit.DB.View))
                     .Cast<Autodesk.Revit.DB.View>()
-                    .Where(v => v.GetTypeId().IntegerValue == targetViewType.Id.IntegerValue);
+                    .Where(predicate: v => v.GetTypeId().IntegerValue == targetViewType.Id.IntegerValue);
 
                 List<string> instanceParametersList = new List<string>();
 

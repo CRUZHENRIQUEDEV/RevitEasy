@@ -8,6 +8,7 @@ using System.Linq;
 using System.Windows;
 using System.Diagnostics;
 using System.Windows.Input;
+using System.Text.RegularExpressions;
 
 // Namespace do seu código
 namespace RevitEasy._5.WPF
@@ -17,22 +18,50 @@ namespace RevitEasy._5.WPF
     {
         private readonly Document doc;
         private List<ViewSheet> allSheets; // Propriedade para armazenar as folhas
-
+        private readonly AlphanumericComparer comparer = new AlphanumericComparer();
         // Construtor da classe
         public RenumberSheetsFormWPF(Document document)
         {
-
             InitializeComponent();  // Inicializa os componentes do formulário
-            doc = document;// Atribui o documento do Revit à propriedade
-            RevitFormBehavior.Register(this);// Registra o formulário para comportamentos específicos do Revit
-            Loaded += RenumberSheetsFormWPF_Loaded;// Adiciona um manipulador de eventos para o carregamento do formulário
+            doc = document; // Atribui o documento do Revit à propriedade
+            RevitFormBehavior.Register(this); // Registra o formulário para comportamentos específicos do Revit
+            Loaded += RenumberSheetsFormWPF_Loaded; // Adiciona um manipulador de eventos para o carregamento do formulário
         }
 
         // Manipulador de eventos ao carregar o formulário
         private void RenumberSheetsFormWPF_Loaded(object sender, RoutedEventArgs e)
         {
+            Debug.WriteLine("RenumberSheetsFormWPF_Loaded called");
             // Carrega as folhas no ComboBox ao abrir o formulário
             LoadSheets();
+        }
+
+        public class AlphanumericComparer : IComparer<string>
+        {
+            public int Compare(string x, string y)
+            {
+                string[] partsX = Regex.Split(x, "([0-9]+)");
+                string[] partsY = Regex.Split(y, "([0-9]+)");
+
+                int length = Math.Min(partsX.Length, partsY.Length);
+                for (int i = 0; i < length; i++)
+                {
+                    int result;
+                    if (int.TryParse(partsX[i], out int numX) && int.TryParse(partsY[i], out int numY))
+                    {
+                        result = numX.CompareTo(numY);
+                    }
+                    else
+                    {
+                        result = string.Compare(partsX[i], partsY[i], StringComparison.Ordinal);
+                    }
+
+                    if (result != 0)
+                        return result;
+                }
+
+                return partsX.Length.CompareTo(partsY.Length);
+            }
         }
 
         // Método para obter todas as folhas no modelo
@@ -58,6 +87,10 @@ namespace RevitEasy._5.WPF
             // Obtém todas as folhas do modelo
             List<ViewSheet> sheets = GetAllSheets();
 
+            // Limpa os itens existentes nos ComboBoxes
+            Cb_StartSheet.Items.Clear();
+            Cb_EndSheet.Items.Clear();
+
             // Filtra folhas com números únicos
             HashSet<string> uniqueSheetNumbers = new HashSet<string>();
 
@@ -70,17 +103,7 @@ namespace RevitEasy._5.WPF
                 if (string.IsNullOrEmpty(sheetNumber1) || string.IsNullOrEmpty(sheetNumber2))
                     return 0;
 
-                if (TryParseSheetNumber(sheetNumber1, out int num1) && TryParseSheetNumber(sheetNumber2, out int num2))
-                {
-                    // Comparação considerando parte numérica e textual
-                    int numComparison = num1.CompareTo(num2);
-                    return numComparison != 0 ? numComparison : sheetNumber1.CompareTo(sheetNumber2);
-                }
-                else
-                {
-                    // Trate o caso em que a conversão falha
-                    return sheetNumber1.CompareTo(sheetNumber2);
-                }
+                return comparer.Compare(sheetNumber1, sheetNumber2);
             });
 
             // Adiciona os números das folhas nos ComboBoxes (somente se únicos)
@@ -93,14 +116,12 @@ namespace RevitEasy._5.WPF
                     Cb_EndSheet.Items.Add(sheetNumber);
                 }
             }
-
         }
         #endregion
 
         #region Manipulador de eventos ao clicar no botão OK
         private void Btn_OK_Click(object sender, RoutedEventArgs e)
         {
-
             // Obtém os valores selecionados nos ComboBoxes e TextBoxes
             string selectedCb_StartSheet = Cb_StartSheet.SelectedItem?.ToString();
             string selectedCb_EndSheet = Cb_EndSheet.SelectedItem?.ToString();
@@ -120,14 +141,25 @@ namespace RevitEasy._5.WPF
                     TryParseSheetNumber(selectedCb_EndSheet, out int endNumber) &&
                     TryParseSheetNumber(startText, out int starts))
                 {
+                    // Garante que o intervalo esteja em ordem alfanumérica
+                    if (string.Compare(selectedCb_StartSheet, selectedCb_EndSheet, StringComparison.Ordinal) > 0)
+                    {
+                        // Troca os valores se necessário para garantir a ordem correta
+                        (selectedCb_StartSheet, selectedCb_EndSheet) = (selectedCb_EndSheet, selectedCb_StartSheet);
+                    }
+
                     // Filtra as folhas no intervalo selecionado
                     List<ViewSheet> sheetsToRenumber = allSheets
                         .Where(sheet =>
                         {
                             string sheetNumber = sheet.get_Parameter(BuiltInParameter.SHEET_NUMBER)?.AsString();
-                            return TryParseSheetNumber(sheetNumber, out int sheetNum) && sheetNum >= startNumber && sheetNum <= endNumber;
+                            return TryParseSheetNumber(sheetNumber, out int sheetNum) &&
+                                   sheetNum >= startNumber &&
+                                   sheetNum <= endNumber &&
+                                   sheetNumber.CompareTo(selectedCb_StartSheet) >= 0 &&
+                                   sheetNumber.CompareTo(selectedCb_EndSheet) <= 0;
                         })
-                        .OrderBy(sheet => sheet.get_Parameter(BuiltInParameter.SHEET_NUMBER)?.AsString())
+                        .OrderBy(sheet => sheet.get_Parameter(BuiltInParameter.SHEET_NUMBER)?.AsString(), new AlphanumericComparer())
                         .ToList();
 
                     // Inicia uma transação para renumerar as folhas
@@ -149,31 +181,27 @@ namespace RevitEasy._5.WPF
                                     // Calcula o novo número da folha
                                     int newSheetNum = starts++;
 
-                                    // Formata o número da folha
+                                    // Formata o número da folha com um zero à esquerda se for menor que 10
                                     string formattedSheetNumber = string.IsNullOrEmpty(prefixText)
-                                        ? newSheetNum.ToString()  // Sem prefixo se estiver vazio
-                                        : $"{prefixText}{newSheetNum}";
+                                        ? (newSheetNum < 10 ? $"0{newSheetNum}" : newSheetNum.ToString())
+                                        : $"{prefixText}{(newSheetNum < 10 ? $"0{newSheetNum}" : newSheetNum.ToString())}";
 
                                     // Atualiza o número da folha no Revit
                                     sheet.get_Parameter(BuiltInParameter.SHEET_NUMBER)?.Set(formattedSheetNumber);
                                 }
                             }
-
                             // Completa a transação
                             sheetTrans.Commit();
                         }
-                        catch (Exception ex)
+                        catch (Exception)
                         {
                             // Cancela a transação
                             sheetTrans.RollBack();
                         }
                     }
                 }
-
             }
-
         }
-
         private bool TryParseSheetNumber(string sheetNumber, out int number)
         {
             // Extrai a parte numérica da string (se existir) e converte para um número
@@ -181,7 +209,6 @@ namespace RevitEasy._5.WPF
 
             return int.TryParse(numericPart, out number);
         }
-
         #endregion
 
         // Manipulador de eventos ao clicar no botão Cancel
@@ -206,7 +233,6 @@ namespace RevitEasy._5.WPF
         // Manipulador de eventos para a tecla PreviewKeyDown no TextBox Tb_SheetNumberStart
         private void Tb_SheetNumberStart_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-
             // Verifica se a tecla pressionada é um número ou a tecla "Backspace"
             if (!IsNumericKey(e.Key) && e.Key != Key.Back)
             {
